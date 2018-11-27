@@ -1,0 +1,279 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        
+    </div>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="Wexford Running Festival | Wexford's No. 1 Running Event with Marathon, Half-Marathon, 10K and 5K races." />
+    <title>Home | Wexford Running Festival</title>
+    <link rel="stylesheet" href="~/Content/styles.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous">
+    </script>
+
+    <script>
+			function openSlideMenu(){
+				document.getElementById('side-menu').style.width = '250px';
+			}
+			function closeSlideMenu(){
+				document.getElementById('side-menu').style.width = '0';
+			}
+    </script>
+
+</head>
+
+<body>
+
+    <!-- START OF HEADER -->
+    <header id="main-header">
+        <div class="top-nav container">
+            <div class="row">
+                <div class="open-slide">
+                    <a href="#" onclick="openSlideMenu()">
+                        <svg width="30" height="30">
+                            <path d="M0,5 30,5" stroke="#fff" stroke-width="5" />
+                            <path d="M0,14 30,14" stroke="#fff" stroke-width="5" />
+                            <path d="M0,23 30,23" stroke="#fff" stroke-width="5" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div id="branding">
+                    <a href="http://dublinaccommodation.online"><img src="~/Content/Images/logo_WexfordRunningFestival - Cropped.png" id="logo" alt="Wexford Running Festival Logo"></a>
+                </div>
+                <div id="social-icons">
+                    <a href="#" class="fab fa-facebook fa-lg"></a>
+                    <a href="#" class="fab fa-twitter fa-lg"></a>
+                    <a href="#" class="fab fa-instagram fa-lg"></a>
+                    <!-- <a href="#" class="fab fa-pinterest fa-lg"></a> -->
+                    <a href="#" class="fab fa-youtube fa-lg"></a>
+                    <!-- <a href="#" class="fab fa-tripadvisor fa-lg"></a> -->
+                    <!-- <a href="tel:+353(0)11234567"><i class="zmdi zmdi-phone zmdi-hc-lg"></i> -->
+                    <!-- <a href="tel:+353(0)11234567"><i class="fas fa-phone fa-lg"></i> -->
+                    <!-- <span id="phone-no-top-header">+353 (0)1 1234567</span></a> -->
+                    <a href="mailto:enquiries@wexfordrunningfestival.com">
+                        <i class="fas fa-envelope fa-lg"></i>
+                        <!-- <span id="email-top-header">enquiries@wexfordrunningfestival.com</span> -->
+                    </a>
+                </div>
+                <div class="bookingbtn">
+                    <a href="booking.html#make-booking" class="button_booknow">Enter Now</a>
+                </div>
+                <div class="bookingbtn-responsive">
+                    <a href="booking.html#make-booking" class="button_booknow-responsive">Enter</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- END OF HEADER -->
+    <!-- START OF NAVBAR -->
+    <div class="main-nav" id="nav">
+        <nav class="navbar" id="main-navbar">
+            <div class="container">
+
+                <div class="reduced-menu">
+                    <div class="nav-row">
+                        <a href="tel:+353(0)11234567" style="float:left"><i class="zmdi zmdi-phone zmdi-hc-2x"></i></a>
+                        <a></a> <!-- Important, don't remove. This is for even grid space between icons -->
+                        <a href="mailto:enquiries@wexfordrunningfestival.com"><i class="zmdi zmdi-email zmdi-hc-2x"></i></a>
+                        <a></a> <!-- Important, don't remove. This is for even grid space between icons -->
+                        <a href="contact.html"><i class="zmdi zmdi-pin zmdi-hc-2x"></i></a>
+                        <a></a> <!-- Important, don't remove. This is for even grid space between icons -->
+                        <a href="contact.html#contact-form" style="float:right"><i class="zmdi zmdi-edit zmdi-hc-2x"></i></a>
+                    </div>
+                </div>
+
+                <div class="navbar-nav">
+                    <a href="index.html" class="current">Home</a>
+                    <!-- <a href="about.html">About</a> -->
+                    <div class="dropdown">
+                        <div class="dropbtn">
+                            <a href="events.html">Events <i class="fa fa-caret-down"></i></a>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="events-marathon.html">Marathon</a>
+                            <a href="events-halfmarathon.html">Half Marathon</a>
+                            <a href="events-10k.html">10K</a>
+                            <a href="events-familyrun.html">Family Run</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <div class="dropbtn">
+                            <a href="training.html">Training <i class="fa fa-caret-down"></i></a>
+                        </div>
+                        <div class="dropdown-content">
+                            <!-- <a href="activities.html#golfing">Golfing</a>
+                            <a href="activities.html#coastal-walks">Coastal Walks</a>
+                            <a href="activities.html#fishing">Fishing</a>
+                            <a href="activities.html#watersports">Water Sports</a> -->
+                            <a href="training-plans.html">Training Plans</a>
+                            <a href="training-tips.html">Training Tips</a>
+                            <a href="nutrition-advice.html">Nutrition Advice</a>
+                            <a href="hydration-advice.html">Hydration Advice</a>
+                            <a href="kit-advice.html">Kit Advice</a>
+                            <a href="raceday-advice.html">Race Day Advice</a>
+                        </div>
+                    </div>
+                    <!-- <div class="dropdown">
+                        <div class="dropbtn">
+                            <a href="attractions.html">Attractions <i class="fa fa-caret-down"></i></a>
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="attractions.html#beaches">Beaches</a>
+                            <a href="attractions.html#shopping">Shopping</a>
+                            <a href="attractions.html#restaurants">Restaurants</a>
+                            <a href="attractions.html#pubs">Traditional Pubs</a>
+                            <a href="attractions.html#tours">Tours</a>
+                        </div>
+                    </div> -->
+                    <a href="faq.html">FAQ</a>
+                    <a href="results.html">Results</a>
+                    <a href="register.html">Register</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+
+            </div>
+        </nav>
+    </div>
+    <!-- END OF NAVBAR -->
+    <!-- START OF SIDE-MENU -->
+    <div id="side-menu" class="side-nav">
+        <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+        <span class="current"><a href="index.html">Home</a></span>
+        <a href="events.html">Events</a>
+        <ul>
+            <li><a href="events-marathon.html">Marathon</a>
+            <li><a href="events-halfmarathon.html">Half Marathon</a>
+            <li><a href="events-10k.html">10K</a>
+            <li><a href="events-familyrun.html">Family Run</a>
+        </ul>
+        <a href="training.html">Training</a>
+        <ul>
+            <li><a href="training-plans.html">Training Plans</a>
+            <li><a href="training-tips.html">Training Tips</a>
+            <li><a href="nutrition-advice.html">Nutrition Advice</a>
+            <li><a href="hydration-advice.html">Hydration Advice</a>
+            <li><a href="kit-advice.html">Kit Advice</a>
+            <li><a href="raceday-advice.html">Race Day Advice</a>
+        </ul>
+        <a href="faq.html">FAQ</a>
+        <a href="results.html">Results</a>
+        <a href="register.html">Register</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <!-- END OF SIDE-MENU -->
+    
+
+
+    @RenderBody()
+
+
+
+    <!-- START OF FOOTER -->
+    <footer id="page-footer">
+        <div class="container">
+            <div class="footerRow">
+                <div id="footerAddress">
+                    <h4>Dublin Bay B&B</h4>
+                    <br><p>17 Church Road, Burrow, Dublin 13, D13 HW11, Ireland.</p>
+                </div>
+
+                <div id="footerAward">
+                    <img src="~/Content/Images/Certificate-of-Excellence-Tripadvisor-2016-2017.png" alt="Tripadvisor Certificate of Excellence 2016 and 2017" style="width:100%; max-width:175px">
+                </div>
+
+                <div id="footerLinks">
+                    <ul class="footerList">
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                        <li><a href="sitemap.html">Site Map</a></li>
+                        <li><a href="index.html#newsletter">Mailing List</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p>EOM Web Design, Copyright &copy; 2018</p>
+    </footer>
+    <!-- END OF FOOTER -->
+    <!-- START OF JAVASCRIPT -->
+    <script>
+			window.onscroll = function() {myFunction()};
+
+			var navbar = document.getElementById("nav");
+			var navbar_bg = document.getElementById("main-navbar");
+			var sticky = navbar.offsetTop;
+
+			function myFunction() {
+			  if (window.pageYOffset >= sticky) {
+			    navbar.classList.add("sticky");
+					navbar_bg.classList.add("sticky-bg");
+			  } else {
+			    navbar.classList.remove("sticky");
+					navbar_bg.classList.remove("sticky-bg");
+			  }
+			}
+    </script>
+
+    <!-- Script for automatic slideshow -->
+    <script src="~/Content/js/showcase-slideshow.js"></script>
+
+
+    <!-- Script for testimonals -->
+    <script>
+			var testimonialSlideIndex = 1;
+			var testimonialTimer = null;
+			showTestimonialSlides(testimonialSlideIndex);
+
+			function plusTestimonialSlides(n) {
+				clearTimeout(testimonialTimer);
+				showTestimonialSlides(testimonialSlideIndex += n);
+			}
+
+			function currentTestimonialSlide(n) {
+			  clearTimeout(testimonialTimer);
+				showTestimonialSlides(testimonialSlideIndex = n);
+			}
+
+			function showTestimonialSlides(n) {
+			  var i;
+			  var testimonialSlides = document.getElementsByClassName("testimonialSlides");
+			  var testimonialDots = document.getElementsByClassName("testimonial-dot");
+				if (n==undefined){n = ++testimonialSlideIndex}
+				if (n > testimonialSlides.length) {testimonialSlideIndex = 1}
+				if (n < 1) {testimonialSlideIndex = testimonialSlides.length}
+				for (i = 0; i < testimonialSlides.length; i++) {
+		      testimonialSlides[i].style.display = "none";
+		    }
+		    for (i = 0; i < testimonialDots.length; i++) {
+		      testimonialDots[i].className = testimonialDots[i].className.replace(" active", "");
+		    }
+			  testimonialSlides[testimonialSlideIndex-1].style.display = "block";
+			  testimonialDots[testimonialSlideIndex-1].className += " active";
+				testimonialTimer = setTimeout(showTestimonialSlides, 8000); // Change testimonial every 8 seconds
+			}
+    </script>
+    <!-- End of script for testimonals -->
+    <!-- END OF JAVASCRIPT -->
+
+</body>
+</html>

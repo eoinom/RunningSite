@@ -1,0 +1,304 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- START OF SHOWCASE SECTION -->
+<!-- Slideshow container -->
+<div class="showcase-slideshow-container">
+
+    <div class="showcaseSlides fade">
+        <img src="~/Content/Images/slider1.jpg" alt="runners looking tired" style="width:100%" class="block">
+    </div>
+
+    <div class="showcaseSlides fade">
+        <img src="~/Content/Images/slider2.jpg" alt="runner giving thumbs up with sea in background" style="width:100%" class="block">
+    </div>
+
+    <div class="showcaseSlides fade">
+        <img src="~/Content/Images/slider3.jpg" alt="runners starting race" style="width:100%" class="block">
+    </div>
+
+    <div class="showcaseSlides fade">
+        <img src="~/Content/Images/slider4.jpg" alt="runner smiling during race" style="width:100%" class="block">
+    </div>
+
+
+
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusShowcaseSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusShowcaseSlides(1)">&#10095;</a>
+
+    <!-- The dots/circles -->
+    <div class="showcase-dot-container">
+        <span class="showcase-dot" onclick="currentShowcaseSlide(1)"></span>
+        <span class="showcase-dot" onclick="currentShowcaseSlide(2)"></span>
+        <span class="showcase-dot" onclick="currentShowcaseSlide(3)"></span>
+        <span class="showcase-dot" onclick="currentShowcaseSlide(4)"></span>
+    </div>
+</div>
+<!-- END OF SHOWCASE SECTION -->
+<!-- START OF NEWSLETTER SECTION -->
+<section id="newsletter">
+    <div class="container">
+        <h1>Subscribe To Our Newsletter</h1>
+        <form onsubmit="return confirm('Thank you for subscribing.');">
+            <input type="email" placeholder="Enter Email...">
+            <button type="submit" class="button_1">Subscribe</button>
+        </form>
+    </div>
+</section>
+<!-- END OF NEWSLETTER SECTION -->
+<!-- START OF WELCOME SECTION -->
+<section id="welcome" class="welcome-container">
+    <div class="container">
+        <h1>Welcome to the Wexford Running Festival</h1>
+        <p>Situated in north County Dublin overlooking Dublin Bay, our B&B enjoys the most magnificent setting with luxurious facilities normally only seen in high-class hotels. Dublin Bay B&B is an award winning bed and breakfast run by the Ryan Family & has been welcoming guests since for the past 20 years, so a long tradition of warm Irish hospitality awaits all visitors.</p>
+        <p>Enjoy a warm welcome and a relaxing stay with delicious home baking in our multiple award-winning family home situated off the Howth road, just 20 mins from Dublin Airport.</p>
+    </div>
+</section>
+<!-- END OF WELCOME SECTION -->
+
+<br>
+
+<!-- START of BOXES SECTION  -->
+<section id="boxes">
+    <div class="container">
+        <div class="box">
+            <a href="activities.html#golfing">
+                <img src="~/Content/Images/Golf-Portmarnock-cropped.jpg" alt="Portmarnock Golf Course">
+                <h3>Golfing</h3>
+                <p>Golfers will be in their element with the many surrounding championship golf courses including Portmarnock and Malahide links courses.</p>
+            </a>
+        </div>
+        <div class="box">
+            <a href="activities.html#golfing">
+                <img src="~/Content/Images/TrinityCollegeDublin.jpg" alt="Trinity College Dublin">
+                <h3>History</h3>
+                <p>Immerse yourself in our historical surroundings including the fascinating Trinity College Dublin, Malahide Castle and many other attractions.</p>
+            </a>
+        </div>
+        <div class="box">
+            <a href="attractions.html#tours">
+                <img src="~/Content/Images/Howth-Cliff-Walk-cropped.jpg" alt="View of Howth Cliff Walk with two people looking out over the cliff">
+                <h3>Walking</h3>
+                <p>Our B&B has many fantastic walking routes nearby including the majestic Howth Cliff Walk that brings you right around Howth Head with amazing scenic views over Dublin Bay.</p>
+            </a>
+        </div>
+    </div>
+</section>
+<!-- END of BOXES SECTION  -->
+<!-- START OF EVENTS SECTION -->
+<section id="events" class="events-container">
+    <div class="container">
+        <h2>Race Calendar</h2>
+
+        <div class="event">
+            <div class="event-date">
+                <time datetime="2018-05-26" class="icon">
+                    <em>Saturday</em>
+                    <strong>May</strong>
+                    <span>26</span>
+                </time>
+            </div>
+            <div class="event-info">
+                <h3>Beach Market - Battle of The Bay 2018, Dollymount Strand</h3>
+                <p>
+                    <a href="http://battleforthebay.com/" target="_blank">Battle of The Bay</a> is a fun filled family event for all ages on the beautiful Dollymount Strand in the heart of Dublin City.
+                    There'll be over 30 stalls at the market with Fashion, Jewellery, Accessories, Vinyl Records, Vintage items, Art, Crafts and lots more.
+                </p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="event">
+            <div class="event-date">
+                <time datetime="2018-06-02" class="icon">
+                    <em>Saturday</em>
+                    <strong>June</strong>
+                    <span>2</span>
+                </time>
+            </div>
+            <div class="event-info">
+                <h3>Smithwick’s Howth Trad Music Festival</h3>
+                <p>
+                    Due to popular demand, the <a href="http://www.visithowth.ie/whatson/trad-music-festival/" target="_blank">Howth Trad Festival</a> is back this June bank holiday weekend and is sure to provide a fantastic atmosphere once again.
+                    Based on last year's event, you can expect to see some of the finest of Ireland’s trad scene there.
+                    It's a great way to connect with lots of high-spirited people and have some traditional Irish "craic"!
+                </p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="event">
+            <div class="event-date">
+                <time datetime="2018-06-08" class="icon">
+                    <em>Saturday</em>
+                    <strong>June</strong>
+                    <span>8</span>
+                </time>
+            </div>
+            <div class="event-info">
+                <h3>Howth Literary & Arts Festival</h3>
+                <p>
+                    <a href="http://www.howthliteraryfestival.com/" target="_blank">Howth Literary & Arts Festival</a> is one of the most excellent and prestigious series of events in Dublin’s Calendar. For our fourth year, we are continuing to explore and express knowledge of our literary and artistic programme. This will take place on June 8th-10th.
+                </p>
+                <p>
+                    No doubt will you be informed, inspired and delighted by the quality of the content of the speakers who will be joining us over the event enumerate with our drama, cultural history and literary arts events.
+                </p>
+                <p>
+                    The Lutyens library in Howth Castle is a truly exceptional and exclusive setting which everyone should make note to visit.
+                </p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="event">
+            <div class="event-date">
+                <time datetime="2018-06-23" class="icon">
+                    <em>Saturday</em>
+                    <strong>June</strong>
+                    <span>23</span>
+                </time>
+            </div>
+            <div class="event-info">
+                <h3>Flavours of Fingal County Show, Donabate</h3>
+                <p>
+                    The <a href="http://flavoursoffingal.ie/" target="_blank">Flavours of Fingal County Show</a> is a two-day event jam packed with events, combining the sights and sounds of an agricultural show with an unforgettable food and family fun experience all taking place within the historic walled garden of Newbridge House and Farm.
+                </p>
+                <p>
+                    There is so much for the kids to do with bouncy castles, face painting, archaeological digs, cycle obstacle courses, kids golf and lots more.
+                    Just a stone’s throw from city life, the two-day event offers real value for money, unbeatable food and the ultimate farming experience for the whole family to enjoy!
+                </p>
+                <p>
+                    Dates: Fri 22nd June – Sun 24th June
+                    <br>Venue: Newbridge Demense, Donabate, Co. Dublin.
+                </p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="event">
+            <div class="event-date">
+                <time datetime="2018-06-24" class="icon">
+                    <em>Sunday</em>
+                    <strong>June</strong>
+                    <span>24</span>
+                </time>
+            </div>
+            <div class="event-info">
+                <h3>Escape from Ireland Sea Swim 2018 (2Km)</h3>
+                <p>
+                    Swim from Ireland's Eye through to Claremont Beach across the tidal route of the Howth sound. Enter online at <a href="http://www.howthaquathon.com" target="_blank">www.howthaquathon.com</a>.
+                    Registration is on the morning at 6.30 - 8am. First boat to the Island leaves at 8am. Event start is at 9am. Prize giving as soon as the last person exists the water.
+                </p>
+                <p>Note: This event is limited to just 200 participants only, so get your entry in early if you are interested.</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <div class="event">
+            <div class="event-date">
+                <time datetime="2018-07-07" class="icon">
+                    <em>Saturday</em>
+                    <strong>July</strong>
+                    <span>7</span>
+                </time>
+            </div>
+            <div class="event-info">
+                <h3>Super Milk Wild Air Run, Malahide Castle</h3>
+                <p>
+                    Super Milk Wild Air Run returns to Malahide Castle, Dublin. New obstacles, new features and a whole lot more fun!
+                    Each runner gets a powerful foam water gun which they use during the course and to take home!
+                    Tickets are on sale now at <a href="http://www.wildairrun.com" target="_blank">www.wildairrun.com</a>.
+                </p>
+                <p>Time: Runs every 20 minutes from 10am, last slot 4pm.</p>
+            </div>
+        </div>
+
+        <hr>
+
+    </div>
+</section>
+<!-- END OF EVENTS SECTION -->
+<!-- START OF TESTIMONIALS SECTION -->
+<!-- Slideshow container -->
+<div class="testimonial-slideshow-container">
+
+    <div class="container">
+        <h2>What Our Previous Entrants Say</h2>
+
+        <!-- Full-width slides/quotes -->
+        <div class="testimonialSlides">
+            <img src="~/Content/Images/pexels-woman-kitchen-man-everyday-life-298926-cropped.jpeg" alt="Woman and man cooking together in the kitchen">
+            <br><q>We felt so welcome and well taken care of, everything was of the highest standard. Thank you again for your warm hospitality and for organising all our wonderful tours.</q>
+            <p class="author">- Isabelle & Mark Phillips, Dec 2017</p>
+        </div>
+
+        <div class="testimonialSlides">
+            <img src="~/Content/Images/pexels-photo-774909-cropped.jpeg" alt="Woman smiling">
+            <br><q>A Little Bit of Heaven! As you let the mad world rush by give yourself a pat on the back for taking the time to enjoy life's simple pleasures. Comfortable B&B, luxurious room, sandy beachs, fantastic views - everything I could've wished for.</q>
+            <p class="author">- Amy Ryan, Feb 2018</p>
+        </div>
+
+        <div class="testimonialSlides">
+            <img src="~/Content/Images/pexels-photo-433502-cropped.jpeg" alt="Man with child on his shoulders at the beach">
+            <br><q>My wife and I had celebrated our wedding anniversary here with our 2 year old son and it was just perfect. Tom and Mary really looked after us and gave us great advice on things to see and do. We look forward to coming back again!</q>
+            <p class="author">- Steve Fitzgerald, Jan 2018 </p>
+        </div>
+
+        <div class="testimonialSlides">
+            <img src="~/Content/Images/pexels-photo-462680-cropped.jpeg" alt="Man smiling">
+            <br><q>I've been travelling around the world for the past 6 months and I can honestly say I haven't come across a place like it. The hospitaliy, food, room and surrounding scenery are second to none. Thanks Tom & Mary!</q>
+            <p class="author">- Bruno Rocchi, Apr 2018</p>
+        </div>
+
+        <div class="testimonialSlides">
+            <img src="~/Content/Images/pexels-photo-984926-cropped.jpeg" alt="Man with woman wrapping her arms around his shoulders smiling">
+            <br><q>Amazing, we were made to feel very welcome. Food was fantastic and Tom and Mary are such great hosts. The area is simply stunning, fantastic location to experience Dublin from.</q>
+            <p class="author">- Pierre and Alice, Nov 2017</p>
+        </div>
+
+        <div class="testimonialSlides">
+            <img src="~/Content/Images/pexels-photo-324658-cropped.jpeg" alt="Young lady smiling">
+            <br><q>I needed a place to stay while working in Dublin for a few days and couldn't believe what a gem I stumbled across. I'm already planning my next trip back with my boyfriend so he too can experience this amazing place.</q>
+            <p class="author">- Julie Kavanagh, May 2018</p>
+        </div>
+
+        <div class="testimonialSlides">
+            <img src="~/Content/Images/pexels-photo-341378-cropped.jpeg" alt="A lady with two children in forest setting petting a dog">
+            <br><q>We took our two kids here for a family holiday and we couldn't have chosen better. The B&amp;B caters very well for kids and there was so much for them to do in the area. We especially loved the sandy beaches and the Howth Cliff Walk.</q>
+            <p class="author">- Lucy and Fergal Kennedy, Feb 2018</p>
+        </div>
+
+        <div class="testimonialSlides">
+            <img src="~/Content/Images/pexels-photo-91227-cropped.jpeg" alt="Young man smiling">
+            <br><q>Cannot put into words how wonderful my stay was. Tom and Mary were fantastic and I felt like I was at home where I was spoilt rotten every day. Immaculate room and best breakfasts ever. Loved my stay.</q>
+            <p class="author">- Goran Fredrikson, Jan 2018</p>
+        </div>
+
+        <!-- Next/prev buttons -->
+        <a class="prev" onclick="plusTestimonialSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusTestimonialSlides(1)">&#10095;</a>
+    </div>
+
+    <!-- Dots/bullets/indicators -->
+    <div class="dot-container">
+        <span class="testimonial-dot" onclick="currentTestimonialSlide(1)"></span>
+        <span class="testimonial-dot" onclick="currentTestimonialSlide(2)"></span>
+        <span class="testimonial-dot" onclick="currentTestimonialSlide(3)"></span>
+        <span class="testimonial-dot" onclick="currentTestimonialSlide(4)"></span>
+        <span class="testimonial-dot" onclick="currentTestimonialSlide(5)"></span>
+        <span class="testimonial-dot" onclick="currentTestimonialSlide(6)"></span>
+        <span class="testimonial-dot" onclick="currentTestimonialSlide(7)"></span>
+        <span class="testimonial-dot" onclick="currentTestimonialSlide(8)"></span>
+    </div>
+</div>
+<!-- END OF TESTIMONIALS SECTION -->
+
