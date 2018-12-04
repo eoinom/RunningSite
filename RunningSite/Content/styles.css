@@ -17,7 +17,7 @@
 /* ==== END OF GLOBAL STYLES ==== */
 
 /* ==== START OF BUTTON STYLES ==== */
-.button_1 {
+.newsletterBtn {
     height: 38px;
     background: #e8491d;
     border: 0;
@@ -25,6 +25,12 @@
     padding-left: 20px;
     padding-right: 20px;
     color: #f2f2f2;
+}
+
+.newsletterBtn:hover {
+    /* opacity: 0.7; */
+    background: #C95327;
+    color: #fff;
 }
 
 .bookingbtn {
@@ -87,6 +93,12 @@
 
 
 /* ==== START OF HEADER STYLES ==== */
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+
 header {
     background: white;
     /* color:#35424a;		blueish-greyish text */
@@ -101,8 +113,14 @@ header {
         font-size: 14px;
     }
 
+    header #event_date #event_date_img {
+        width: 125px;
+        padding-top: 17px;
+    }
+
+
     header #branding {
-        float: left;
+        margin: auto; /* This moves the content to the middle */
         margin-top: 15px;
     }
 
@@ -983,7 +1001,11 @@ button.active, .accordion:hover {
 
 /* ==== START OF MEDIA QUERIES ==== */
 
-@media only screen and (max-width: 1080px) {
+/*@media only screen and (max-width: 1080px) {
+    header #event_date #event_date_img {
+        padding-top: 12.8px;
+    }
+    
     .bookingbtn {
         padding-top: 10px;
         padding-bottom: 10px;
@@ -1002,9 +1024,16 @@ button.active, .accordion:hover {
     .open-slide, .bookingbtn-responsive, .reduced-menu {
         display: none
     }
+}*/
+
+@media(min-width:1080px) {
+    .open-slide, .bookingbtn-responsive, .reduced-menu {
+        display: none
+    }
 }
 
-@media only screen and (max-width: 768px) {
+/*@media only screen and (max-width: 768px) {*/
+@media only screen and (max-width: 1080px) {
     header #branding,
     header nav,
     header nav li,
@@ -1024,6 +1053,11 @@ button.active, .accordion:hover {
         display: none;
     }
 
+    header #event_date #event_date_img {
+        width: 109px;
+        padding-top: 15px;
+    }
+
     header #branding {
         /* margin-top: 2px;
 		margin-bottom: 2px; */
@@ -1038,7 +1072,7 @@ button.active, .accordion:hover {
     }
 
     .bookingbtn-responsive {
-        padding-top: 35px;
+        padding-top: 27.5px;
         line-height: 45px;
     }
 
@@ -1053,7 +1087,7 @@ button.active, .accordion:hover {
 
     .row {
         display: grid;
-        grid-template-columns: 1fr 3fr 1.5fr;
+        grid-template-columns: 1fr 1fr 1fr;
     }
 
     .event {
@@ -1112,6 +1146,11 @@ button.active, .accordion:hover {
 
 /* For small mobile screens (or when browser resized to small width) */
 @media only screen and (max-width: 540px) {
+    header #event_date #event_date_img {
+        width: 94px;
+        padding-top: 15px;
+    }
+    
     header #branding {
         /* margin-top: 2px;
 		margin-bottom: 2px; */
@@ -1126,7 +1165,7 @@ button.active, .accordion:hover {
     }
 
     .bookingbtn-responsive {
-        padding-top: 30px;
+        padding-top: 25.22px;
         line-height: 40px;
     }
 
@@ -1147,7 +1186,11 @@ button.active, .accordion:hover {
 /* For small mobile screens (or when browser resized to small width) */
 @media only screen and (max-width: 400px) {
     .row {
-        grid-template-columns: 1fr 3fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    header #event_date #event_date_img {
+        width: 81px;
     }
 
     header #branding {

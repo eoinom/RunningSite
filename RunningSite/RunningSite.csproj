@@ -89,6 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\Event_date.JPG" />
     <Content Include="Content\Images\logo_WexfordRunningFestival - Cropped.png" />
     <Content Include="Content\Images\logo_WexfordRunningFestival.png" />
     <Content Include="Content\Images\pexels-photo-324658-cropped.jpeg" />
@@ -121,6 +122,8 @@
     <None Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Newsletter.cshtml" />
+    <Content Include="Views\Home\FAQ.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

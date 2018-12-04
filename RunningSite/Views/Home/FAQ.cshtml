@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "FAQ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- START OF SHOWCASE SECTION -->
+<!-- Slideshow container -->
+<div class="showcase-slideshow-container">
+
+    <div class="showcaseSlides fade">
+        <img src="~/Content/Images/slider1.jpg" alt="runners looking tired" style="width:100%" class="block">
+    </div>
+
+    <div class="showcaseSlides fade">
+        <img src="~/Content/Images/slider2.jpg" alt="runner giving thumbs up with sea in background" style="width:100%" class="block">
+    </div>
+
+    <div class="showcaseSlides fade">
+        <img src="~/Content/Images/slider3.jpg" alt="runners starting race" style="width:100%" class="block">
+    </div>
+
+    <div class="showcaseSlides fade">
+        <img src="~/Content/Images/slider4.jpg" alt="runner smiling during race" style="width:100%" class="block">
+    </div>
+
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusShowcaseSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusShowcaseSlides(1)">&#10095;</a>
+
+    <!-- The dots/circles -->
+    <div class="showcase-dot-container">
+        <span class="showcase-dot" onclick="currentShowcaseSlide(1)"></span>
+        <span class="showcase-dot" onclick="currentShowcaseSlide(2)"></span>
+        <span class="showcase-dot" onclick="currentShowcaseSlide(3)"></span>
+        <span class="showcase-dot" onclick="currentShowcaseSlide(4)"></span>
+    </div>
+</div>
+<!-- END OF SHOWCASE SECTION -->
+
+@Html.Partial("_Newsletter")
+
+<!-- START OF MAIN CONTENT -->
+<div class="container">
+    <h2>Frequently Asked Questions</h2>
+    <button class="accordion">How do I get to Dublin Bay B&B from the airport?</button>
+    <div class="panel">
+        <p>
+            Dublin Bay B&B is just 5 minutes walk up from Sutton village off the Howth Road.
+            The easiest way to get to Dublin Bay B&B from the airport is a taxi.
+            It will cost about €20 - €25 and take about 20 mins or so. Please <a href="contact.html">contact us</a> if you want us to arrange a pick-up for you.
+        </p>
+        <p>
+            If you prefer public transport, you can take the Aircoach into the City Centre and take the DART to Sutton station.
+            Turn left after exiting the DART station and walk about 10 minutes up Greenfield Road, turn left onto Church Road and we are about halfway down the road on the left.
+        </p>
+        <p>Alternatively, you can take the 31 or 31A buses that run out to Howth and get off at the bus stop just 20 yards from our door.</p>
+    </div>
+
+    <button class="accordion">What time is check–in?</button>
+    <div class="panel">
+        <p>The regular check-in times are daily from 12pm - 6pm. Please <a href="contact.html">contact us</a> in advance if you are planning on arriving outside of these hours. </p>
+        <p>If you are arriving early and we do not have your room ready, you are welcome to check-in and then relax in our lounge with a tea/coffee until your room is ready. You may also leave your bags in our store room and take a walk around the town if you wish.</p>
+    </div>
+
+    <button class="accordion">What time must rooms be vacated?</button>
+    <div class="panel">
+        <p>We ask that all guests vacate their rooms by 12 noon, but if your collection time is later then leave the bags with us, and feel free to use the lounge areas while you wait.</p>
+    </div>
+
+    <button class="accordion">What time is breakfast?</button>
+    <div class="panel">
+        <p>Breakfast is served from 7.30am - 10am on weekdays and from 7am - 10am at weekends.</p>
+    </div>
+
+    <button class="accordion">What is your cancellation policy?</button>
+    <div class="panel">
+        <p>While we regret if anyone has to cancel, here is our Cancellation Policy:</p>
+        <p>If you cancel up to 8 Days before you are due to arrive, there is no cancelation charge, except you loose your booking deposit.</p>
+        <p>If you cancel between 7 – 3 days before you are due to arrive, there is a cancelation charge of the amount for your first nights stay.</p>
+        <p>If you cancel within 2 days, or do not show up at all, your booking will be charged for the full amount of your stay.</p>
+    </div>
+
+    <button class="accordion">What is included in the room rate?</button>
+    <div class="panel">
+        <p>
+            If you have reserved a room with breakfast, you have an option of a Full Irish Breakfast, or something healthier if you wish.
+            If you picked room only, the rate does not include for any breakfast. If you wish to have breakfast, that will be an extra charge depending on the type of breakfast you want payable on check-out.
+        </p>
+        <p>All rates are inclusive of all taxes and service charges.
+    </div>
+
+    <button class="accordion">Do you have a cot/crib availble for our child?</button>
+    <div class="panel">
+        <p>Yes we have cots and cribs available at request. Please let us know during booking if you need one and we will have it set up for you on arrival.</p>
+    </div>
+
+    <button class="accordion">Do you have Wi-Fi and how much does it cost?</button>
+    <div class="panel">
+        <p>Yes we have free Wi-Fi in all areas of the B&B. Please ask at reception for the password in order to connect.</p>
+    </div>
+
+    <button class="accordion">Is parking available?</button>
+    <div class="panel">
+        <p>Yes, we have a free private off-street car park available to all our guests.</p>
+    </div>
+
+    <button class="accordion">Are pets allowed?</button>
+    <div class="panel">
+        <p>Apologies but we cannot allow pets on the property as this is against health and safety regulations.</p>
+    </div>
+</div>
+<!-- END OF MAIN CONTENT -->
+
+
