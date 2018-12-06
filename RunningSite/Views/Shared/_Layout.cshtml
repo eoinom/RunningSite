@@ -1,27 +1,12 @@
 ﻿<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
-</head>
-<body>
-    <div>
-        
-    </div>
-</body>
-</html>
-
-
-
-
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="Wexford Running Festival | Wexford's No. 1 Running Event with Marathon, Half-Marathon, 10K and 5K races." />
-    <title>Home | Wexford Running Festival</title>
+    @*<title>Home | Wexford Running Festival</title>*@
+    @*<title>@ViewBag.Title</title>*@
+    <title>@ViewBag.Title | Dingle Running Festival</title>
     <link rel="stylesheet" href="~/Content/styles.css" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
@@ -32,12 +17,12 @@
     </script>
 
     <script>
-			function openSlideMenu(){
-				document.getElementById('side-menu').style.width = '250px';
-			}
-			function closeSlideMenu(){
-				document.getElementById('side-menu').style.width = '0';
-			}
+        function openSlideMenu() {
+            document.getElementById('side-menu').style.width = '250px';
+        }
+        function closeSlideMenu() {
+            document.getElementById('side-menu').style.width = '0';
+        }
     </script>
 
 </head>
@@ -73,18 +58,16 @@
                         </a>
                     </div>
                     <div class="bookingbtn">
-                        <a href="booking.html#make-booking" class="button_booknow">Enter Now</a>
+                        @*<a href="booking.html#make-booking" class="button_booknow">Enter Now</a>*@
+                        @*@Html.ActionLink("Enter", "Login", "Account", new { @class = "button_booknow" })*@
+                        <a href="@Url.Action("Login", "Account")" , class="button_booknow">Enter Now</a>
                     </div>
                     <div class="bookingbtn-responsive">
-                        <a href="booking.html#make-booking" class="button_booknow-responsive">Enter</a>
+                        @*<a href="booking.html#make-booking" class="button_booknow-responsive">Enter</a>*@
+                        @*@Html.ActionLink("Enter", "Login", "Account", new { @class = "button_booknow" })*@
+                        <a href="@Url.Action("Login", "Account")" , class="button_booknow">Enter</a>
                     </div>
                 </div>
-                @*<div class="bookingbtn">
-                    <a href="booking.html#make-booking" class="button_booknow">Enter Now</a>
-                </div>
-                <div class="bookingbtn-responsive">
-                    <a href="booking.html#make-booking" class="button_booknow-responsive">Enter</a>
-                </div>*@
             </div>
         </div>
     </header>
@@ -143,8 +126,9 @@
                         </div>
                     </div>
                     @Html.ActionLink("FAQ", "FAQ", "Home")
-                    @Html.ActionLink("Results", "Results", "Home")
-                    @Html.ActionLink("Register", "Register", "Home")
+                    @Html.ActionLink("Results", "Search", "Result")
+                    @*@Html.ActionLink("Register", "Login", new { @class = "button_booknow" })*@
+                    <a href="@Url.Action("Login", "Account")" , class="button_booknow">Register</a>
                     @Html.ActionLink("Contact", "Contact", "Home")
                 </div>
 
@@ -173,8 +157,9 @@
             <li><a href="raceday-advice.html">Race Day Advice</a>
         </ul>
         @Html.ActionLink("FAQ", "FAQ", "Home")
-        @Html.ActionLink("Results", "Results", "Home")
-        @Html.ActionLink("Register", "Register", "Home")
+        @Html.ActionLink("Results", "Search", "Result")
+        @*@Html.ActionLink("Register", "Login", new { @class = "button_booknow" })*@
+        <a href="@Url.Action("Login", "Account")", class = "button_booknow">Register</a>
         @Html.ActionLink("Contact", "Contact", "Home")
     </div>
     <!-- END OF SIDE-MENU -->

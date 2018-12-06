@@ -1,0 +1,60 @@
+﻿@model RunningSite.Models.Account
+
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm("Register", "Account", FormMethod.Post))
+{
+    <p>
+        @Html.LabelFor(c => c.FirstName, "First Name:", new { @class = "label" })
+        @Html.TextBoxFor(c => c.FirstName)
+        @Html.ValidationMessageFor(c => c.FirstName, "", new { @class = "error" })
+    </p>
+    <p>
+        @Html.LabelFor(c => c.LastName, "Surname:", new { @class = "label" })
+        @Html.TextBoxFor(c => c.LastName)
+        @Html.ValidationMessageFor(c => c.LastName, "", new { @class = "error" })
+    </p>
+    <p>
+        @Html.LabelFor(c => c.Email, "Email address:", new { @class = "label" })
+        @Html.TextBoxFor(c => c.Email)
+        @Html.ValidationMessageFor(c => c.Email, "", new { @class = "error" })
+    </p>
+    <p>
+        @Html.LabelFor(c => c.Password, "Password (min 6 characters):", new { @class = "label" })
+        @Html.TextBoxFor(c => c.Password)
+        @Html.ValidationMessageFor(c => c.Password, "", new { @class = "error" })
+    </p>
+    @*<p>
+        @Html.LabelFor(c => c.PasswordConfirm, "Confirm Password:", new { @class = "label" })
+        @Html.TextBoxFor(c => c.PasswordConfirm)
+        @Html.ValidationMessageFor(c => c.PasswordConfirm, "", new { @class = "error" })
+    </p>*@
+    <p>
+        @Html.LabelFor(c => c.Country, "Country (of residence):", new { @class = "label" })
+        @Html.TextBoxFor(c => c.Country)
+        @Html.ValidationMessageFor(c => c.Country, "", new { @class = "error" })
+    </p>
+    <p>
+        @Html.LabelFor(c => c.Gender, "Gender:", new { @class = "label" })
+        @Html.EnumDropDownListFor(c => c.Gender)
+        @Html.ValidationMessageFor(c => c.Gender, "", new { @class = "error" })
+    </p>
+    <p>
+        @Html.LabelFor(c => c.DOB, "Date of Birth:", new { @class = "label" })
+        @Html.TextBoxFor(c => c.DOB)
+        @Html.ValidationMessageFor(c => c.DOB, "", new { @class = "error" })
+    </p>
+    <p>
+        @Html.CheckBoxFor(c => c.NewsletterSub)Keep up to date: subscribe to the Dingle Running Festival Newsletter
+    </p>
+    <input type="submit" value="Register" />
+}
+
+
+
+

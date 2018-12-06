@@ -38,7 +38,8 @@ C:\Users\eoino\Documents\GitHub\RunningSite\RunningSite\bin\System.Web.Webpages.
 C:\Users\eoino\Documents\GitHub\RunningSite\RunningSite\bin\System.Web.Webpages.Razor.xml
 C:\Users\eoino\Documents\GitHub\RunningSite\RunningSite\bin\System.Web.Helpers.xml
 C:\Users\eoino\Documents\GitHub\RunningSite\RunningSite\bin\System.Web.Mvc.xml
-C:\Users\eoino\Documents\GitHub\RunningSite\RunningSite\obj\Debug\RunningSite.csprojResolveAssemblyReference.cache
 C:\Users\eoino\Documents\GitHub\RunningSite\RunningSite\obj\Debug\RunningSite.csproj.CoreCompileInputs.cache
 C:\Users\eoino\Documents\GitHub\RunningSite\RunningSite\obj\Debug\RunningSite.dll
 C:\Users\eoino\Documents\GitHub\RunningSite\RunningSite\obj\Debug\RunningSite.pdb
+C:\Users\eoino\Documents\GitHub\RunningSite\RunningSite\obj\Debug\RunningSite.csprojAssemblyReference.cache
+C:\Users\eoino\Documents\GitHub\RunningSite\RunningSite\obj\Debug\RunningSite.csproj.CopyComplete

@@ -1,0 +1,30 @@
+﻿@model RunningSite.Models.Account
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Index", "Login", FormMethod.Post))
+{
+    <p>
+        @Html.LabelFor(c => c.Email, new { @class = "label" })
+        @Html.TextBoxFor(c => c.Email)
+        @Html.ValidationMessageFor(c => c.Email, "", new { @class = "error" })
+    </p>
+    <p>
+        @Html.LabelFor(c => c.Password, new { @class = "label" })
+        @Html.TextBoxFor(c => c.Password)
+        @Html.ValidationMessageFor(c => c.Password, "", new { @class = "error" })
+    </p>
+    <input type="submit" value="Sign In" />
+    <hr />
+    <div>
+        <a href="@Url.Action("Register", "Account")">I am a new customer</a>
+    </div>
+}
+
+
+

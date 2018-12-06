@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.ComponentModel.DataAnnotations;
+
+namespace RunningSite.Models
+{
+    public class Result
+    {
+        public string RaceId { get; set; }
+        public int BibNo { get; set; }
+        public string Name { get; set; }
+        public int FinishPlace { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime FinshTime { get; set; }
+
+        [DataType(DataType.Time)]
+        public DateTime ChipTime { get; set; }        
+    }
+}
