@@ -37,7 +37,7 @@
                 </div>
 
                 <div id="branding">
-                    <a href="http://dublinaccommodation.online"><img src="~/Content/Images/logo_DingleRunningFestival - Cropped.png" id="logo" alt="Dingle Running Festival Logo"></a>
+                    <a href="@Url.Action("Index", "Home")"><img src="~/Content/Images/logo_DingleRunningFestival - Cropped.png" id="logo" alt="Dingle Running Festival Logo"></a>
                 </div>
                 <div>
                     <div id="social-icons">
@@ -56,13 +56,9 @@
                         </a>
                     </div>
                     <div class="bookingbtn">
-                        @*<a href="booking.html#make-booking" class="button_booknow">Enter Now</a>*@
-                        @*@Html.ActionLink("Enter", "Login", "Account", new { @class = "button_booknow" })*@
                         <a href="@Url.Action("Login", "Account")" , class="button_booknow">Enter Now</a>
                     </div>
                     <div class="bookingbtn-responsive">
-                        @*<a href="booking.html#make-booking" class="button_booknow-responsive">Enter</a>*@
-                        @*@Html.ActionLink("Enter", "Login", "Account", new { @class = "button_booknow" })*@
                         <a href="@Url.Action("Login", "Account")" , class="button_booknow">Enter</a>
                     </div>
                 </div>
@@ -105,10 +101,6 @@
                             <a href="@Url.Action("Index", "Race")">Races <i class="fa fa-caret-down"></i></a>
                         </div>
                         <div class="dropdown-content">
-                            @*<a href="races-marathon.html">Marathon</a>
-                <a href="races-halfmarathon.html">Half Marathon</a>
-                <a href="races-10k.html">10K</a>
-                <a href="races-family5krun.html">Family Run</a>*@
                             @Html.ActionLink("Marathon", "Marathon", "Race")
                             @Html.ActionLink("Half Marathon", "HalfMarathon", "Race")
                             @Html.ActionLink("10K", "TenK", "Race")
@@ -144,10 +136,6 @@
         <span class="current"><a href="index.html">Home</a></span>
         @Html.ActionLink("Races", "Index", "Race")
         <ul>
-            @*<li><a href="races-marathon.html">Marathon</a>
-            <li><a href="races-halfmarathon.html">Half Marathon</a>
-            <li><a href="races-10k.html">10K</a>
-            <li><a href="races-family5krun.html">Family Run</a>*@
             <li>@Html.ActionLink("Marathon", "Marathon", "Race")
             <li>@Html.ActionLink("Half Marathon", "HalfMarathon", "Race")
             <li>@Html.ActionLink("10K", "TenK", "Race")
@@ -164,7 +152,6 @@
         </ul>
         @Html.ActionLink("FAQ", "FAQ", "Home")
         @Html.ActionLink("Results", "Search", "Result")
-        @*@Html.ActionLink("Register", "Login", new { @class = "button_booknow" })*@
         <a href="@Url.Action("Login", "Account")" , class="button_booknow">Register</a>
         @Html.ActionLink("Contact", "Contact", "Home")
     </div>
