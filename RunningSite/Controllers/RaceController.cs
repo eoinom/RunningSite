@@ -7,44 +7,38 @@ using RunningSite.Models;
 
 namespace RunningSite.Controllers
 {
-    public class AccountController : Controller
+    public class RaceController : Controller
     {
         DAO dao = new DAO();
-
-        // GET: Account
-        public ActionResult Login()
+        // GET: Race
+        public ActionResult Index()
         {
             return View();
         }
 
-        //[HttpGet]
-        //public ActionResult AddAccount()
-        //{
-        //    return View("Login");
-        //}
-
-        public ActionResult Register()
+        public ActionResult AddRace()
         {
             return View();
         }
 
 
         [HttpPost]
-        public ActionResult AddAccount(Account visitor)
+
+        public ActionResult AddRace(Race race)
+
         {
             int counter = 0;
-            counter = dao.EnterAccount(visitor);
+            counter = dao.EnterRace(race);
 
             if (counter == 1)
             {
-                Response.Write("Welcome to our Marathon Festival");
+                Response.Write("Race details have been entered successfully");
                 ModelState.Clear();
             }
             else
             {
                 Response.Write("Error, " + dao.message);
             }
-
             return View();
         }
     }

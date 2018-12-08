@@ -5,46 +5,40 @@ using System.Web;
 using System.Web.Mvc;
 using RunningSite.Models;
 
-namespace RunningSite.Controllers
+namespace MarathonFestival3.Controllers
 {
-    public class AccountController : Controller
+    public class OrderController : Controller
     {
         DAO dao = new DAO();
+        // GET: Order
 
-        // GET: Account
-        public ActionResult Login()
+        [HttpGet]
+        public ActionResult Index()
         {
             return View();
         }
 
-        //[HttpGet]
-        //public ActionResult AddAccount()
-        //{
-        //    return View("Login");
-        //}
-
-        public ActionResult Register()
+        public ActionResult AddOrder()
         {
             return View();
         }
-
 
         [HttpPost]
-        public ActionResult AddAccount(Account visitor)
+        public ActionResult AddOrder(Order order)
         {
             int counter = 0;
-            counter = dao.EnterAccount(visitor);
+            counter = dao.EnterOrder(order);
 
             if (counter == 1)
             {
-                Response.Write("Welcome to our Marathon Festival");
+                Response.Write("Thank you for you order");
                 ModelState.Clear();
             }
             else
             {
                 Response.Write("Error, " + dao.message);
             }
-
+                
             return View();
         }
     }
