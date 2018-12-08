@@ -5,26 +5,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Login</h2>
+<div class="container">
+    <h2>Login</h2>
 
-@using (Html.BeginForm("Index", "Login", FormMethod.Post))
-{
-    <p>
-        @Html.LabelFor(c => c.Email, new { @class = "label" })
-        @Html.TextBoxFor(c => c.Email)
-        @Html.ValidationMessageFor(c => c.Email, "", new { @class = "error" })
-    </p>
-    <p>
-        @Html.LabelFor(c => c.Password, new { @class = "label" })
-        @Html.TextBoxFor(c => c.Password)
-        @Html.ValidationMessageFor(c => c.Password, "", new { @class = "error" })
-    </p>
-    <input type="submit" value="Sign In" />
-    <hr />
-    <div>
-        <a href="@Url.Action("Register", "Account")">I am a new customer</a>
-    </div>
-}
+    @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+    {
+        <p>
+            <span class="newline">
+                @Html.LabelFor(c => c.Email, new { @class = "label" })
+            </span>
+            @Html.TextBoxFor(c => c.Email)
+            @Html.ValidationMessageFor(c => c.Email, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(c => c.Password, new { @class = "label" })
+            </span>
+            @Html.PasswordFor(c => c.Password)
+            @Html.ValidationMessageFor(c => c.Password, "", new { @class = "error" })
+        </p>
+        <p>
+            <input type="submit" value="Sign In" />
+        </p>
 
+        <div>
+            <p>
+                <a href="@Url.Action("Register", "Account")">I am a new customer</a>
+            </p>
+        </div>
+    }
+</div>
 
 

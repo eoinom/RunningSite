@@ -15,8 +15,14 @@ namespace RunningSite.Models
 
         [Required]
         [DataType(DataType.Password)]
+        [StringLength(18, ErrorMessage = "Password must be 6 to 18 characters long", MinimumLength = 6)]
         public string Password { get; set; }
-
+        
+        [Required]
+        [Compare("Password")]
+        [Display(Name = "Confirm Password")]
+        public string ConfirmPassword { get; set; }
+        
         [Required]
         public string FirstName { get; set; }
 

@@ -142,6 +142,12 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Result\Search.cshtml" />
     <Content Include="Views\Result\SearchResult.cshtml" />
+    <Content Include="Views\Race\AddRace.cshtml" />
+    <Content Include="Views\Race\Index.cshtml" />
+    <Content Include="Views\Race\Marathon.cshtml" />
+    <Content Include="Views\Race\HalfMarathon.cshtml" />
+    <Content Include="Views\Race\TenK.cshtml" />
+    <Content Include="Views\Race\Family5K.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

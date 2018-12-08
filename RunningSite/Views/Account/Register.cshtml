@@ -1,59 +1,82 @@
 ﻿@model RunningSite.Models.Account
+@*@model RunningSite.Utils.Country
+@model RunningSite.Utils.CountryArray*@
 
 @{
     ViewBag.Title = "Register";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Register</h2>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post))
-{
-    <p>
-        @Html.LabelFor(c => c.FirstName, "First Name:", new { @class = "label" })
-        @Html.TextBoxFor(c => c.FirstName)
-        @Html.ValidationMessageFor(c => c.FirstName, "", new { @class = "error" })
-    </p>
-    <p>
-        @Html.LabelFor(c => c.LastName, "Surname:", new { @class = "label" })
-        @Html.TextBoxFor(c => c.LastName)
-        @Html.ValidationMessageFor(c => c.LastName, "", new { @class = "error" })
-    </p>
-    <p>
-        @Html.LabelFor(c => c.Email, "Email address:", new { @class = "label" })
-        @Html.TextBoxFor(c => c.Email)
-        @Html.ValidationMessageFor(c => c.Email, "", new { @class = "error" })
-    </p>
-    <p>
-        @Html.LabelFor(c => c.Password, "Password (min 6 characters):", new { @class = "label" })
-        @Html.TextBoxFor(c => c.Password)
-        @Html.ValidationMessageFor(c => c.Password, "", new { @class = "error" })
-    </p>
-    @*<p>
-        @Html.LabelFor(c => c.PasswordConfirm, "Confirm Password:", new { @class = "label" })
-        @Html.TextBoxFor(c => c.PasswordConfirm)
-        @Html.ValidationMessageFor(c => c.PasswordConfirm, "", new { @class = "error" })
-    </p>*@
-    <p>
-        @Html.LabelFor(c => c.Country, "Country (of residence):", new { @class = "label" })
-        @Html.TextBoxFor(c => c.Country)
-        @Html.ValidationMessageFor(c => c.Country, "", new { @class = "error" })
-    </p>
-    <p>
-        @Html.LabelFor(c => c.Gender, "Gender:", new { @class = "label" })
-        @Html.EnumDropDownListFor(c => c.Gender)
-        @Html.ValidationMessageFor(c => c.Gender, "", new { @class = "error" })
-    </p>
-    <p>
-        @Html.LabelFor(c => c.DOB, "Date of Birth:", new { @class = "label" })
-        @Html.TextBoxFor(c => c.DOB)
-        @Html.ValidationMessageFor(c => c.DOB, "", new { @class = "error" })
-    </p>
-    <p>
-        @Html.CheckBoxFor(c => c.NewsletterSub)Keep up to date: subscribe to the Dingle Running Festival Newsletter
-    </p>
-    <input type="submit" value="Register" />
-}
+<div class="container">
+    <h2>Register</h2>
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+        <p>
+            <span class="newline">
+                @Html.LabelFor(a => a.FirstName, "First Name:", new { @class = "label" })
+            </span>
+            @Html.TextBoxFor(a => a.FirstName)
+            @Html.ValidationMessageFor(a => a.FirstName, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(a => a.LastName, "Surname:", new { @class = "label" })
+            </span>
+            @Html.TextBoxFor(a => a.LastName)
+            @Html.ValidationMessageFor(a => a.LastName, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(a => a.Email, "Email address:", new { @class = "label" })
+            </span>
+            @Html.TextBoxFor(a => a.Email)
+            @Html.ValidationMessageFor(a => a.Email, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(a => a.Password, "Password (min 6 characters):", new { @class = "label" })
+            </span>
+            @Html.PasswordFor(a => a.Password)
+            @Html.ValidationMessageFor(a => a.Password, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(a => a.ConfirmPassword, "Confirm Password:", new { @class = "label" })
+            </span>
+            @Html.PasswordFor(a => a.ConfirmPassword)
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(a => a.Country, "Country (of residence):", new { @class = "label" })
+            </span>
+            @Html.TextBoxFor(a => a.Country)
+            @*@Html.DropDownListFor(a => a.Country, new SelectList(Country, "Name", "Name"))*@
+            @Html.ValidationMessageFor(a => a.Country, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(a => a.Gender, "Gender:", new { @class = "label" })
+            </span>
+            @Html.EnumDropDownListFor(a => a.Gender)
+            @Html.ValidationMessageFor(a => a.Gender, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(a => a.DOB, "Date of Birth:", new { @class = "label" })
+            </span>
+            @Html.TextBoxFor(a => a.DOB)
+            @Html.ValidationMessageFor(a => a.DOB, "", new { @class = "error" })
+        </p>
+        <p>
+            @Html.CheckBoxFor(a => a.NewsletterSub)Keep up to date: subscribe to the Dingle Running Festival Newsletter
+        </p>
+        <p>
+            <input type="submit" value="Register" />
+        </p>
+    }
+</div>
 
 
 

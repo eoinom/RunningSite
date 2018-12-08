@@ -16,7 +16,7 @@ namespace RunningSite.Models
 
         public DAO()
         {
-            con = new SqlConnection(WebConfigurationManager.ConnectionStrings["conString"].ConnectionString);
+            //con = new SqlConnection(WebConfigurationManager.ConnectionStrings["conString"].ConnectionString);
         }
 
         //public int EnterVisitor(Account visitor)

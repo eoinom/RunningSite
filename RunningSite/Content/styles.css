@@ -1,4 +1,6 @@
-﻿body {
+﻿
+/*#region ==== START OF GLOBAL STYLES ====*/
+body {
     font: 15px/1.5 Arial, Helvetica, sans-serif; /* Short way of doing font-size, line-height & font-family */
     padding: 0;
     margin: 0;
@@ -6,17 +8,24 @@
     overflow-x: hidden;
 }
 
-
-/* ==== START OF GLOBAL STYLES ==== */
 .container {
     width: 80%;
     margin: auto; /* This moves the content to the middle */
     overflow: hidden; /* So that if any content goes out of a div that it is hidden rather than have a scroll bar appear */
 }
 
-/* ==== END OF GLOBAL STYLES ==== */
+.newline::after {
+    content: "\A";
+    white-space: pre;
+}
 
-/* ==== START OF BUTTON STYLES ==== */
+.welcome-container {
+    background: #f1f1f1f1;
+}
+/*#endregion*/
+
+
+/*#region ==== START OF BUTTON STYLES ==== */
 .newsletterBtn {
     height: 38px;
     background: #e8491d;
@@ -89,10 +98,10 @@
         font-size: 15px;
         display: inline-block;
     }
-/* ==== END OF BUTTON STYLES ==== */
+/*#endregion*/
 
 
-/* ==== START OF HEADER STYLES ==== */
+/*#region ==== START OF HEADER STYLES ==== */
 .row {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -128,9 +137,10 @@ header {
             width: 200px;
             padding-bottom: 5px;
         }
-/* ==== END OF HEADER STYLES ==== */
+/*#endregion*/
 
-/* ==== START OF SOCIAL ICON STYLES ==== */
+
+/*#region ==== START OF SOCIAL ICON STYLES ==== */
 #social-icons {
     text-align: right;
 }
@@ -171,10 +181,10 @@ header {
     color: #00af87
 }
 
+/*#endregion*/
 
-/* ==== END OF SOCIAL ICON STYLES ==== */
 
-/* ==== START OF REDUCED MENU STYLES ==== */
+/*#region ==== START OF REDUCED MENU STYLES ==== */
 .reduced-menu {
     text-align: center;
     margin: auto; /* This moves the content to the middle */
@@ -189,9 +199,10 @@ header {
         .reduced-menu a:hover {
             color: #e8491d;
         }
-/* ==== END OF REDUCED MENU STYLES ==== */
+/*#endregion*/
 
-/* ==== START OF MAIN NAVBAR STYLES ==== */
+
+/*#region ==== START OF MAIN NAVBAR STYLES ==== */
 
 /* Navbar container */
 .navbar {
@@ -283,11 +294,15 @@ header {
 .sticky-bg {
     background-color: #63abecCC; /* Adding CC at the end adds an 80% opacity, refer https://css-tricks.com/8-digit-hex-codes/ */
 }
+/*#endregion*/
 
-/* ==== END OF MAIN NAVBAR STYLES ==== */
 
+/*#region ==== START OF SIDE NAVBAR STYLES ==== */
+.open-slide {
+    float: left;
+    padding-top: 50px;
+}
 
-/* ==== START OF SIDE NAVBAR STYLES ==== */
 .side-nav {
     height: 100%; /* 100% Full-height */
     width: 0; /* 0 width - change this with JavaScript */
@@ -329,11 +344,10 @@ header {
         font-size: 36px;
         margin-left: 50px;
     }
-/* ==== END OF SIDE NAVBAR STYLES ==== */
+/*#endregion*/
 
 
-
-/* ==== START OF SHOWCASE STYLES ==== */
+/*#region ==== START OF SHOWCASE STYLES ==== */
 #showcase {
     min-height: 400px;
     display: block;
@@ -365,10 +379,10 @@ header {
 .block {
     display: block;
 }
+/*#endregion*/
 
-/* ==== END OF SHOWCASE STYLES ==== */
 
-/* ==== START OF NEWSLETTER STYLES ==== */
+/*#region ==== START OF NEWSLETTER STYLES ==== */
 #newsletter {
     padding: 15px;
     color: #ffffff;
@@ -389,16 +403,10 @@ header {
         padding: 4px;
         height: 25px: width:250px;
     }
-
-/* ==== END OF NEWSLETTER STYLES ==== */
-
-
-.welcome-container {
-    background: #f1f1f1f1;
-}
+/*#endregion*/
 
 
-/* ==== START OF CALENDAR ICON STYLES ==== */
+/*#region ==== START OF CALENDAR ICON STYLES ==== */
 
 .event {
     display: grid;
@@ -459,11 +467,10 @@ time.icon {
         padding-top: 0.8em;
         color: #2f2f2f;
     }
-/* ==== END OF CALENDAR ICON STYLES ==== */
+/*#endregion*/
 
 
-
-/* ==== START OF BOXES STYLES ==== */
+/*#region ==== START OF BOXES STYLES ==== */
 #boxes {
     margin-top: 20px;
     overflow: hidden;
@@ -492,9 +499,10 @@ time.icon {
             box-shadow: 3px 3px 5px 6px #ccc; /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
         }
 
-/* ==== END OF BOXES STYLES ==== */
+/*#endregion*/
 
-/* ==== START OF SHOWCASE SLIDER STYLES ==== */
+
+/*#region ==== START OF SHOWCASE SLIDER STYLES ==== */
 * {
     box-sizing: border-box
 }
@@ -610,11 +618,10 @@ time.icon {
         opacity: 1
     }
 }
+/*#endregion*/
 
-/* ==== END OF SHOWCASE SLIDER STYLES ==== */
 
-
-/* ==== START OF TESTIMONIALS STYLES ==== */
+/*#region ==== START OF TESTIMONIALS STYLES ==== */
 
 /* Slideshow container */
 .testimonial-slideshow-container {
@@ -702,11 +709,10 @@ q {
 .author {
     color: cornflowerblue;
 }
+/*#endregion*/
 
-/* ==== END OF TESTIMONIALS STYLES ==== */
 
-
-/* ==== START OF FOOTER STYLES ==== */
+/*#region ==== START OF FOOTER STYLES ==== */
 footer {
     padding: 20px 0px;
     /* margin-top:20px; */
@@ -748,17 +754,10 @@ footer {
     padding: 0;
     margin: 0;
 }
-/* ==== END OF FOOTER STYLES ==== */
+/*#endregion*/
 
 
-.open-slide {
-    float: left;
-    padding-top: 50px;
-}
-
-
-
-/* ==== START OF ROOM BOXES ==== */
+/*#region ==== START OF ROOM BOXES ==== */
 .wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -833,10 +832,10 @@ footer {
     grid-row: 3/5;
     background-image: url("../Images/room-double-with-wooden-floor.jpeg");
 }
-/* ==== END OF ROOM BOXES ==== */
+/*#endregion*/
 
 
-/* ==== START OF ACTIVITIES & ATTRACTIONS STYLES ====  */
+/*#region ==== START OF ACTIVITIES & ATTRACTIONS STYLES ====  */
 .activity-odd {
     min-height: 200px;
     padding-bottom: 15px;
@@ -877,10 +876,10 @@ footer {
     .activity-img .img-even {
         margin: 20px 20px 20px 0px;
     }
-/* ==== END OF ACTIVITIES & AMENITIES STYLES ====  */
+/*#endregion*/
 
 
-/* ==== START OF CONTACT & BOOKING FORM STYLES ==== */
+/*#region ==== START OF CONTACT & BOOKING FORM STYLES ==== */
 
 /* Style inputs with type="text", select elements and textareas */
 #contact-form input[type=text], #contact-form input[type=email], #contact-form input[type=number], #contact-form textarea,
@@ -951,10 +950,10 @@ input[type=submit], input[type=reset] {
     .form-container h3 {
         margin-top: 0;
     }
-/* ==== END OF CONTACT FORM STYLES ==== */
+/*#endregion*/
 
 
-/* ==== START OF FAQ ACCORDIAN STYLES ==== */
+/*#region ==== START OF FAQ ACCORDIAN STYLES ==== */
 
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
@@ -995,11 +994,10 @@ button.active, .accordion:hover {
     overflow: hidden;
     transition: max-height 0.2s ease-out;
 }
-/* END OF FAQ ACCORDIAN STYLES */
+/*#endregion*/
 
 
-
-/* ==== START OF MEDIA QUERIES ==== */
+/*#region ==== START OF MEDIA QUERIES ==== */
 
 /*@media only screen and (max-width: 1080px) {
     header #event_date #event_date_img {
@@ -1211,5 +1209,4 @@ button.active, .accordion:hover {
         padding-top: 24px;
     }
 }
-
-/* ==== END OF MEDIA QUERIES ==== */
+/*#endregion*/

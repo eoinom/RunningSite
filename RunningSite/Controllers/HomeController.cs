@@ -13,12 +13,14 @@ namespace RunningSite.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            return View("Index");
+            return View();
         }
 
         public ActionResult FAQ()
         {
-            return View("FAQ");
+            return View();
         }
+
+
     }
 }

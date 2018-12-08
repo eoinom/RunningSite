@@ -15,17 +15,38 @@ namespace RunningSite.Controllers
         {
             return View();
         }
+        
+        public ActionResult Marathon()
+        {
+            return View();
+        }
 
-        public ActionResult AddRace()
+        public ActionResult HalfMarathon()
+        {
+            return View();
+        }
+
+        public ActionResult TenK()
+        {
+            return View();
+        }
+
+        public ActionResult Family5K()
         {
             return View();
         }
 
 
+
+
+        [HttpGet]
+        public ActionResult AddRace()
+        {
+            return View();
+        }
+
         [HttpPost]
-
         public ActionResult AddRace(Race race)
-
         {
             int counter = 0;
             counter = dao.EnterRace(race);
