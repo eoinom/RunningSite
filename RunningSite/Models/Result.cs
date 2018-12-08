@@ -14,7 +14,7 @@ namespace RunningSite.Models
         public int FinishPlace { get; set; }
 
         [DataType(DataType.Time)]
-        public DateTime FinshTime { get; set; }
+        public DateTime FinishTime { get; set; }
 
         [DataType(DataType.Time)]
         public DateTime ChipTime { get; set; }        

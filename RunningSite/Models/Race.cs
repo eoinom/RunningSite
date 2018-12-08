@@ -2,14 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using RunningSite.Utils;
 
-namespace MarathonFestival3.Models
+namespace RunningSite.Models
 {
     public class Race
     {
-        public int RaceId { get; set; }
+        [DisplayName("Race ID")]
+        public string RaceId { get; set; }
+
+        [DisplayName("Date")]
+        [DataType(DataType.Date)]
         public DateTime RaceDate { get; set; }
+
+        [DisplayName("Max Participants")]
         public int RaceLimit { get; set; }
+
+        [DisplayName("Entry Price")]
+        [DataType(DataType.Currency)]
         public decimal Price { get; set; }
     }
 }

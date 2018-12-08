@@ -27,7 +27,7 @@ namespace RunningSite.Models
         public Country Country { get; set; }
 
         [Required]
-        public Gender Gender { get; set; }
+        public GenderEnum Gender { get; set; }
 
         [Required]
         public DateTime DOB { get; set; }

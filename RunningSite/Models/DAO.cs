@@ -6,7 +6,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Web.Configuration;
 
-namespace MarathonFestival3.Models
+namespace RunningSite.Models
 {
     
     public class DAO
@@ -19,20 +19,21 @@ namespace MarathonFestival3.Models
             con = new SqlConnection(WebConfigurationManager.ConnectionStrings["conString"].ConnectionString);
         }
 
-        public int EnterVisitor(Visitor visitor)
+        //public int EnterVisitor(Account visitor)
+        public int EnterAccount(Account visitor)
         {
             int count = 0;
             SqlCommand cmd = new SqlCommand("usp_EnterVisitorDetails", con);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@EmailAddress", visitor.EmailAddress);
+            cmd.Parameters.AddWithValue("@EmailAddress", visitor.Email);
             cmd.Parameters.AddWithValue("@Password", visitor.Password);
             cmd.Parameters.AddWithValue("@FirstName", visitor.FirstName);
             cmd.Parameters.AddWithValue("@LastName", visitor.LastName);
-            cmd.Parameters.AddWithValue("@DateOfBirth", visitor.DateOfBirth);
-            cmd.Parameters.AddWithValue("@Address1", visitor.Address1);
-            cmd.Parameters.AddWithValue("@Address2", visitor.Address2);
-            cmd.Parameters.AddWithValue("@Town_City", visitor.Town_City);
+            cmd.Parameters.AddWithValue("@DateOfBirth", visitor.DOB);
+            //cmd.Parameters.AddWithValue("@Address1", visitor.Address1);
+            //cmd.Parameters.AddWithValue("@Address2", visitor.Address2);
+            //cmd.Parameters.AddWithValue("@Town_City", visitor.Town_City);
 
             try
             {
@@ -40,11 +41,9 @@ namespace MarathonFestival3.Models
                 count = cmd.ExecuteNonQuery();
             }
             catch(SystemException ex)
-
             {
                 message = ex.Message;
             }
-
             finally
             {
                 con.Close();
@@ -58,12 +57,39 @@ namespace MarathonFestival3.Models
             SqlCommand cmd = new SqlCommand("usp_EnterOrderDetails", con);
             cmd.CommandType = CommandType.StoredProcedure;
 
+            cmd.Parameters.AddWithValue("@RaceId", order.OrderNo);        //Change parameterName
             cmd.Parameters.AddWithValue("@OrderDate", order.OrderDate);
-            cmd.Parameters.AddWithValue("@TShirtSize", order.TShirtSize);
-            cmd.Parameters.AddWithValue("@TotalAmount", order.TShirtSize);
-            cmd.Parameters.AddWithValue("@EmailAddress", order.EmailAddress);
+            
             cmd.Parameters.AddWithValue("@RaceId", order.RaceId);
+            cmd.Parameters.AddWithValue("@RaceId", order.BibNo);        //Change parameterName
+            cmd.Parameters.AddWithValue("@TShirtSize", order.TshirtSize);
+            cmd.Parameters.AddWithValue("@RaceId", order.OrderMedalInsert);        //Change parameterName
+            cmd.Parameters.AddWithValue("@RaceId", order.StartGroup);        //Change parameterName
+            cmd.Parameters.AddWithValue("@TotalAmount", order.TotalAmount);
 
+            cmd.Parameters.AddWithValue("@RaceId", order.AgreeRaceDisclaimer);        //Change parameterName
+            cmd.Parameters.AddWithValue("@RaceId", order.AgreeTermsAndConditions);        //Change parameterName
+
+            cmd.Parameters.AddWithValue("@RaceId", order.AddressLine1);        //Change parameterName
+            cmd.Parameters.AddWithValue("@RaceId", order.AddressLine2);        //Change parameterName
+            cmd.Parameters.AddWithValue("@RaceId", order.City);        //Change parameterName
+            cmd.Parameters.AddWithValue("@RaceId", order.PostCode);        //Change parameterName
+            cmd.Parameters.AddWithValue("@RaceId", order.Country);        //Change parameterName
+
+            cmd.Parameters.AddWithValue("@RaceId", order.EmergencyContactName);        //Change parameterName
+            cmd.Parameters.AddWithValue("@RaceId", order.EmergencyContactNo);        //Change parameterName
+            cmd.Parameters.AddWithValue("@RaceId", order.MedicalDetails);        //Change parameterName
+            cmd.Parameters.AddWithValue("@RaceId", order.Mobile);        //Change parameterName
+            //cmd.Parameters.AddWithValue("@EmailAddress", order.EmailAddress);  
+
+            cmd.Parameters.AddWithValue("@RaceId", order.CC_Type);        //Change parameterName
+            cmd.Parameters.AddWithValue("@RaceId", order.CC_Holder_FirstName);        //Change parameterName
+            cmd.Parameters.AddWithValue("@RaceId", order.CC_Holder_LastName);        //Change parameterName
+            cmd.Parameters.AddWithValue("@RaceId", order.CC_Number);        //Change parameterName
+            cmd.Parameters.AddWithValue("@RaceId", order.CC_ExpDate_Month);        //Change parameterName
+            cmd.Parameters.AddWithValue("@RaceId", order.CC_ExpDate_Year);        //Change parameterName
+            cmd.Parameters.AddWithValue("@RaceId", order.CC_SecCode);        //Change parameterName
+            
             try
             {
                 con.Open();
@@ -82,8 +108,7 @@ namespace MarathonFestival3.Models
             return count;
         }
 
-       
-
+        
         public int EnterRace(Race race)
         {
             int count = 0;
@@ -93,8 +118,7 @@ namespace MarathonFestival3.Models
             cmd.Parameters.AddWithValue("@RaceId", race.RaceId);
             cmd.Parameters.AddWithValue("@RaceDate", race.RaceDate);
             cmd.Parameters.AddWithValue("@RaceLimit", race.RaceLimit);
-            cmd.Parameters.AddWithValue("@Prce", race.Price);
-            
+            cmd.Parameters.AddWithValue("@Price", race.Price);            
 
             try
             {
@@ -102,11 +126,9 @@ namespace MarathonFestival3.Models
                 count = cmd.ExecuteNonQuery();
             }
             catch (SystemException ex)
-
             {
                 message = ex.Message;
             }
-
             finally
             {
                 con.Close();
@@ -115,15 +137,19 @@ namespace MarathonFestival3.Models
         }
 
 
-        public int EnterRunner(Runner runner)
+        //public int EnterRunner(Runner runner)
+        public int EnterResult(Result runner)
         {
             int count = 0;
             SqlCommand cmd = new SqlCommand("usp_EnterRunnerDetails", con);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@BibId", runner.BibNo);
-            cmd.Parameters.AddWithValue("@FinishTime", runner.FinishTime);
             cmd.Parameters.AddWithValue("@RaceId", runner.RaceId);
+            cmd.Parameters.AddWithValue("@BibId", runner.BibNo);
+            cmd.Parameters.AddWithValue("@FinishTime", runner.FinishPlace);    //Change parameterName
+            cmd.Parameters.AddWithValue("@FinishTime", runner.Name);    //Change parameterName
+            cmd.Parameters.AddWithValue("@FinishTime", runner.FinishTime);
+            cmd.Parameters.AddWithValue("@FinishTime", runner.ChipTime);    //Change parameterName
             
             try
             {
@@ -131,11 +157,9 @@ namespace MarathonFestival3.Models
                 count = cmd.ExecuteNonQuery();
             }
             catch (SystemException ex)
-
             {
                 message = ex.Message;
             }
-
             finally
             {
                 con.Close();

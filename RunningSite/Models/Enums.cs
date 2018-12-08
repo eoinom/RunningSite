@@ -5,13 +5,13 @@ using System.Web;
 
 namespace RunningSite.Models
 {
-    public enum Gender
+    public enum GenderEnum
     {
         Male,
         Female
     }
 
-    public enum Tshirt_Sizes
+    public enum TshirtSizesEnum
     {
         Small,
         Medium,
@@ -20,7 +20,7 @@ namespace RunningSite.Models
         XXL
     }
 
-    public enum RacesCurrentYear
+    public enum RacesCurrentYearEnum
     {
         Y2019_Family_5K,
         Y2019_10K,
@@ -28,7 +28,7 @@ namespace RunningSite.Models
         Y2019_Marathon
     }
 
-    public enum RacesPreviousYears
+    public enum RacesPreviousYearsEnum
     {
         Y2018_Family_5K,
         Y2018_10K,
@@ -44,11 +44,17 @@ namespace RunningSite.Models
         Y2016_Marathon
     }
 
-    public enum StartGroup
+    public enum StartGroupEnum
     {
         Marathon_A_Group,
         Marathon_B_Group,
         Marathon_C_Group
     }
 
+    public enum CreditCardTypesEnum
+    {
+        Visa,
+        Mastercard,
+        AmericanExpress
+    }
 }
