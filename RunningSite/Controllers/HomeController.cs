@@ -16,11 +16,20 @@ namespace RunningSite.Controllers
             return View();
         }
 
+        public ActionResult Training()
+        {
+            return View();
+        }
+
         public ActionResult FAQ()
         {
             return View();
         }
 
+        public ActionResult Contact()
+        {
+            return View();
+        }
 
     }
 }

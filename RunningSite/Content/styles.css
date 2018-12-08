@@ -882,9 +882,10 @@ footer {
 /*#region ==== START OF CONTACT & BOOKING FORM STYLES ==== */
 
 /* Style inputs with type="text", select elements and textareas */
-#contact-form input[type=text], #contact-form input[type=email], #contact-form input[type=number], #contact-form textarea,
-#booking-form input[type=text], #booking-form input[type=email], #booking-form input[type=number], #booking-form textarea, #booking-form select {
-    width: 100%; /* Full width */
+/*#contact-form input[type=text], #contact-form input[type=email], #contact-form input[type=number], #contact-form textarea,
+#booking-form input[type=text], #booking-form input[type=email], #booking-form input[type=number], #booking-form textarea, #booking-form select {*/
+input[type=text], input[type=email], input[type=number], input[type=password], textarea, select {
+    /*width: 100%;*/ /* Full width */
     padding: 12px; /* Some padding */
     border: 1px solid #ccc; /* Gray border */
     border-radius: 4px; /* Rounded borders */
@@ -894,9 +895,14 @@ footer {
     resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
 }
 
-#contact-form input[type=text], #contact-form input[type=email],
-#booking-form input[type=text], #booking-form input[type=email], #booking-form select {
-    max-width: 300px;
+/*#contact-form input[type=text], #contact-form input[type=email],
+#booking-form input[type=text], #booking-form input[type=email], #booking-form select {*/
+    input[type=text], input[type=email], input[type=number], input[type=password], select {
+        width: 300px;
+    }
+
+textarea {
+    width: 100%; /* Full width */
 }
 
 /* Style inputs with type="number" */

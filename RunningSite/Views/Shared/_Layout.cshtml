@@ -37,7 +37,7 @@
                 </div>
 
                 <div id="branding">
-                    <a href="http://dublinaccommodation.online"><img src="~/Content/Images/logo_WexfordRunningFestival - Cropped.png" id="logo" alt="Wexford Running Festival Logo"></a>
+                    <a href="http://dublinaccommodation.online"><img src="~/Content/Images/logo_DingleRunningFestival - Cropped.png" id="logo" alt="Dingle Running Festival Logo"></a>
                 </div>
                 <div>
                     <div id="social-icons">
@@ -97,7 +97,8 @@
                 </div>
 
                 <div class="navbar-nav">
-                    <a href="index.html" class="current">Home</a>
+                    @*<a href="index.html" class="current">Home</a>*@
+                    @Html.ActionLink("Home", "Index", "Home")
                     <!-- <a href="about.html">About</a> -->
                     <div class="dropdown">
                         <div class="dropbtn">
@@ -105,9 +106,9 @@
                         </div>
                         <div class="dropdown-content">
                             @*<a href="races-marathon.html">Marathon</a>
-                            <a href="races-halfmarathon.html">Half Marathon</a>
-                            <a href="races-10k.html">10K</a>
-                            <a href="races-family5krun.html">Family Run</a>*@
+                <a href="races-halfmarathon.html">Half Marathon</a>
+                <a href="races-10k.html">10K</a>
+                <a href="races-family5krun.html">Family Run</a>*@
                             @Html.ActionLink("Marathon", "Marathon", "Race")
                             @Html.ActionLink("Half Marathon", "HalfMarathon", "Race")
                             @Html.ActionLink("10K", "TenK", "Race")

@@ -90,8 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Images\Event_date.JPG" />
-    <Content Include="Content\Images\logo_WexfordRunningFestival - Cropped.png" />
-    <Content Include="Content\Images\logo_WexfordRunningFestival.png" />
+    <Content Include="Content\Images\logo_DingleRunningFestival - Cropped.png" />
     <Content Include="Content\Images\pexels-photo-324658-cropped.jpeg" />
     <Content Include="Content\Images\pexels-photo-341378-cropped.jpeg" />
     <Content Include="Content\Images\pexels-photo-433502-cropped.jpeg" />
@@ -148,6 +147,8 @@
     <Content Include="Views\Race\HalfMarathon.cshtml" />
     <Content Include="Views\Race\TenK.cshtml" />
     <Content Include="Views\Race\Family5K.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Training.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
