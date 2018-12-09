@@ -27,7 +27,7 @@ namespace RunningSite.Models
             int count = 0;
             SqlCommand cmd = new SqlCommand("usp_EnterAccountDetails", con);
             cmd.CommandType = CommandType.StoredProcedure;
-
+            //test
             cmd.Parameters.AddWithValue("@Email", account.Email);
             cmd.Parameters.AddWithValue("@Pass", account.Password);
             cmd.Parameters.AddWithValue("@FirstName", account.FirstName);
