@@ -2,6 +2,8 @@ CREATE DATABASE RunningSite
 
 USE RunningSite
 
+USE DingleRunningFestivalDb
+
 --***CREATE Account TABLE***
 
 CREATE PROC dbo.usp_Create_Account

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="DingleRunningFestival" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\eoino\\Documents\\GitHub\\RunningSite\\RunningSite\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\eoino\\Documents\\GitHub\\RunningSite\\RunningSite\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="conString-Web.config Connection String" description="conString Connection String used in web.config by the application to access the database." value="Data Source=DESKTOP-I9KRHEO\SQLEXPRESS;Initial Catalog=RunningSite;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\eoino\\Documents\\GitHub\\RunningSite\\RunningSite\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='conString']/@connectionString" />
+  </parameter>
+</parameters>
