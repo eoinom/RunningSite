@@ -10,14 +10,14 @@ namespace MarathonFestival3.Controllers
     public class OrderController : Controller
     {
         DAO dao = new DAO();
-        // GET: Order
 
-        [HttpGet]
+        // GET: Order
         public ActionResult Index()
         {
             return View();
         }
 
+        [HttpGet]
         public ActionResult AddOrder()
         {
             return View();

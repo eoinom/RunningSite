@@ -8,39 +8,41 @@ using System.Web.Configuration;
 
 namespace RunningSite.Models
 {
-    
+
     public class DAO
     {
         SqlConnection con;
         public string message = "";
 
+        #region Constructor
         public DAO()
         {
-            //con = new SqlConnection(WebConfigurationManager.ConnectionStrings["conString"].ConnectionString);
+            con = new SqlConnection(WebConfigurationManager.ConnectionStrings["conString"].ConnectionString);
         }
+        #endregion
 
-        //public int EnterVisitor(Account visitor)
-        public int EnterAccount(Account visitor)
+        #region Accounts
+        public int EnterAccount(Account account)
         {
             int count = 0;
-            SqlCommand cmd = new SqlCommand("usp_EnterVisitorDetails", con);
+            SqlCommand cmd = new SqlCommand("usp_EnterAccountDetails", con);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@EmailAddress", visitor.Email);
-            cmd.Parameters.AddWithValue("@Password", visitor.Password);
-            cmd.Parameters.AddWithValue("@FirstName", visitor.FirstName);
-            cmd.Parameters.AddWithValue("@LastName", visitor.LastName);
-            cmd.Parameters.AddWithValue("@DateOfBirth", visitor.DOB);
-            //cmd.Parameters.AddWithValue("@Address1", visitor.Address1);
-            //cmd.Parameters.AddWithValue("@Address2", visitor.Address2);
-            //cmd.Parameters.AddWithValue("@Town_City", visitor.Town_City);
+            cmd.Parameters.AddWithValue("@Email", account.Email);
+            cmd.Parameters.AddWithValue("@Pass", account.Password);
+            cmd.Parameters.AddWithValue("@FirstName", account.FirstName);
+            cmd.Parameters.AddWithValue("@LastName", account.LastName);
+            cmd.Parameters.AddWithValue("@Country", account.Country);
+            cmd.Parameters.AddWithValue("@Gender", account.Gender);
+            cmd.Parameters.AddWithValue("@DOB", account.DOB);
+            cmd.Parameters.AddWithValue("@NewsletterSub", account.NewsletterSub);
 
             try
             {
                 con.Open();
                 count = cmd.ExecuteNonQuery();
             }
-            catch(SystemException ex)
+            catch (SystemException ex)
             {
                 message = ex.Message;
             }
@@ -50,7 +52,11 @@ namespace RunningSite.Models
             }
             return count;
         }
-       
+
+        #endregion
+
+        #region Orders
+
         public int EnterOrder(Order order)
         {
             int count = 0;
@@ -58,8 +64,8 @@ namespace RunningSite.Models
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@RaceId", order.OrderNo);        //Change parameterName
-            cmd.Parameters.AddWithValue("@OrderDate", order.OrderDate);
-            
+            cmd.Parameters.AddWithValue("@OrderDate", DateTime.Today.Date);
+
             cmd.Parameters.AddWithValue("@RaceId", order.RaceId);
             cmd.Parameters.AddWithValue("@RaceId", order.BibNo);        //Change parameterName
             cmd.Parameters.AddWithValue("@TShirtSize", order.TshirtSize);
@@ -89,7 +95,7 @@ namespace RunningSite.Models
             cmd.Parameters.AddWithValue("@RaceId", order.CC_ExpDate_Month);        //Change parameterName
             cmd.Parameters.AddWithValue("@RaceId", order.CC_ExpDate_Year);        //Change parameterName
             cmd.Parameters.AddWithValue("@RaceId", order.CC_SecCode);        //Change parameterName
-            
+
             try
             {
                 con.Open();
@@ -107,8 +113,10 @@ namespace RunningSite.Models
             }
             return count;
         }
+        #endregion
 
-        
+        #region Race
+
         public int EnterRace(Race race)
         {
             int count = 0;
@@ -118,7 +126,7 @@ namespace RunningSite.Models
             cmd.Parameters.AddWithValue("@RaceId", race.RaceId);
             cmd.Parameters.AddWithValue("@RaceDate", race.RaceDate);
             cmd.Parameters.AddWithValue("@RaceLimit", race.RaceLimit);
-            cmd.Parameters.AddWithValue("@Price", race.Price);            
+            cmd.Parameters.AddWithValue("@Price", race.Price);
 
             try
             {
@@ -136,8 +144,10 @@ namespace RunningSite.Models
             return count;
         }
 
+        #endregion
 
-        //public int EnterRunner(Runner runner)
+        #region Results
+
         public int EnterResult(Result runner)
         {
             int count = 0;
@@ -150,7 +160,7 @@ namespace RunningSite.Models
             cmd.Parameters.AddWithValue("@FinishTime", runner.Name);    //Change parameterName
             cmd.Parameters.AddWithValue("@FinishTime", runner.FinishTime);
             cmd.Parameters.AddWithValue("@FinishTime", runner.ChipTime);    //Change parameterName
-            
+
             try
             {
                 con.Open();
@@ -166,5 +176,6 @@ namespace RunningSite.Models
             }
             return count;
         }
+        #endregion
     }
 }

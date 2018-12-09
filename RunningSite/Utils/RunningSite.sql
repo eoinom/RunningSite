@@ -51,7 +51,6 @@ CC_Holder_LastName VARCHAR(20),
 CC_ExpDate_Month VARCHAR(20),
 CC_ExpDate_Year VARCHAR(20),
 CC_SecCode VARCHAR(3),
-
 CONSTRAINT pkOrderNo PRIMARY KEY(OrderNo),
 )
 GO

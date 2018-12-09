@@ -17,35 +17,42 @@ namespace RunningSite.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Login(Account visitor)
+        {
+            //Add code for checking email and password credentials against stored DB values
+            return View("AddOrder");
+        }
+
         //[HttpGet]
         //public ActionResult AddAccount()
         //{
         //    return View("Login");
         //}
 
+        [HttpGet]
         public ActionResult Register()
         {
             return View();
         }
-
-
+        
         [HttpPost]
-        public ActionResult AddAccount(Account visitor)
+        public ActionResult Register(Account visitor)
         {
             int counter = 0;
             counter = dao.EnterAccount(visitor);
 
             if (counter == 1)
             {
-                Response.Write("Welcome to our Marathon Festival");
+                
                 ModelState.Clear();
+                return View("AddOrder");
             }
             else
             {
                 Response.Write("Error, " + dao.message);
+                return View();
             }
-
-            return View();
         }
     }
 }

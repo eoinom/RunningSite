@@ -31,7 +31,8 @@ namespace RunningSite.Models
         public string City { get; set; }
 
         [Required]
-        public Country Country { get; set; }
+        public string Country { get; set; }
+        //public Country Country { get; set; }
 
         [DataType(DataType.PostalCode)]
         public string PostCode { get; set; }

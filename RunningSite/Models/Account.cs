@@ -30,7 +30,8 @@ namespace RunningSite.Models
         public string LastName { get; set; }
 
         [Required]
-        public Country Country { get; set; }
+        //public Country Country { get; set; }
+        public string Country { get; set; }
 
         [Required]
         public GenderEnum Gender { get; set; }
