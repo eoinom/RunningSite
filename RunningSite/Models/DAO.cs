@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.SqlClient;
 using System.Data;
 using System.Web.Configuration;
+using System.Web.Helpers;
 
 namespace RunningSite.Models
 {
@@ -25,11 +26,13 @@ namespace RunningSite.Models
         public int EnterAccount(Account account)
         {
             int count = 0;
+            string password;
             SqlCommand cmd = new SqlCommand("usp_EnterAccountDetails", con);
             cmd.CommandType = CommandType.StoredProcedure;
             //test
             cmd.Parameters.AddWithValue("@Email", account.Email);
-            cmd.Parameters.AddWithValue("@Pass", account.Password);
+            password = Crypto.HashPassword(account.Password);
+            cmd.Parameters.AddWithValue("@Pass", password);
             cmd.Parameters.AddWithValue("@FirstName", account.FirstName);
             cmd.Parameters.AddWithValue("@LastName", account.LastName);
             cmd.Parameters.AddWithValue("@Country", account.Country);
