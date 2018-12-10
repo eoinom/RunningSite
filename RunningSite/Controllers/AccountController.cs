@@ -17,19 +17,6 @@ namespace RunningSite.Controllers
             return View();
         }
 
-        /*[HttpPost]
-        public ActionResult Login(Account visitor)
-        {
-            //Add code for checking email and password credentials against stored DB values
-            return View("AddOrder");
-        }
-
-        //[HttpGet]
-        //public ActionResult AddAccount()
-        //{
-        //    return View("Login");
-        //}
-        */
         [HttpGet]
         public ActionResult Register()
         {
@@ -55,16 +42,14 @@ namespace RunningSite.Controllers
             }
         }
 
-         [HttpPost]
-
+        [HttpPost]
         public ActionResult Login(Account account)
-
         {
             ModelState.Remove("FirstName");
             ModelState.Remove("LastName");
             ModelState.Remove("ConfirmPassword");
-            if(ModelState.IsValid)
 
+            if(ModelState.IsValid)
             {
                 if(account.AccountRole == RoleEnum.Admin 
                     && account.Email == "webdev@outlook.com" 
@@ -73,10 +58,10 @@ namespace RunningSite.Controllers
                     Session["name"] = "Admin";
                     Session["email"] = "webdev@outlook.com";
 
-                        return RedirectToAction("Index", "Admin");
+                    return RedirectToAction("Index", "Admin");
                 }
 
-                else if (account.AccountRole == RoleEnum.Customer)
+                else if(account.AccountRole == RoleEnum.Customer)
                 {
                     account.FirstName = dao.CheckLogin(account);
                     if(account.FirstName != null)
@@ -86,7 +71,6 @@ namespace RunningSite.Controllers
 
                         return RedirectToAction("index", "Home");
                     }
-
                     else
                     {
                         ViewBag.Status = "Error " + dao.message;
@@ -94,12 +78,9 @@ namespace RunningSite.Controllers
                         return View("Status");
                     }
                 }
-
-               
             }
             return View("Status");
         }
-
 
     }
 }
