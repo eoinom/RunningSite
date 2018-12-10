@@ -57,4 +57,10 @@ namespace RunningSite.Models
         Mastercard,
         AmericanExpress
     }
+
+   public enum RoleEnum
+    {
+        Customer,
+        Admin,
+    }
 }

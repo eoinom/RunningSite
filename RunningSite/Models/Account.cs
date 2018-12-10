@@ -40,5 +40,8 @@ namespace RunningSite.Models
         public DateTime DOB { get; set; }
 
         public bool NewsletterSub { get; set; }
+
+        [Display(Name = "Account Type")]
+        public RoleEnum AccountRole { get; set; }
     }
 }

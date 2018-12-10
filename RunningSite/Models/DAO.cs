@@ -56,6 +56,51 @@ namespace RunningSite.Models
             return count;
         }
 
+        public string CheckCredentials(Account account)
+        {
+            string password, firstName = null;
+            SqlDataReader reader;
+            SqlCommand cmd = new SqlCommand("usp_CheckCredentials", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@email", account.Email);
+
+            try
+            {
+                con.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    password = reader["Pass"].ToString();
+                    if (Crypto.VerifyHashedPassword(password, account.Password))
+                    {
+                        firstName = reader["Firstname"].ToString();
+                    }
+
+                    else
+                    {
+                        message = "Passwords do not match";
+                    }
+                }
+                
+            }
+            catch (SqlException ex)
+            {
+                message = ex.Message;
+            }
+            catch (FormatException ex1)
+            {
+                message = ex1.Message;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+
+            return firstName;
+
+        }
+
         #endregion
 
         #region Orders
@@ -145,6 +190,51 @@ namespace RunningSite.Models
                 con.Close();
             }
             return count;
+        }
+
+        public string CheckLogin(Account account)
+        {
+            string password, firstName = null;
+            SqlDataReader reader;
+            SqlCommand cmd = new SqlCommand("usp_CheckCredentials", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@email", account.Email);
+
+            try
+            {
+                con.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    password = reader["Pass"].ToString();
+                    if (Crypto.VerifyHashedPassword(password, account.Password))
+                    {
+                        firstName = reader["Firstname"].ToString();
+                    }
+
+                    else
+                    {
+                        message = "Passwords do not match";
+                    }
+                }
+                
+            }
+            catch (SqlException ex)
+            {
+                message = ex.Message;
+            }
+            catch (FormatException ex1)
+            {
+                message = ex1.Message;
+            }
+
+            finally
+            {
+                con.Close();
+            }
+
+            return firstName;
+
         }
 
         #endregion
