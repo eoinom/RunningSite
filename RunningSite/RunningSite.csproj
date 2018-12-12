@@ -89,8 +89,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\dingle-map.png" />
+    <Content Include="Content\Images\DingleKerrymarathon1.jpg" />
+    <Content Include="Content\Images\DingleKerrymarathon10.jpg" />
+    <Content Include="Content\Images\DingleKerrymarathon11.jpg" />
+    <Content Include="Content\Images\DingleKerrymarathon12.jpg" />
+    <Content Include="Content\Images\DingleKerrymarathon2.jpg" />
+    <Content Include="Content\Images\DingleKerrymarathon3.jpg" />
+    <Content Include="Content\Images\DingleKerrymarathon4.jpg" />
+    <Content Include="Content\Images\DingleKerrymarathon5.jpg" />
+    <Content Include="Content\Images\DingleKerrymarathon6.jpg" />
+    <Content Include="Content\Images\DingleKerrymarathon7.jpg" />
+    <Content Include="Content\Images\DingleKerrymarathon8.jpg" />
+    <Content Include="Content\Images\DingleKerrymarathon9.jpg" />
+    <Content Include="Content\Images\DingleMarathonHoodie.jpg" />
+    <Content Include="Content\Images\DingleMarathonHoodiepic2.jpg" />
+    <Content Include="Content\Images\DingleMarathonpic1.jpg" />
+    <Content Include="Content\Images\DingleMarathonpic2.jpg" />
+    <Content Include="Content\Images\DingleMarathonpic3.jpg" />
+    <Content Include="Content\Images\DingleMarathonpic4.jpg" />
     <Content Include="Content\Images\Event_date.JPG" />
     <Content Include="Content\Images\logo_DingleRunningFestival - Cropped.png" />
+    <Content Include="Content\Images\MoRunner2018_T-shirt.jpg" />
+    <Content Include="Content\Images\MoRunner2018_T-shirt.png" />
+    <Content Include="Content\Images\MoRunner2018_T-shirtpic2.jpg" />
     <Content Include="Content\Images\pexels-photo-324658-cropped.jpeg" />
     <Content Include="Content\Images\pexels-photo-341378-cropped.jpeg" />
     <Content Include="Content\Images\pexels-photo-433502-cropped.jpeg" />
@@ -153,6 +175,8 @@
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\AddOrder.cshtml" />
     <None Include="Properties\PublishProfiles\DingleRunningFestival - Web Deploy.pubxml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Shared\LoginRegister.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

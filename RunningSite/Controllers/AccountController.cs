@@ -12,34 +12,15 @@ namespace RunningSite.Controllers
         DAO dao = new DAO();
 
         // GET: Account
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+
         public ActionResult Login()
         {
             return View();
-        }
-
-        [HttpGet]
-        public ActionResult Register()
-        {
-            return View();
-        }
-        
-        [HttpPost]
-        public ActionResult Register(Account visitor)
-        {
-            int counter = 0;
-            counter = dao.EnterAccount(visitor);
-
-            if (counter == 1)
-            {
-                
-                ModelState.Clear();
-                return View("AddOrder");
-            }
-            else
-            {
-                Response.Write("Error, " + dao.message);
-                return View();
-            }
         }
 
         [HttpPost]
@@ -49,10 +30,10 @@ namespace RunningSite.Controllers
             ModelState.Remove("LastName");
             ModelState.Remove("ConfirmPassword");
 
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                if(account.AccountRole == RoleEnum.Admin 
-                    && account.Email == "webdev@outlook.com" 
+                if (account.AccountRole == RoleEnum.Admin
+                    && account.Email == "webdev@outlook.com"
                     && account.Password == "webAdmin")
                 {
                     Session["name"] = "Admin";
@@ -61,10 +42,10 @@ namespace RunningSite.Controllers
                     return RedirectToAction("Index", "Admin");
                 }
 
-                else if(account.AccountRole == RoleEnum.Customer)
+                else if (account.AccountRole == RoleEnum.Customer)
                 {
                     account.FirstName = dao.CheckLogin(account);
-                    if(account.FirstName != null)
+                    if (account.FirstName != null)
                     {
                         Session["name"] = account.FirstName;
                         Session["email"] = account.Email;
@@ -82,5 +63,37 @@ namespace RunningSite.Controllers
             return View("Status");
         }
 
+
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public ActionResult Register(Account visitor)
+        {
+            int counter = 0;
+            counter = dao.EnterAccount(visitor);
+
+            if (counter == 1)
+            {
+                
+                ModelState.Clear();
+                return View("Index");
+            }
+            else
+            {
+                Response.Write("Error, " + dao.message);
+                return View();
+            }
+        }
+
+
+        public ActionResult Logout()
+        {
+            Session.Clear();
+            return RedirectToAction("Login");
+        }
     }
 }
