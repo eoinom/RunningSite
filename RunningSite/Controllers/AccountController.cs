@@ -36,18 +36,14 @@ namespace RunningSite.Controllers
 
             if (ModelState.IsValid)
             {
-                //if (account.AccountRole == RoleEnum.Admin
-                //    && account.Email == "webdev@outlook.com"
-                //    && account.Password == "webAdmin")
-                if (account.Email == "webdev@outlook.com"
-                    && account.Password == "webAdmin")
+                //Admin login details: Email = "webdev@outlook.com", Password == "webAdmin"
+                if (account.Email == "webdev@outlook.com" && dao.CheckLogin(account) == "Web")
                 {
                     Session["name"] = "Admin";
-                    Session["email"] = "webdev@outlook.com";
+                    Session["email"] = account.Email;
 
                     return RedirectToAction("Index", "Admin");
                 }
-                //else if (account.AccountRole == RoleEnum.Customer
                 else
                 {
                     account.FirstName = dao.CheckLogin(account);
