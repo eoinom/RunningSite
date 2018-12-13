@@ -1,0 +1,158 @@
+﻿@model RunningSite.Models.AccountOrder
+
+@{
+    ViewBag.Title = "AlterOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    <h2>Alter Order</h2>
+
+    @using (Html.BeginForm("AlterOrder", "Order", FormMethod.Post))
+    {
+        <p>
+            <span class="newline">
+                @Html.LabelFor(ao => ao.order_model.AddressLine1, "Address Line 1:", new { @class = "label" })
+            </span>
+            @Html.TextBoxFor(ao => ao.order_model.AddressLine1)
+            @Html.ValidationMessageFor(ao => ao.order_model.AddressLine1, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(ao => ao.order_model.AddressLine2, "Address Line 2:", new { @class = "label" })
+            </span>
+            @Html.TextBoxFor(ao => ao.order_model.AddressLine2)
+            @Html.ValidationMessageFor(ao => ao.order_model.AddressLine2, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(ao => ao.order_model.City, "City:", new { @class = "label" })
+            </span>
+            @Html.TextBoxFor(ao => ao.order_model.City)
+            @Html.ValidationMessageFor(ao => ao.order_model.City, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(ao => ao.order_model.PostCode, "Post Code:", new { @class = "label" })
+            </span>
+            @Html.TextBoxFor(ao => ao.order_model.PostCode)
+            @Html.ValidationMessageFor(ao => ao.order_model.PostCode, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(ao => ao.order_model.Country, "Country:", new { @class = "label" })
+            </span>
+            @Html.TextBoxFor(ao => ao.order_model.Country)
+            @Html.ValidationMessageFor(ao => ao.order_model.Country, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(ao => ao.order_model.Mobile, "Mobile No.:", new { @class = "label" })
+            </span>
+            @Html.TextBoxFor(ao => ao.order_model.Mobile)
+            @Html.ValidationMessageFor(ao => ao.order_model.Mobile, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(ao => ao.order_model.EmergencyContactName, "Emergency Contact Name:", new { @class = "label" })
+            </span>
+            @Html.TextBoxFor(ao => ao.order_model.EmergencyContactName)
+            @Html.ValidationMessageFor(ao => ao.order_model.EmergencyContactName, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(ao => ao.order_model.EmergencyContactNo, "Emergency Contact No.:", new { @class = "label" })
+            </span>
+            @Html.TextBoxFor(ao => ao.order_model.EmergencyContactNo)
+            @Html.ValidationMessageFor(ao => ao.order_model.EmergencyContactNo, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(ao => ao.order_model.MedicalDetails, "Medical Details:", new { @class = "label" })
+            </span>
+            @Html.TextAreaFor(ao => ao.order_model.MedicalDetails)
+            @Html.ValidationMessageFor(ao => ao.order_model.MedicalDetails, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(ao => ao.order_model.RaceId, "Race:", new { @class = "label" })
+            </span>
+            @Html.TextBoxFor(ao => ao.order_model.RaceId)
+            @Html.ValidationMessageFor(ao => ao.order_model.RaceId, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(ao => ao.order_model.StartGroup, "Start Group:", new { @class = "label" })
+            </span>
+            @Html.EnumDropDownListFor(ao => ao.order_model.StartGroup)
+            @Html.ValidationMessageFor(ao => ao.order_model.StartGroup, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(ao => ao.order_model.TshirtSize, "T-shirt Size:", new { @class = "label" })
+            </span>
+            @Html.EnumDropDownListFor(ao => ao.order_model.TshirtSize)
+            @Html.ValidationMessageFor(ao => ao.order_model.TshirtSize, "", new { @class = "error" })
+        </p>
+        @*<p>
+                @Html.CheckBoxFor(ao => ao.order_model.OrderMedalInsert) Tick the box if you would like to order a special Medal Insert engraved with your name and finish time. The insert will be posted out to you within a few weeks after the festival. Cost: €4.
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(ao => ao.order_model.CC_Type, "Card Type:", new { @class = "label" })
+                </span>
+                @Html.EnumDropDownListFor(ao => ao.order_model.CC_Type)
+                @Html.ValidationMessageFor(ao => ao.order_model.CC_Type, "", new { @class = "error" })
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(ao => ao.order_model.CC_Holder_FirstName, "Card Holder First Name:", new { @class = "label" })
+                </span>
+                @Html.TextBoxFor(ao => ao.order_model.CC_Holder_FirstName)
+                @Html.ValidationMessageFor(ao => ao.order_model.CC_Holder_FirstName, "", new { @class = "error" })
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(ao => ao.order_model.CC_Holder_LastName, "Card Holder Last Name:", new { @class = "label" })
+                </span>
+                @Html.TextBoxFor(ao => ao.order_model.CC_Holder_LastName)
+                @Html.ValidationMessageFor(ao => ao.order_model.CC_Holder_LastName, "", new { @class = "error" })
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(ao => ao.order_model.CC_Number, "Card Number:", new { @class = "label" })
+                </span>
+                @Html.TextBoxFor(ao => ao.order_model.CC_Number)
+                @Html.ValidationMessageFor(ao => ao.order_model.CC_Number, "", new { @class = "error" })
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(ao => ao.order_model.CC_ExpDate_Month, "Expiry Month:", new { @class = "label" })
+                </span>
+                @Html.TextBoxFor(ao => ao.order_model.CC_ExpDate_Month)
+                @Html.ValidationMessageFor(ao => ao.order_model.CC_ExpDate_Month, "", new { @class = "error" })
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(ao => ao.order_model.CC_ExpDate_Year, "Expiry Year:", new { @class = "label" })
+                </span>
+                @Html.TextBoxFor(ao => ao.order_model.CC_ExpDate_Year)
+                @Html.ValidationMessageFor(ao => ao.order_model.CC_ExpDate_Year, "", new { @class = "error" })
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(ao => ao.order_model.CC_SecCode, "Security Code:", new { @class = "label" })
+                </span>
+                @Html.TextBoxFor(ao => ao.order_model.CC_SecCode)
+                @Html.ValidationMessageFor(ao => ao.order_model.CC_SecCode, "", new { @class = "error" })
+            </p>*@
+        <p>
+            <input type="submit" value="Alter Order" />
+        </p>
+    }
+    <p>
+        @Html.ActionLink("Go Back", "Index", "Account")
+    </p>
+
+</div>

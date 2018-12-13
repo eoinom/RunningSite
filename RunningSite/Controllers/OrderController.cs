@@ -24,21 +24,49 @@ namespace MarathonFestival3.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddOrder(Order order)
+        public ActionResult AddOrder(AccountOrder acc_order)
+        {
+            if (ModelState.IsValid) { 
+                int counter = 0;
+                counter = dao.EnterOrder(acc_order);
+
+                if (counter == 1)
+                {
+                    Response.Write("Your order is complete and you have now secured your place in the Festival.");
+                    ModelState.Clear();
+                    return RedirectToAction("Index", "Account");
+                }
+                else
+                {
+                    Response.Write("Error, " + dao.message);
+                }
+            }
+            return View();
+        }
+
+
+        [HttpGet]
+        public ActionResult AlterOrder()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AlterOrder(AccountOrder acc_order)
         {
             int counter = 0;
-            counter = dao.EnterOrder(order);
+            counter = dao.AlterOrder(acc_order);
 
             if (counter == 1)
             {
-                Response.Write("Thank you for you order");
+                Response.Write("Thank you, your order details have been updated.");
                 ModelState.Clear();
             }
             else
             {
                 Response.Write("Error, " + dao.message);
             }
-                
+
             return View();
         }
     }
