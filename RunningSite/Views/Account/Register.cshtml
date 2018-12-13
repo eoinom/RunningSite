@@ -11,6 +11,10 @@
 <div class="container">
     <h2>Register</h2>
 
+    <p>
+        @ViewBag.Status
+    </p>
+
     @using (Html.BeginForm("Register", "Account", FormMethod.Post))
     {
         <p>
@@ -46,6 +50,7 @@
                 @Html.LabelFor(a => a.ConfirmPassword, "Confirm Password:", new { @class = "label" })
             </span>
             @Html.PasswordFor(a => a.ConfirmPassword)
+            @Html.ValidationMessageFor(a => a.ConfirmPassword, "Passwords do not match", new { @class = "error" })
         </p>
         <p>
             <span class="newline">
@@ -73,7 +78,7 @@
             @Html.CheckBoxFor(a => a.NewsletterSub)Keep up to date: subscribe to the Dingle Running Festival Newsletter
         </p>
         <p>
-            <input type="submit" value="Register"/>
+            <input type="submit" value="Register" />
         </p>
     }
 </div>

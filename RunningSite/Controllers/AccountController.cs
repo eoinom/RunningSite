@@ -14,7 +14,10 @@ namespace RunningSite.Controllers
         // GET: Account
         public ActionResult Index()
         {
-            return View();
+            if (Session["name"] == null)
+                return RedirectToAction("Login");
+            else
+                return View();
         }
 
 
@@ -29,20 +32,19 @@ namespace RunningSite.Controllers
             ModelState.Remove("FirstName");
             ModelState.Remove("LastName");
             ModelState.Remove("ConfirmPassword");
+            ModelState.Remove("Country");
 
             if (ModelState.IsValid)
             {
-                if (account.AccountRole == RoleEnum.Admin
-                    && account.Email == "webdev@outlook.com"
-                    && account.Password == "webAdmin")
+                //Admin login details: Email = "webdev@outlook.com", Password == "webAdmin"
+                if (account.Email == "webdev@outlook.com" && dao.CheckLogin(account) == "Web")
                 {
                     Session["name"] = "Admin";
-                    Session["email"] = "webdev@outlook.com";
+                    Session["email"] = account.Email;
 
                     return RedirectToAction("Index", "Admin");
                 }
-
-                else if (account.AccountRole == RoleEnum.Customer)
+                else
                 {
                     account.FirstName = dao.CheckLogin(account);
                     if (account.FirstName != null)
@@ -50,17 +52,19 @@ namespace RunningSite.Controllers
                         Session["name"] = account.FirstName;
                         Session["email"] = account.Email;
 
-                        return RedirectToAction("index", "Home");
+                        return RedirectToAction("Index", "Account");
                     }
                     else
                     {
                         ViewBag.Status = "Error " + dao.message;
 
-                        return View("Status");
+                        //return View("Status");
+                        return View();
                     }
                 }
             }
-            return View("Status");
+            //return View("Status");
+            return View();
         }
 
 
@@ -74,19 +78,19 @@ namespace RunningSite.Controllers
         public ActionResult Register(Account visitor)
         {
             int counter = 0;
-            counter = dao.EnterAccount(visitor);
+            if (ModelState.IsValid)
+            {
+                counter = dao.EnterAccount(visitor);
+                if (counter == 1)
+                    ViewBag.Status = "Account created successfully";
+                else
+                    ViewBag.Status = "Error! " + dao.message;
 
-            if (counter == 1)
-            {
-                
-                ModelState.Clear();
-                return View("Index");
-            }
-            else
-            {
-                Response.Write("Error, " + dao.message);
+                //return View("Status");
                 return View();
             }
+            return View(visitor);
+
         }
 
 

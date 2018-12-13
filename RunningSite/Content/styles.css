@@ -19,6 +19,18 @@ body {
     white-space: pre;
 }
 
+.clear {
+    clear: both;
+}
+
+.error {
+    color: red;
+}
+
+.login_register {
+    float: right;
+}
+
 .welcome-container {
     background: #f1f1f1f1;
 }
@@ -45,7 +57,7 @@ body {
 .bookingbtn {
     text-align: right;
     padding-top: 15px;
-    padding-bottom: 15px;
+    /*padding-bottom: 15px;*/
     line-height: 50px;
 }
 
@@ -757,7 +769,7 @@ footer {
 /*#endregion*/
 
 
-/*#region ==== START OF ROOM BOXES ==== */
+/*#region ==== START OF RACE BOXES ==== */
 .wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -765,6 +777,7 @@ footer {
     grid-gap: 1em;
     justify-items: stretch;
     align-items: stretch;
+    padding-bottom: 20px;
 }
 
     .wrapper > div {
@@ -812,25 +825,25 @@ footer {
 .box1 {
     grid-column: 1/2;
     grid-row: 1/2;
-    background-image: url("../Images/bedroom_single.jpg");
+    background-image: url("Images/DingleKerrymarathon3.jpg");
 }
 
 .box2 {
     grid-column: 1/2;
     grid-row: 2/3;
-    background-image: url("../Images/room-double-with-wooden-floor-2.jpg");
+    background-image: url("Images/DingleKerrymarathon6.jpg");
 }
 
 .box3 {
     grid-column: 2/3;
     grid-row: 1/3;
-    background-image: url("../Images/bedroom_triple.jpg");
+    background-image: url("Images/DingleKerrymarathon8.jpg");
 }
 
 .box4 {
     grid-column: 1/3;
     grid-row: 3/5;
-    background-image: url("../Images/room-double-with-wooden-floor.jpeg");
+    background-image: url("Images/DingleKerrymarathon12.jpg");
 }
 /*#endregion*/
 

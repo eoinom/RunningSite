@@ -10,7 +10,7 @@ namespace RunningSite.Models
     public class Account
     {
         [Required]
-        [DataType(DataType.EmailAddress)]
+        [EmailAddress]
         public string Email { get; set; }
 
         [Required]

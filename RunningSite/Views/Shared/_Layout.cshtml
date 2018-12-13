@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using RunningSite.Models;
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -56,10 +58,36 @@
                         </a>
                     </div>
                     <div class="bookingbtn">
-                        <a href="@Url.Action("Login", "Account")" , class="button_booknow">Enter Now</a>
+                        @if (Session["name"] == null)
+                        {
+                            <a href="@Url.Action("Login", "Account")" , class="button_booknow">Enter Now</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("AddOrder", "Order")" , class="button_booknow">Enter Now</a>
+                        }
                     </div>
                     <div class="bookingbtn-responsive">
-                        <a href="@Url.Action("Login", "Account")" , class="button_booknow">Enter</a>
+                        @if (Session["name"] == null)
+                        {
+                            <a href="@Url.Action("Login", "Account")" , class="button_booknow">Enter</a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("AddOrder", "Order")" , class="button_booknow">Enter</a>
+                        }
+                    </div>
+                    <div class="login_register">
+                        <p>
+                            @RenderPage("LoginRegister.cshtml")
+                        </p>
+                        @RenderSection("logged", false)
+                        @section logged{
+                            @if (Session["name"] == null || Session["name"].ToString() != "Staff")
+                            {
+                                Response.Redirect(Url.Action("Login", "User"));
+                            }
+                        }
                     </div>
                 </div>
             </div>
@@ -94,11 +122,11 @@
 
                 <div class="navbar-nav">
                     @*<a href="index.html" class="current">Home</a>*@
-                    @Html.ActionLink("Home", "Index", "Home")
+                    @Html.NavigationLink("Home", "Index", "Home")
                     <!-- <a href="about.html">About</a> -->
                     <div class="dropdown">
                         <div class="dropbtn">
-                            <a href="@Url.Action("Index", "Race")">Races <i class="fa fa-caret-down"></i></a>
+                            @Html.ActionLinkInnerHtmlNav("Races ", "Index", "Race", rightInnerHtml: "<i class=\"fa fa-caret-down\"></i>")
                         </div>
                         <div class="dropdown-content">
                             @Html.ActionLink("Marathon", "Marathon", "Race")
@@ -109,7 +137,7 @@
                     </div>
                     <div class="dropdown">
                         <div class="dropbtn">
-                            <a href="@Url.Action(" Index", "Training" )">Training <i class="fa fa-caret-down"></i></a>
+                            <a href="@Url.Action("Index", "Training")">Training <i class="fa fa-caret-down"></i></a>
                         </div>
                         <div class="dropdown-content">
                             @Html.ActionLink("Training Plans", "Plans", "Training")
@@ -120,10 +148,10 @@
                             @Html.ActionLink("Raceday Advice", "Raceday", "Training")
                         </div>
                     </div>
-                    @Html.ActionLink("FAQ", "FAQ", "Home")
-                    @Html.ActionLink("Results", "Search", "Result")
-                    <a href="@Url.Action("Login", "Account")" , class="button_booknow">Register</a>
-                    @Html.ActionLink("Contact", "Contact", "Home")
+                    @Html.NavigationLink("FAQ", "FAQ", "Home")
+                    @Html.NavigationLink("Results", "Search", "Result")
+                    @Html.NavigationLink("Enter", "Index", "Account")
+                    @Html.NavigationLink("Contact", "Contact", "Home")
                 </div>
 
             </div>
@@ -184,7 +212,7 @@
                 </div>
             </div>
         </div>
-        <p>DBS B8IT121 WebDev Dream Team, Copyright &copy; 2018</p>
+        <p>DBS B8IT121 WebDev Dream Team, Copyright &copy; @DateTime.Now.Year</p>
     </footer>
     <!-- END OF FOOTER -->
     <!-- START OF JAVASCRIPT -->

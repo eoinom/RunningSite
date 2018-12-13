@@ -1,4 +1,4 @@
-﻿@model RunningSite.Models.Account
+﻿@model RunningSite.Models.AccountOrder
 
 @{
     ViewBag.Title = "Index";
@@ -6,6 +6,44 @@
 }
 
 <div class="container">
-    <h3>Welcome @ViewBag.Name</h3>
+
+    <h2>Account Homepage</h2>
+
+    @*@if (Model.order_model.BibNo > 0)
+    {
+        <p>
+            @Html.ActionLink("Enter the 2019 Dingle Running Festival", "AddOrder", "Order")
+        </p>
+    }
+    else
+    {
+        <p>
+            @Html.ActionLink("Make Changes to Festival Registration", "AlterOrder", "Order")
+        </p>
+    }*@
+
+
+    <p>
+        @*This should only appear if they have yet to enter the festival (complete an order)*@
+        @Html.ActionLink("Enter the 2019 Dingle Running Festival", "AddOrder", "Order")
+    </p>
+    <p>
+        @*This should only appear if they have already entered the upcoming festival (completed an order)*@
+        @Html.ActionLink("Make Changes to Festival Registration", "AlterOrder", "Order")
+    </p>
+
+
+    <p>
+        @Html.ActionLink("Manage Account", "Manage", "Account")
+    </p>
+
+    <p>
+        @Html.ActionLink("View Past Orders", "Index", "Order")
+    </p>
+
+    <p>
+        @Html.ActionLink("Give Feedback", "Contact", "Home")
+    </p>
+
 </div>
 

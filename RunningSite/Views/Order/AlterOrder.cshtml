@@ -1,14 +1,15 @@
 ﻿@model RunningSite.Models.AccountOrder
 
 @{
-    ViewBag.Title = "AddOrder";
+    ViewBag.Title = "AlterOrder";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container">
-    <h2>Register</h2>
 
-    @using (Html.BeginForm("AddOrder", "Order", FormMethod.Post))
+    <h2>Alter Order</h2>
+
+    @using (Html.BeginForm("AlterOrder", "Order", FormMethod.Post))
     {
         <p>
             <span class="newline">
@@ -94,69 +95,64 @@
             @Html.EnumDropDownListFor(ao => ao.order_model.TshirtSize)
             @Html.ValidationMessageFor(ao => ao.order_model.TshirtSize, "", new { @class = "error" })
         </p>
+        @*<p>
+                @Html.CheckBoxFor(ao => ao.order_model.OrderMedalInsert) Tick the box if you would like to order a special Medal Insert engraved with your name and finish time. The insert will be posted out to you within a few weeks after the festival. Cost: €4.
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(ao => ao.order_model.CC_Type, "Card Type:", new { @class = "label" })
+                </span>
+                @Html.EnumDropDownListFor(ao => ao.order_model.CC_Type)
+                @Html.ValidationMessageFor(ao => ao.order_model.CC_Type, "", new { @class = "error" })
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(ao => ao.order_model.CC_Holder_FirstName, "Card Holder First Name:", new { @class = "label" })
+                </span>
+                @Html.TextBoxFor(ao => ao.order_model.CC_Holder_FirstName)
+                @Html.ValidationMessageFor(ao => ao.order_model.CC_Holder_FirstName, "", new { @class = "error" })
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(ao => ao.order_model.CC_Holder_LastName, "Card Holder Last Name:", new { @class = "label" })
+                </span>
+                @Html.TextBoxFor(ao => ao.order_model.CC_Holder_LastName)
+                @Html.ValidationMessageFor(ao => ao.order_model.CC_Holder_LastName, "", new { @class = "error" })
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(ao => ao.order_model.CC_Number, "Card Number:", new { @class = "label" })
+                </span>
+                @Html.TextBoxFor(ao => ao.order_model.CC_Number)
+                @Html.ValidationMessageFor(ao => ao.order_model.CC_Number, "", new { @class = "error" })
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(ao => ao.order_model.CC_ExpDate_Month, "Expiry Month:", new { @class = "label" })
+                </span>
+                @Html.TextBoxFor(ao => ao.order_model.CC_ExpDate_Month)
+                @Html.ValidationMessageFor(ao => ao.order_model.CC_ExpDate_Month, "", new { @class = "error" })
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(ao => ao.order_model.CC_ExpDate_Year, "Expiry Year:", new { @class = "label" })
+                </span>
+                @Html.TextBoxFor(ao => ao.order_model.CC_ExpDate_Year)
+                @Html.ValidationMessageFor(ao => ao.order_model.CC_ExpDate_Year, "", new { @class = "error" })
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(ao => ao.order_model.CC_SecCode, "Security Code:", new { @class = "label" })
+                </span>
+                @Html.TextBoxFor(ao => ao.order_model.CC_SecCode)
+                @Html.ValidationMessageFor(ao => ao.order_model.CC_SecCode, "", new { @class = "error" })
+            </p>*@
         <p>
-            @Html.CheckBoxFor(ao => ao.order_model.OrderMedalInsert) Tick the box if you would like to order a special Medal Insert engraved with your name and finish time. The insert will be posted out to you within a few weeks after the festival. Cost: €4.
-        </p>
-        <p>
-            <span class="newline">
-                @Html.LabelFor(ao => ao.order_model.CC_Type, "Card Type:", new { @class = "label" })
-            </span>
-            @Html.EnumDropDownListFor(ao => ao.order_model.CC_Type)
-            @Html.ValidationMessageFor(ao => ao.order_model.CC_Type, "", new { @class = "error" })
-        </p>
-        <p>
-            <span class="newline">
-                @Html.LabelFor(ao => ao.order_model.CC_Holder_FirstName, "Card Holder First Name:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(ao => ao.order_model.CC_Holder_FirstName)
-            @Html.ValidationMessageFor(ao => ao.order_model.CC_Holder_FirstName, "", new { @class = "error" })
-        </p>
-        <p>
-            <span class="newline">
-                @Html.LabelFor(ao => ao.order_model.CC_Holder_LastName, "Card Holder Last Name:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(ao => ao.order_model.CC_Holder_LastName)
-            @Html.ValidationMessageFor(ao => ao.order_model.CC_Holder_LastName, "", new { @class = "error" })
-        </p>
-        <p>
-            <span class="newline">
-                @Html.LabelFor(ao => ao.order_model.CC_Number, "Card Number:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(ao => ao.order_model.CC_Number)
-            @Html.ValidationMessageFor(ao => ao.order_model.CC_Number, "", new { @class = "error" })
-        </p>
-        <p>
-            <span class="newline">
-                @Html.LabelFor(ao => ao.order_model.CC_ExpDate_Month, "Expiry Month:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(ao => ao.order_model.CC_ExpDate_Month)
-            @Html.ValidationMessageFor(ao => ao.order_model.CC_ExpDate_Month, "", new { @class = "error" })
-        </p>
-        <p>
-            <span class="newline">
-                @Html.LabelFor(ao => ao.order_model.CC_ExpDate_Year, "Expiry Year:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(ao => ao.order_model.CC_ExpDate_Year)
-            @Html.ValidationMessageFor(ao => ao.order_model.CC_ExpDate_Year, "", new { @class = "error" })
-        </p>
-        <p>
-            <span class="newline">
-                @Html.LabelFor(ao => ao.order_model.CC_SecCode, "Security Code:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(ao => ao.order_model.CC_SecCode)
-            @Html.ValidationMessageFor(ao => ao.order_model.CC_SecCode, "", new { @class = "error" })
-        </p>
-        <p>
-            <input type="submit" value="Place Order" />
+            <input type="submit" value="Alter Order" />
         </p>
     }
     <p>
         @Html.ActionLink("Go Back", "Index", "Account")
     </p>
+
 </div>
-
-
-
-
-
-

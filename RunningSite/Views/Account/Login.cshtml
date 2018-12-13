@@ -8,7 +8,11 @@
 <div class="container">
     <h2>Login</h2>
 
-    @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+    <p>
+        @ViewBag.Status
+    </p>
+
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
     {
         <p>
             <span class="newline">
