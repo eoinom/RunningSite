@@ -109,15 +109,15 @@
                     </div>
                     <div class="dropdown">
                         <div class="dropbtn">
-                            <a href="@Url.Action("Training", "Home")">Training <i class="fa fa-caret-down"></i></a>
+                            <a href="@Url.Action(" Index", "Training" )">Training <i class="fa fa-caret-down"></i></a>
                         </div>
                         <div class="dropdown-content">
-                            <a href="training-plans.html">Training Plans</a>
-                            <a href="training-tips.html">Training Tips</a>
-                            <a href="nutrition-advice.html">Nutrition Advice</a>
-                            <a href="hydration-advice.html">Hydration Advice</a>
-                            <a href="kit-advice.html">Kit Advice</a>
-                            <a href="raceday-advice.html">Race Day Advice</a>
+                            @Html.ActionLink("Training Plans", "Plans", "Training")
+                            @Html.ActionLink("Training Tips", "Tips", "Training")
+                            @Html.ActionLink("Nutrition Advice", "Nutrition", "Training")
+                            @Html.ActionLink("Hydration Advice", "Hydration", "Training")
+                            @Html.ActionLink("Kit Advice", "Kit", "Training")
+                            @Html.ActionLink("Raceday Advice", "Raceday", "Training")
                         </div>
                     </div>
                     @Html.ActionLink("FAQ", "FAQ", "Home")
@@ -141,14 +141,14 @@
             <li>@Html.ActionLink("10K", "TenK", "Race")
             <li>@Html.ActionLink("Family 5K", "Family5K", "Race")
         </ul>
-        @Html.ActionLink("Training", "Training", "Home")
+        @Html.ActionLink("Training", "Index", "Training")
         <ul>
-            <li><a href="training-plans.html">Training Plans</a>
-            <li><a href="training-tips.html">Training Tips</a>
-            <li><a href="nutrition-advice.html">Nutrition Advice</a>
-            <li><a href="hydration-advice.html">Hydration Advice</a>
-            <li><a href="kit-advice.html">Kit Advice</a>
-            <li><a href="raceday-advice.html">Race Day Advice</a>
+            <li>@Html.ActionLink("Training Plans", "Plans", "Training")
+            <li>@Html.ActionLink("Training Tips", "Tips", "Training")
+            <li>@Html.ActionLink("Nutrition Advice", "Nutrition", "Training")
+            <li>@Html.ActionLink("Hydration Advice", "Hydration", "Training")
+            <li>@Html.ActionLink("Kit Advice", "Kit", "Training")
+            <li>@Html.ActionLink("Raceday Advice", "Raceday", "Training")
         </ul>
         @Html.ActionLink("FAQ", "FAQ", "Home")
         @Html.ActionLink("Results", "Search", "Result")
@@ -175,10 +175,11 @@
 
                 <div id="footerLinks">
                     <ul class="footerList">
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="disclaimer.html">Disclaimer</a></li>
-                        <li><a href="sitemap.html">Site Map</a></li>
+                        <li>@Html.ActionLink("Privacy Policy", "Privacy", "Home")
+                        <li>@Html.ActionLink("Terms & Conditions", "Terms", "Home")
+                        <li>@Html.ActionLink("Site Map", "SiteMap", "Home")
                         <li><a href="index.html#newsletter">Mailing List</a></li>
+                        @*<li>@Html.ActionLink("Mailing List", "Plans", "Home")*@
                     </ul>
                 </div>
             </div>
