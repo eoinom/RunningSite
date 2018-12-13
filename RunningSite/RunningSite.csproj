@@ -137,6 +137,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ResultController.cs" />
+    <Compile Include="Controllers\TrainingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -179,6 +180,16 @@
     <Content Include="Views\Shared\LoginRegister.cshtml" />
     <Content Include="Views\Admin\Index.cshtml" />
     <Content Include="Views\Order\AlterOrder.cshtml" />
+    <Content Include="Views\Home\Privacy.cshtml" />
+    <Content Include="Views\Home\SiteMap.cshtml" />
+    <Content Include="Views\Home\Terms.cshtml" />
+    <Content Include="Views\Training\Hydration.cshtml" />
+    <Content Include="Views\Training\Index.cshtml" />
+    <Content Include="Views\Training\Kit.cshtml" />
+    <Content Include="Views\Training\Nutrition.cshtml" />
+    <Content Include="Views\Training\Plans.cshtml" />
+    <Content Include="Views\Training\Raceday.cshtml" />
+    <Content Include="Views\Training\Tips.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
