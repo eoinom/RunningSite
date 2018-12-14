@@ -7,6 +7,7 @@ using System.Data;
 using System.Web.Configuration;
 using System.Web.Helpers;
 
+
 namespace RunningSite.Models
 {
 
@@ -90,57 +91,24 @@ namespace RunningSite.Models
             {
                 message = ex1.Message;
             }
-
             finally
             {
                 con.Close();
             }
-
             return firstName;
         }
 
-        #endregion
-
-        #region Orders
-
-        public int EnterOrder(AccountOrder acc_order)
+        public int ManageAccount(Account account)
         {
             int count = 0;
-            SqlCommand cmd = new SqlCommand("usp_EnterOrderDetails", con);
+            SqlCommand cmd = new SqlCommand("usp_AmendAccountDetails", con);    //Need to create this Stored Procedure
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@OrderNo", acc_order.order_model.OrderNo);
-            cmd.Parameters.AddWithValue("@OrderDate", DateTime.Today.Date);
-
-            cmd.Parameters.AddWithValue("@RaceId", acc_order.order_model.RaceId);
-            cmd.Parameters.AddWithValue("@BibNo", acc_order.order_model.BibNo);
-            cmd.Parameters.AddWithValue("@TShirtSize", acc_order.order_model.TshirtSize);
-            cmd.Parameters.AddWithValue("@OrderMedalInsert", acc_order.order_model.OrderMedalInsert);
-            cmd.Parameters.AddWithValue("@StartGroup", acc_order.order_model.StartGroup);
-            cmd.Parameters.AddWithValue("@TotalAmount", acc_order.order_model.TotalAmount);
-
-            cmd.Parameters.AddWithValue("@AgreeRaceDisclaimer", acc_order.order_model.AgreeRaceDisclaimer);
-            cmd.Parameters.AddWithValue("@AgreeTermsAndConditions", acc_order.order_model.AgreeTermsAndConditions);
-
-            cmd.Parameters.AddWithValue("@Address1", acc_order.order_model.AddressLine1);
-            cmd.Parameters.AddWithValue("@Address2", acc_order.order_model.AddressLine2);
-            cmd.Parameters.AddWithValue("@City", acc_order.order_model.City);
-            cmd.Parameters.AddWithValue("@PostalCode", acc_order.order_model.PostCode);
-            cmd.Parameters.AddWithValue("@Country", acc_order.order_model.Country);
-
-            cmd.Parameters.AddWithValue("@EmergencyContactName", acc_order.order_model.EmergencyContactName);
-            cmd.Parameters.AddWithValue("@EmergencyContactNo", acc_order.order_model.EmergencyContactNo);
-            cmd.Parameters.AddWithValue("@MedicalDetails", acc_order.order_model.MedicalDetails);
-            cmd.Parameters.AddWithValue("@Mobile", acc_order.order_model.Mobile);
-            cmd.Parameters.AddWithValue("@Email", acc_order.account_model.Email);  
-
-            cmd.Parameters.AddWithValue("@CC_Type", acc_order.order_model.CC_Type);
-            cmd.Parameters.AddWithValue("@CC_Holder_FirstName", acc_order.order_model.CC_Holder_FirstName);
-            cmd.Parameters.AddWithValue("@CC_Holder_LastName", acc_order.order_model.CC_Holder_LastName);
-            cmd.Parameters.AddWithValue("@CC_Number", acc_order.order_model.CC_Number);
-            cmd.Parameters.AddWithValue("@CC_ExpDate_Month", acc_order.order_model.CC_ExpDate_Month);
-            cmd.Parameters.AddWithValue("@CC_ExpDate_Year", acc_order.order_model.CC_ExpDate_Year);
-            cmd.Parameters.AddWithValue("@CC_SecCode", acc_order.order_model.CC_SecCode);
+            cmd.Parameters.AddWithValue("@Email", account.Email);
+            string password = Crypto.HashPassword(account.Password);
+            cmd.Parameters.AddWithValue("@Pass", password);
+            cmd.Parameters.AddWithValue("@Country", account.Country);
+            cmd.Parameters.AddWithValue("@NewsletterSub", account.NewsletterSub);
 
             try
             {
@@ -148,11 +116,68 @@ namespace RunningSite.Models
                 count = cmd.ExecuteNonQuery();
             }
             catch (SystemException ex)
-
             {
                 message = ex.Message;
             }
+            finally
+            {
+                con.Close();
+            }
+            return count;
+        }
 
+        #endregion
+
+        #region Orders
+
+        public int EnterOrder(Order order)
+        {
+            int count = 0;
+            SqlCommand cmd = new SqlCommand("usp_EnterOrderDetails", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@OrderNo", order.OrderNo);
+            cmd.Parameters.AddWithValue("@OrderDate", DateTime.Today.Date);
+
+            cmd.Parameters.AddWithValue("@RaceId", order.RaceId);
+            cmd.Parameters.AddWithValue("@BibNo", order.BibNo);
+            cmd.Parameters.AddWithValue("@TShirtSize", order.TshirtSize);
+            cmd.Parameters.AddWithValue("@OrderMedalInsert", order.OrderMedalInsert);
+            cmd.Parameters.AddWithValue("@StartGroup", order.StartGroup);
+            cmd.Parameters.AddWithValue("@TotalAmount", order.TotalAmount);
+
+            cmd.Parameters.AddWithValue("@AgreeRaceDisclaimer", order.AgreeRaceDisclaimer);
+            cmd.Parameters.AddWithValue("@AgreeTermsAndConditions", order.AgreeTermsAndConditions);
+
+            cmd.Parameters.AddWithValue("@Address1", order.AddressLine1);
+            cmd.Parameters.AddWithValue("@Address2", order.AddressLine2);
+            cmd.Parameters.AddWithValue("@City", order.City);
+            cmd.Parameters.AddWithValue("@PostalCode", order.PostCode);
+            cmd.Parameters.AddWithValue("@Country", order.Country);
+
+            cmd.Parameters.AddWithValue("@EmergencyContactName", order.EmergencyContactName);
+            cmd.Parameters.AddWithValue("@EmergencyContactNo", order.EmergencyContactNo);
+            cmd.Parameters.AddWithValue("@MedicalDetails", order.MedicalDetails);
+            cmd.Parameters.AddWithValue("@Mobile", order.Mobile);
+            cmd.Parameters.AddWithValue("@Email", order.Email);  
+
+            cmd.Parameters.AddWithValue("@CC_Type", order.CC_Type);
+            cmd.Parameters.AddWithValue("@CC_Holder_FirstName", order.CC_Holder_FirstName);
+            cmd.Parameters.AddWithValue("@CC_Holder_LastName", order.CC_Holder_LastName);
+            cmd.Parameters.AddWithValue("@CC_Number", order.CC_Number);
+            cmd.Parameters.AddWithValue("@CC_ExpDate_Month", order.CC_ExpDate_Month);
+            cmd.Parameters.AddWithValue("@CC_ExpDate_Year", order.CC_ExpDate_Year);
+            cmd.Parameters.AddWithValue("@CC_SecCode", order.CC_SecCode);
+
+            try
+            {
+                con.Open();
+                count = cmd.ExecuteNonQuery();
+            }
+            catch (SystemException ex)
+            {
+                message = ex.Message;
+            }
             finally
             {
                 con.Close();
@@ -161,44 +186,36 @@ namespace RunningSite.Models
         }
 
 
-        public int AlterOrder(AccountOrder acc_order)
+        public int AlterOrder(Order order)
         {
             int count = 0;
             SqlCommand cmd = new SqlCommand("usp_AlterOrderDetails", con);  //need to create this SP
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@OrderNo", acc_order.order_model.OrderNo);
-            //cmd.Parameters.AddWithValue("@OrderNo", acc_order.order_model.OrderName);
+            cmd.Parameters.AddWithValue("@OrderNo", order.OrderNo);
+            //cmd.Parameters.AddWithValue("@OrderNo", order.OrderName);
 
-            cmd.Parameters.AddWithValue("@RaceId", acc_order.order_model.RaceId);
-            cmd.Parameters.AddWithValue("@BibNo", acc_order.order_model.BibNo);
-            cmd.Parameters.AddWithValue("@TShirtSize", acc_order.order_model.TshirtSize);
-            //cmd.Parameters.AddWithValue("@OrderMedalInsert", acc_order.order_model.OrderMedalInsert);
-            cmd.Parameters.AddWithValue("@StartGroup", acc_order.order_model.StartGroup);
-            //cmd.Parameters.AddWithValue("@TotalAmount", acc_order.order_model.TotalAmount);
+            cmd.Parameters.AddWithValue("@RaceId", order.RaceId);
+            cmd.Parameters.AddWithValue("@BibNo", order.BibNo);
+            cmd.Parameters.AddWithValue("@TShirtSize", order.TshirtSize);
+            //cmd.Parameters.AddWithValue("@OrderMedalInsert", order.OrderMedalInsert);
+            cmd.Parameters.AddWithValue("@StartGroup", order.StartGroup);
+            //cmd.Parameters.AddWithValue("@TotalAmount", order.TotalAmount);
 
-            cmd.Parameters.AddWithValue("@AgreeRaceDisclaimer", acc_order.order_model.AgreeRaceDisclaimer);
-            cmd.Parameters.AddWithValue("@AgreeTermsAndConditions", acc_order.order_model.AgreeTermsAndConditions);
+            cmd.Parameters.AddWithValue("@AgreeRaceDisclaimer", order.AgreeRaceDisclaimer);
+            cmd.Parameters.AddWithValue("@AgreeTermsAndConditions", order.AgreeTermsAndConditions);
 
-            cmd.Parameters.AddWithValue("@Address1", acc_order.order_model.AddressLine1);
-            cmd.Parameters.AddWithValue("@Address2", acc_order.order_model.AddressLine2);
-            cmd.Parameters.AddWithValue("@City", acc_order.order_model.City);
-            cmd.Parameters.AddWithValue("@PostalCode", acc_order.order_model.PostCode);
-            cmd.Parameters.AddWithValue("@Country", acc_order.order_model.Country);
+            cmd.Parameters.AddWithValue("@Address1", order.AddressLine1);
+            cmd.Parameters.AddWithValue("@Address2", order.AddressLine2);
+            cmd.Parameters.AddWithValue("@City", order.City);
+            cmd.Parameters.AddWithValue("@PostalCode", order.PostCode);
+            cmd.Parameters.AddWithValue("@Country", order.Country);
 
-            cmd.Parameters.AddWithValue("@EmergencyContactName", acc_order.order_model.EmergencyContactName);
-            cmd.Parameters.AddWithValue("@EmergencyContactNo", acc_order.order_model.EmergencyContactNo);
-            cmd.Parameters.AddWithValue("@MedicalDetails", acc_order.order_model.MedicalDetails);
-            cmd.Parameters.AddWithValue("@Mobile", acc_order.order_model.Mobile);
-            //cmd.Parameters.AddWithValue("@Email", acc_order.account_model.Email);
-
-            //cmd.Parameters.AddWithValue("@CC_Type", acc_order.order_model.CC_Type);
-            //cmd.Parameters.AddWithValue("@CC_Holder_FirstName", acc_order.order_model.CC_Holder_FirstName);
-            //cmd.Parameters.AddWithValue("@CC_Holder_LastName", acc_order.order_model.CC_Holder_LastName);
-            //cmd.Parameters.AddWithValue("@CC_Number", acc_order.order_model.CC_Number);
-            //cmd.Parameters.AddWithValue("@CC_ExpDate_Month", acc_order.order_model.CC_ExpDate_Month);
-            //cmd.Parameters.AddWithValue("@CC_ExpDate_Year", acc_order.order_model.CC_ExpDate_Year);
-            //cmd.Parameters.AddWithValue("@CC_SecCode", acc_order.order_model.CC_SecCode);
+            cmd.Parameters.AddWithValue("@EmergencyContactName", order.EmergencyContactName);
+            cmd.Parameters.AddWithValue("@EmergencyContactNo", order.EmergencyContactNo);
+            cmd.Parameters.AddWithValue("@MedicalDetails", order.MedicalDetails);
+            cmd.Parameters.AddWithValue("@Mobile", order.Mobile);
+            cmd.Parameters.AddWithValue("@Email", order.Email);
 
             try
             {
@@ -206,11 +223,9 @@ namespace RunningSite.Models
                 count = cmd.ExecuteNonQuery();
             }
             catch (SystemException ex)
-
             {
                 message = ex.Message;
             }
-
             finally
             {
                 con.Close();
@@ -228,6 +243,7 @@ namespace RunningSite.Models
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@RaceId", race.RaceId);
+            cmd.Parameters.AddWithValue("@RaceName", race.RaceName);
             cmd.Parameters.AddWithValue("@RaceDate", race.RaceDate);
             cmd.Parameters.AddWithValue("@RaceLimit", race.RaceLimit);
             cmd.Parameters.AddWithValue("@Price", race.Price);
@@ -264,6 +280,7 @@ namespace RunningSite.Models
                 {
                     Race race = new Race();
                     race.RaceId = reader["RaceId"].ToString();
+                    race.RaceName = reader["RaceName"].ToString();
                     race.RaceDate = DateTime.Parse(reader["RaceDate"].ToString());
                     race.RaceLimit = Int32.Parse(reader["RaceLimit"].ToString());
                     race.Price = decimal.Parse(reader["Price"].ToString());

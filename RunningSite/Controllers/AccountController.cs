@@ -94,6 +94,31 @@ namespace RunningSite.Controllers
         }
 
 
+        [HttpGet]
+        public ActionResult Manage()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Manage(Account visitor)
+        {
+            int counter = 0;
+            if (ModelState.IsValid)
+            {
+                counter = dao.ManageAccount(visitor);       //Need to create dao method for ManageAccount
+                if (counter == 1)
+                    ViewBag.Status = "Account details updated";
+                else
+                    ViewBag.Status = "Error! " + dao.message;
+
+                return View("Status");
+                //return View();
+            }
+            return View(visitor);
+
+        }
+
         public ActionResult Logout()
         {
             Session.Clear();

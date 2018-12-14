@@ -1,0 +1,46 @@
+﻿@model RunningSite.Models.Account
+
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Manage Account</h2>
+
+    <p>
+        @ViewBag.Status
+    </p>
+
+    @using (Html.BeginForm("Manage", "Account", FormMethod.Post))
+    {
+        <p>
+            <span class="newline">
+                @Html.LabelFor(a => a.Password, "Password (min 6 characters):", new { @class = "label" })
+            </span>
+            @Html.PasswordFor(a => a.Password)
+            @Html.ValidationMessageFor(a => a.Password, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(a => a.ConfirmPassword, "Confirm Password:", new { @class = "label" })
+            </span>
+            @Html.PasswordFor(a => a.ConfirmPassword)
+            @Html.ValidationMessageFor(a => a.ConfirmPassword, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(a => a.Country, "Country (of residence):", new { @class = "label" })
+            </span>
+            @Html.TextBoxFor(a => a.Country)
+            @*@Html.DropDownListFor(a => a.Country, new SelectList(Country, "Name", "Name"))*@
+            @Html.ValidationMessageFor(a => a.Country, "", new { @class = "error" })
+        </p>
+        <p>
+            @Html.CheckBoxFor(a => a.NewsletterSub)Keep up to date: subscribe to the Dingle Running Festival Newsletter
+        </p>
+        <p>
+            <input type="submit" value="Update" />
+        </p>
+    }
+</div>

@@ -12,6 +12,9 @@ namespace RunningSite.Models
         [DisplayName("Race ID")]
         public string RaceId { get; set; }
 
+        [DisplayName("Race Name")]
+        public string RaceName { get; set; }
+
         [DisplayName("Date")]
         [DataType(DataType.Date)]
         public DateTime RaceDate { get; set; }

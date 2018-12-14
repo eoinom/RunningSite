@@ -11,6 +11,15 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
 
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker2").datepicker();
+        });
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous">
@@ -82,12 +91,12 @@
                             @RenderPage("LoginRegister.cshtml")
                         </p>
                         @RenderSection("logged", false)
-                        @section logged{
+                        @*@section logged{
                             @if (Session["name"] == null || Session["name"].ToString() != "Staff")
                             {
                                 Response.Redirect(Url.Action("Login", "User"));
                             }
-                        }
+                        }*@
                     </div>
                 </div>
             </div>
@@ -121,9 +130,7 @@
                 </div>
 
                 <div class="navbar-nav">
-                    @*<a href="index.html" class="current">Home</a>*@
                     @Html.NavigationLink("Home", "Index", "Home")
-                    <!-- <a href="about.html">About</a> -->
                     <div class="dropdown">
                         <div class="dropbtn">
                             @Html.ActionLinkInnerHtmlNav("Races ", "Index", "Race", rightInnerHtml: "<i class=\"fa fa-caret-down\"></i>")
@@ -150,8 +157,9 @@
                     </div>
                     @Html.NavigationLink("FAQ", "FAQ", "Home")
                     @Html.NavigationLink("Results", "Search", "Result")
-                    @Html.NavigationLink("Enter", "Index", "Account")
                     @Html.NavigationLink("Contact", "Contact", "Home")
+                    @Html.NavigationLink("Account", "Index", "Account")
+
                 </div>
 
             </div>
@@ -161,7 +169,8 @@
     <!-- START OF SIDE-MENU -->
     <div id="side-menu" class="side-nav">
         <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-        <span class="current"><a href="index.html">Home</a></span>
+        @Html.ActionLink("Home", "Index", "Home")
+        @Html.ActionLink("Enter", "AddOrder", "Account")
         @Html.ActionLink("Races", "Index", "Race")
         <ul>
             <li>@Html.ActionLink("Marathon", "Marathon", "Race")
@@ -180,8 +189,8 @@
         </ul>
         @Html.ActionLink("FAQ", "FAQ", "Home")
         @Html.ActionLink("Results", "Search", "Result")
-        <a href="@Url.Action("Login", "Account")" , class="button_booknow">Register</a>
         @Html.ActionLink("Contact", "Contact", "Home")
+        @Html.ActionLink("Account", "Index", "Account")
     </div>
     <!-- END OF SIDE-MENU -->
 
@@ -206,8 +215,8 @@
                         <li>@Html.ActionLink("Privacy Policy", "Privacy", "Home")
                         <li>@Html.ActionLink("Terms & Conditions", "Terms", "Home")
                         <li>@Html.ActionLink("Site Map", "SiteMap", "Home")
-                        <li><a href="index.html#newsletter">Mailing List</a></li>
-                        @*<li>@Html.ActionLink("Mailing List", "Plans", "Home")*@
+                        @*<li><a href="index.html#newsletter">Mailing List</a></li>*@
+                        <li>@Html.ActionLink("Mailing List", "Index", "Home")
                     </ul>
                 </div>
             </div>

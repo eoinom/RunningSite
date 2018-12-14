@@ -93,5 +93,8 @@ namespace RunningSite.Models
 
         [DisplayName("Security Code")]
         public string CC_SecCode { get; set; }
+
+        [EmailAddress]
+        public string Email { get; set; }
     }
 }

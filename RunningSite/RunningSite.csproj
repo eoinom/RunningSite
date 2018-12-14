@@ -142,7 +142,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\AccountOrder.cs" />
     <Compile Include="Models\DAO.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\Extensions.cs" />
@@ -190,6 +189,7 @@
     <Content Include="Views\Training\Plans.cshtml" />
     <Content Include="Views\Training\Raceday.cshtml" />
     <Content Include="Views\Training\Tips.cshtml" />
+    <Content Include="Views\Account\Manage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,4 +1,4 @@
-﻿@model RunningSite.Models.AccountOrder
+﻿@model RunningSite.Models.Order
 
 @{
     ViewBag.Title = "Index";
@@ -9,7 +9,7 @@
 
     <h2>Account Homepage</h2>
 
-    @*@if (Model.order_model.BibNo > 0)
+    @*@if (Model.BibNo > 0)
     {
         <p>
             @Html.ActionLink("Enter the 2019 Dingle Running Festival", "AddOrder", "Order")

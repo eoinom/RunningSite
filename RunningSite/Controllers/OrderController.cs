@@ -24,11 +24,12 @@ namespace MarathonFestival3.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddOrder(AccountOrder acc_order)
+        public ActionResult AddOrder(Order order)
         {
             if (ModelState.IsValid) { 
                 int counter = 0;
-                counter = dao.EnterOrder(acc_order);
+                order.Email = Session["email"].ToString();
+                counter = dao.EnterOrder(order);
 
                 if (counter == 1)
                 {
@@ -52,10 +53,10 @@ namespace MarathonFestival3.Controllers
         }
 
         [HttpPost]
-        public ActionResult AlterOrder(AccountOrder acc_order)
+        public ActionResult AlterOrder(Order order)
         {
             int counter = 0;
-            counter = dao.AlterOrder(acc_order);
+            counter = dao.AlterOrder(order);
 
             if (counter == 1)
             {

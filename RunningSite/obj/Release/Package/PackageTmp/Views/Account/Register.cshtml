@@ -1,6 +1,4 @@
 ﻿@model RunningSite.Models.Account
-@*@model RunningSite.Utils.Country
-@model RunningSite.Utils.CountryArray*@
 
 @{
     ViewBag.Title = "Register";
@@ -50,7 +48,7 @@
                 @Html.LabelFor(a => a.ConfirmPassword, "Confirm Password:", new { @class = "label" })
             </span>
             @Html.PasswordFor(a => a.ConfirmPassword)
-            @Html.ValidationMessageFor(a => a.ConfirmPassword, "Passwords do not match", new { @class = "error" })
+            @Html.ValidationMessageFor(a => a.ConfirmPassword, "", new { @class = "error" })
         </p>
         <p>
             <span class="newline">

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
   <parameter name="conString-Web.config Connection String" description="conString Connection String used in web.config by the application to access the database." defaultValue="Data Source=dinglerunningfestivaldb.database.windows.net;Initial Catalog=DingleRunningFestivalDb;User ID=dinglesqladmin;Password=b8it121CA;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\eoin\.omalley\\GitHub\\RunningSite\\RunningSite\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='conString']/@connectionString" />
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\eoino\\Documents\\GitHub\\RunningSite\\RunningSite\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='conString']/@connectionString" />
   </parameter>
 </parameters>
