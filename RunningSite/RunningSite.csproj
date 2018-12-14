@@ -163,7 +163,6 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Result\Search.cshtml" />
-    <Content Include="Views\Result\SearchResult.cshtml" />
     <Content Include="Views\Race\AddRace.cshtml" />
     <Content Include="Views\Race\Index.cshtml" />
     <Content Include="Views\Race\Marathon.cshtml" />
@@ -190,6 +189,7 @@
     <Content Include="Views\Training\Raceday.cshtml" />
     <Content Include="Views\Training\Tips.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
+    <Content Include="Views\Result\AddResult.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

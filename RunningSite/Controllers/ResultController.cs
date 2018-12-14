@@ -18,10 +18,6 @@ namespace RunningSite.Controllers
             return View();
         }
 
-        public ActionResult SearchResult()
-        {
-            return View();
-        }
         #endregion
 
         #region Admin Actions        

@@ -10,6 +10,8 @@ namespace RunningSite.Controllers
     public class RaceController : Controller
     {
         DAO dao = new DAO();
+
+        #region User Actions
         // GET: Race
         public ActionResult Index()
         {
@@ -35,10 +37,10 @@ namespace RunningSite.Controllers
         {
             return View();
         }
+        #endregion
 
 
-
-
+        #region Admin Actions
         [HttpGet]
         public ActionResult AddRace()
         {
@@ -62,5 +64,6 @@ namespace RunningSite.Controllers
             }
             return View();
         }
+        #endregion
     }
 }
