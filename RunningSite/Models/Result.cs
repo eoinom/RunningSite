@@ -6,6 +6,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RunningSite.Models
 {
+
+    //public List<Result> Results { get; set; }
+
     public class Result
     {
         public string RaceId { get; set; }

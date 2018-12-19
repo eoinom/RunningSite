@@ -302,17 +302,18 @@ namespace RunningSite.Models
 
         #region Results
 
-        public int EnterResult(Result runner)
+        public int EnterResult(Result result)
         {
             int count = 0;
-            SqlCommand cmd = new SqlCommand("usp_EnterRunnerDetails", con);
+            SqlCommand cmd = new SqlCommand("usp_EnterResultsDetails", con);
             cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@RaceId", runner.RaceId);
-            cmd.Parameters.AddWithValue("@BibId", runner.BibNo);
-            cmd.Parameters.AddWithValue("@FinishPlace", runner.FinishPlace);
-            cmd.Parameters.AddWithValue("@FinishTime", runner.FinishTime);
-            cmd.Parameters.AddWithValue("@ChipTime", runner.ChipTime);
+            cmd.Parameters.AddWithValue("@RaceId", result.RaceId);
+            cmd.Parameters.AddWithValue("@BibId", result.BibNo);
+            cmd.Parameters.AddWithValue("@FinishPlace", result.FinishPlace);
+            cmd.Parameters.AddWithValue("@FinishTime", result.FinishTime);
+            cmd.Parameters.AddWithValue("@ChipTime", result.ChipTime);
+            //cmd.Parameters.AddWithValue("@Email", result.);
 
             try
             {

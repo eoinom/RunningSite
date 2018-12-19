@@ -163,7 +163,7 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Result\Search.cshtml" />
-    <Content Include="Views\Race\AddRace.cshtml" />
+    <Content Include="Views\Admin\AddRace.cshtml" />
     <Content Include="Views\Race\Index.cshtml" />
     <Content Include="Views\Race\Marathon.cshtml" />
     <Content Include="Views\Race\HalfMarathon.cshtml" />

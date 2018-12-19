@@ -6,5 +6,181 @@
 }
 
 <div class="container">
-    <h2>AddResult</h2>
+    <h2>Add Results</h2>
+
+    @*@using (Html.BeginForm("AddResult", "Result", FormMethod.Post))
+        {
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(r => r.RaceId, "Race ID:", new { @class = "label" })
+                </span>
+                @Html.TextBoxFor(r => r.RaceId)
+                @Html.ValidationMessageFor(r => r.RaceId, "", new { @class = "error" })
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(r => r.RaceName, "Name:", new { @class = "label" })
+                </span>
+                @Html.TextBoxFor(r => r.RaceName)
+                @Html.ValidationMessageFor(r => r.RaceName, "", new { @class = "error" })
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(r => r.RaceDate, "Date:", new { @class = "label" })
+                </span>
+                @Html.EditorFor(r => r.RaceDate)
+                @Html.ValidationMessageFor(r => r.RaceDate, "", new { @class = "error" })
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(r => r.RaceLimit, "Max Participants:", new { @class = "label" })
+                </span>
+                @Html.TextBoxFor(r => r.RaceLimit)
+                @Html.ValidationMessageFor(r => r.RaceLimit, "", new { @class = "error" })
+            </p>
+            <p>
+                <span class="newline">
+                    @Html.LabelFor(r => r.Price, "Price €", new { @class = "label" })
+                </span>
+                @Html.TextBoxFor(r => r.Price)
+                @Html.ValidationMessageFor(r => r.Price, "", new { @class = "error" })
+            </p>
+            <p>
+                <input type="submit" value="Create Race" />
+            </p>
+        }*@
+    @*<p>
+            @Html.ActionLink("Go Back", "Index", "Admin")
+        </p>*@
+
+    @using (Html.BeginForm("AddResult", "Result", FormMethod.Post))
+    {
+        <p>
+            @*<span class="newline">*@
+                @Html.LabelFor(r => r.RaceId, "Enter the Race ID you wish to enter results for:", new { @class = "label" })
+            @*</span>*@
+            @Html.TextBoxFor(r => r.RaceId)
+            @Html.ValidationMessageFor(r => r.RaceId, "", new { @class = "error" })
+        </p>
+
+        <div id="table" class="table-editable">
+            @*<span class="table-add glyphicon glyphicon-plus"></span>*@
+            <span class="table-add"><i class="fas fa-plus"></i></span>
+            <table id="table-addResults" class="table">
+                <tr>
+                    <th>Bib No.</th>
+                    <th>Finish Place</th>
+                    <th>Finish Time</th>
+                    <th>Chip Time</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    @*<td contenteditable="true">1037</td>
+                        <td contenteditable="true">103</td>*@
+                    <td><input type="number" value="1037" /></td>
+                    <td><input type="number" value="103" /></td>
+                    @*<td contenteditable="true">2:47:01</td>*@
+                    <td><input type="time" step="1" value="" /></td>
+                    <td><input type="time" step="1" value="" /></td>
+                    <td>
+                        @*<span class="table-remove glyphicon glyphicon-remove"></span>*@
+                        <span class="table-remove"><i class="fas fa-times"></i></span>
+                    </td>
+                    @*<td>*@
+                    @*<span class="table-up glyphicon glyphicon-arrow-up"></span>
+                        <span class="table-down glyphicon glyphicon-arrow-down"></span>*@
+                    @*<span class="table-up"><i class="fas fa-arrow-up"></i></span>
+                            <span class="table-down"><i class="fas fa-arrow-down"></i></span>
+                        </td>*@
+                </tr>
+                <!-- This is our clonable table line -->
+                <tr class="hide">
+                    @*<td contenteditable="true"></td>
+                        <td contenteditable="true"></td>*@
+                    <td><input type="number" value="" /></td>
+                    <td><input type="number" value="" /></td>
+                    <td><input type="time" step="1" value="" /></td>
+                    <td><input type="time" step="1" value="" /></td>
+                    <td>
+                        @*<span class="table-remove glyphicon glyphicon-remove"></span>*@
+                        <span class="table-remove"><i class="fas fa-times"></i></span>
+                    </td>
+                    @*<td>*@
+                    @*<span class="table-up glyphicon glyphicon-arrow-up"></span>
+                        <span class="table-down glyphicon glyphicon-arrow-down"></span>*@
+                    @*<span class="table-up"><i class="fas fa-arrow-up"></i></span>
+                            <span class="table-down"><i class="fas fa-arrow-down"></i></span>
+                        </td>*@
+                </tr>
+            </table>
+        </div>
+
+        <button id="export-btn" class="btn btn-primary">Export Data</button>
+        <p id="export"></p>
+
+    }
+    </div>
+
+
 </div>
+
+
+
+
+<script>
+    //From: https://codepen.io/johnraiz/pen/jvYRey
+    var $TABLE = $('#table');
+    var $BTN = $('#export-btn');
+    var $EXPORT = $('#export');
+
+    $('.table-add').click(function () {
+        var $clone = $TABLE.find('tr.hide').clone(true).removeClass('hide table-line');
+        $TABLE.find('table').append($clone);
+    });
+
+    $('.table-remove').click(function () {
+        $(this).parents('tr').detach();
+    });
+
+    $('.table-up').click(function () {
+        var $row = $(this).parents('tr');
+        if ($row.index() === 1) return; // Don't go above the header
+        $row.prev().before($row.get(0));
+    });
+
+    $('.table-down').click(function () {
+        var $row = $(this).parents('tr');
+        $row.next().after($row.get(0));
+    });
+
+    // A few jQuery helpers for exporting only
+    jQuery.fn.pop = [].pop;
+    jQuery.fn.shift = [].shift;
+
+    $BTN.click(function () {
+        var $rows = $TABLE.find('tr:not(:hidden)');
+        var headers = [];
+        var data = [];
+
+        // Get the headers (add special header logic here)
+        $($rows.shift()).find('th:not(:empty)').each(function () {
+            headers.push($(this).text().toLowerCase());
+        });
+
+        // Turn all existing rows into a loopable array
+        $rows.each(function () {
+            var $td = $(this).find('td');
+            var h = {};
+
+            // Use the headers from earlier to name our hash keys
+            headers.forEach(function (header, i) {
+                h[header] = $td.eq(i).text();
+            });
+
+            data.push(h);
+        });
+
+        // Output the result
+        $EXPORT.text(JSON.stringify(data));
+    });
+</script>
