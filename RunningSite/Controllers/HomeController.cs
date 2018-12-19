@@ -25,12 +25,7 @@ namespace RunningSite.Controllers
         {
             return View();
         }
-
-        public ActionResult Contact()
-        {
-            return View();
-        }
-
+        
         public ActionResult Privacy()
         {
             return View();

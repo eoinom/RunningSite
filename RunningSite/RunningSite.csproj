@@ -135,6 +135,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="Controllers\TrainingController.cs" />
@@ -142,6 +143,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\DAO.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\Extensions.cs" />
@@ -169,7 +171,6 @@
     <Content Include="Views\Race\HalfMarathon.cshtml" />
     <Content Include="Views\Race\TenK.cshtml" />
     <Content Include="Views\Race\Family5K.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Training.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\AddOrder.cshtml" />
@@ -190,6 +191,8 @@
     <Content Include="Views\Training\Tips.cshtml" />
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Result\AddResult.cshtml" />
+    <Content Include="Views\Contact\ContactUs.cshtml" />
+    <Content Include="Views\Contact\ShowAllContactUs.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

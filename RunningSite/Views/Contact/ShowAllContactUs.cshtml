@@ -1,0 +1,25 @@
+﻿@model IEnumerable<RunningSite.Models.Contact>
+@{
+    ViewBag.Title = "ShowAllContactUs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Show All ContactUs Messages</h2>
+
+<div>
+    <h2>ContactUs Messages by Name</h2>
+    <h3>@ViewBag.messages</h3>
+    @foreach (var contact in Model)
+    {
+    <h3>@contact.Name</h3>
+    <p>
+        @contact.Email<br/>
+        @contact.Phone
+    </p>
+    <br/><br />
+    <p>
+        @contact.Message
+    </p>
+    }
+
+</div>

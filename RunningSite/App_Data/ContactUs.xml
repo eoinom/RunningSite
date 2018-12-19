@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<ContactUs>
+  <Contacts>
+    <Name>John Jones</Name>
+    <Email>jj@gmail.com</Email>
+    <Phone>0861234567</Phone>
+    <Message>I thought the festival was great, well done!</Message>
+  </Contacts>
+  <Contacts>
+    <Name>Mary O'Neill</Name>
+    <Email>maryon@hotmail.com</Email>
+    <Phone>0877654321</Phone>
+    <Message>I think you need to have more portaloos next time :-(</Message>
+  </Contacts>
+</ContactUs>
