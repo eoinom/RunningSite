@@ -92,8 +92,8 @@ body {
 .bookingbtn-responsive {
     text-align: right;
     padding: 20px 0;
-    display: inline-block;
-    float: right;
+    /*display: inline-block;*/
+    /*float: right;*/
     padding-top: 40px;
     line-height: 50px;
 }
@@ -413,7 +413,8 @@ header {
 
     #newsletter input[type="email"] {
         padding: 4px;
-        height: 25px: width:250px;
+        height: 25px; 
+        width: 250px;
     }
 /*#endregion*/
 
@@ -891,9 +892,111 @@ footer {
     }
 /*#endregion*/
 
+/*#region ==== START OF EDITABLE TABLE STYLES ====*/
+/*@import "compass/css3";*/
 
-/*#region ==== START OF CONTACT & BOOKING FORM STYLES ==== */
+#table{
+    align-content:center;
+}
 
+.table > thead > tr > th, 
+.table > tbody > tr > th, 
+.table > tfoot > tr > th, 
+.table > thead > tr > td, 
+.table > tbody > tr > td, 
+.table > tfoot > tr > td {
+    padding: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    /*line-height: 1.42857143;
+    vertical-align: top;*/
+    border-top: 1px solid #ddd;
+}
+
+table {
+    /*padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;*/
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+    table#table-addResults {
+        width: 70%;
+        margin-left: 15%;
+        margin-right: 15%;
+    }
+
+th {
+    font-weight: bold;
+    /*text-align: -internal-center;*/
+}
+
+td[Attributes Style] {
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+}
+
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+.table-editable {
+    position: relative;
+}
+
+/*.glyphicon {
+    font-size: 20px;
+}*/
+
+.fa-plus {
+    font-size: 20px;
+}
+
+.fa-times, .fa-arrow-up, .fa-arrow-down {
+    font-size: 15px;
+    padding:0;
+    width:20px;
+}
+
+.hide {
+    display: none !important;
+}
+
+.table-remove {
+    color: #700;
+    cursor: pointer;
+}
+    .table-remove:hover {
+        color: #f00;
+    }
+
+.table-up, .table-down {
+    color: #007;
+    cursor: pointer;
+}
+    .table-up:hover, .table-down:hover {
+        color: #00f;
+    }
+
+.table-add {
+    color: #070;
+    cursor: pointer;
+    position: absolute;
+    top: 8px;
+    right: 0;
+}
+    .table-add:hover {
+        color: #0b0;
+    }
+
+
+/*#endregion*/
+
+/*#region ==== START OF FORM STYLES ==== */
 /* Style inputs with type="text", select elements and textareas */
 /*#contact-form input[type=text], #contact-form input[type=email], #contact-form input[type=number], #contact-form textarea,
 #booking-form input[type=text], #booking-form input[type=email], #booking-form input[type=number], #booking-form textarea, #booking-form select {*/
@@ -921,14 +1024,30 @@ textarea {
 /* Style inputs with type="number" */
 td input[type=number] {
     width: 100%; /* Full width */
-    max-width: 60px;
-    padding: 12px; /* Some padding */
+    min-width: 52px;
+    /*max-width: 80px;*/
+    padding: 10px; /* Some padding */
     border: 1px solid #ccc; /* Gray border */
     border-radius: 4px; /* Rounded borders */
     box-sizing: border-box; /* Make sure that padding and width stays in place */
     margin-top: 4px; /* Add a top margin */
     margin-bottom: 4px; /* Bottom margin */
+    text-align:center;
 }
+
+/* Style inputs with type="time" */
+td input[type=time] {
+    width: 100%; /* Full width */
+    /*max-width: 160px;*/
+    padding: 7.55px; /* Some padding */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 4px; /* Add a top margin */
+    margin-bottom: 4px; /* Bottom margin */
+    text-align: center;
+}
+
 
 
 input[type=date] {
