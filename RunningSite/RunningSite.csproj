@@ -171,7 +171,6 @@
     <Content Include="Views\Race\HalfMarathon.cshtml" />
     <Content Include="Views\Race\TenK.cshtml" />
     <Content Include="Views\Race\Family5K.cshtml" />
-    <Content Include="Views\Home\Training.cshtml" />
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\AddOrder.cshtml" />
     <None Include="Properties\PublishProfiles\DingleRunningFestival - Web Deploy.pubxml" />
