@@ -89,7 +89,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\1280px-Dunmore-Head-2012.JPG" />
     <Content Include="Content\Images\dingle-map.png" />
+    <Content Include="Content\Images\Dingle.jpg" />
     <Content Include="Content\Images\DingleKerrymarathon1.jpg" />
     <Content Include="Content\Images\DingleKerrymarathon10.jpg" />
     <Content Include="Content\Images\DingleKerrymarathon11.jpg" />
@@ -108,7 +110,9 @@
     <Content Include="Content\Images\DingleMarathonpic2.jpg" />
     <Content Include="Content\Images\DingleMarathonpic3.jpg" />
     <Content Include="Content\Images\DingleMarathonpic4.jpg" />
+    <Content Include="Content\Images\Dingle_peninsula_panorama_crop.jpg" />
     <Content Include="Content\Images\Event_date.JPG" />
+    <Content Include="Content\Images\Irish Half Marathon winners - small.jpg" />
     <Content Include="Content\Images\logo_DingleRunningFestival - Cropped.png" />
     <Content Include="Content\Images\MoRunner2018_T-shirt.jpg" />
     <Content Include="Content\Images\MoRunner2018_T-shirt.png" />
@@ -125,6 +129,43 @@
     <Content Include="Content\Images\slider2.jpg" />
     <Content Include="Content\Images\slider3.jpg" />
     <Content Include="Content\Images\slider4.jpg" />
+    <Content Include="Content\Images\Training\Advanced 10K Program PreTraining.png" />
+    <Content Include="Content\Images\Training\Advanced 10K Program Schedule.png" />
+    <Content Include="Content\Images\Training\Advanced 5K Program PreTraining.png" />
+    <Content Include="Content\Images\Training\Advanced 5K Program Schedule.png" />
+    <Content Include="Content\Images\Training\Advanced HalfMarathon Program PreTraining.png" />
+    <Content Include="Content\Images\Training\Advanced HalfMarathon Program Schedule.png" />
+    <Content Include="Content\Images\Training\Advanced Marathon Program PreTraining.png" />
+    <Content Include="Content\Images\Training\Advanced Marathon Program Schedule.png" />
+    <Content Include="Content\Images\Training\Beginner 10K Program PreTraining.png" />
+    <Content Include="Content\Images\Training\Beginner 10K Program Schedule.png" />
+    <Content Include="Content\Images\Training\Beginner 5K  Program Schedule.png" />
+    <Content Include="Content\Images\Training\Beginner 5K Program PreTraining.png" />
+    <Content Include="Content\Images\Training\Beginner HalfMarathon Program PreTraining.png" />
+    <Content Include="Content\Images\Training\Beginner HalfMarathon Program Schedule.png" />
+    <Content Include="Content\Images\Training\Beginner Marathon Program PreTraining.png" />
+    <Content Include="Content\Images\Training\Beginner Marathon Program Schedule.png" />
+    <Content Include="Content\Images\Training\Competitive 10K Program PreTraining.png" />
+    <Content Include="Content\Images\Training\Competitive 10K Program Schedule.png" />
+    <Content Include="Content\Images\Training\Competitive 5K Program PreTraining.png" />
+    <Content Include="Content\Images\Training\Competitive 5K Program Schedule.png" />
+    <Content Include="Content\Images\Training\Competitive HalfMarathon Program PreTraining.png" />
+    <Content Include="Content\Images\Training\Competitive HalfMarathon Program Schedule.png" />
+    <Content Include="Content\Images\Training\Competitive Marathon Program PreTraining.png" />
+    <Content Include="Content\Images\Training\Competitive Marathon Program Schedule.png" />
+    <Content Include="Content\Images\Training\FullMarathon Training Schedule.png" />
+    <Content Include="Content\Images\Training\HalfMarathon Training Schedule p1.png" />
+    <Content Include="Content\Images\Training\HalfMarathon Training Schedule p2.png" />
+    <Content Include="Content\Images\Training\HalfMarathon Training Schedule.png" />
+    <Content Include="Content\Images\Training\Intermediate 10K Program PreTraining.png" />
+    <Content Include="Content\Images\Training\Intermediate 10K Program Schedule.png" />
+    <Content Include="Content\Images\Training\Intermediate 5K Program PreTraining.png" />
+    <Content Include="Content\Images\Training\Intermediate 5K Program Schedule.png" />
+    <Content Include="Content\Images\Training\Intermediate HalfMarathon Program PreTraining.png" />
+    <Content Include="Content\Images\Training\Intermediate HalfMarathon Program Schedule.png" />
+    <Content Include="Content\Images\Training\Intermediate Marathon Program PreTraining.png" />
+    <Content Include="Content\Images\Training\Intermediate Marathon Program Schedule.png" />
+    <Content Include="Content\Images\Training\sweat rate diagram.png" />
     <Content Include="Content\js\showcase-slideshow.js" />
     <Content Include="Content\styles.css" />
     <Content Include="Global.asax" />

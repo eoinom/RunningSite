@@ -203,28 +203,41 @@
         <div class="container">
             <div class="footerRow">
                 <div id="footerAddress">
-                    <h4>Dingle Running Festival</h4>
-                    <br><p>17 Main Road, Dingle, Ireland.</p>
+                    <h5>Our Location</h5>
+                    <div class="hr-footer"></div>
+                    <p>
+                        Dingle Running Festival
+                        <br />17 Main Road,
+                        <br />Dingle,
+                        <br />Ireland.
+                    </p>
                 </div>
 
                 <div id="footerAward">
-                    @*<img src="~/Content/Images/Certificate-of-Excellence-Tripadvisor-2016-2017.png" alt="Tripadvisor Certificate of Excellence 2016 and 2017" style="width:100%; max-width:175px">*@
+                    <img src="~/Content/Images/Irish Half Marathon winners - small.jpg" alt="Half Marathon of the Year Winners 2015, 2016 and 2017" style="width:100%; max-width:500px; padding: 10px 50px">
+                    <p></p>
                 </div>
 
                 <div id="footerLinks">
+                    <h5>Other Links</h5>
+                    <div class="hr-footer"></div>
                     <ul class="footerList">
                         <li>@Html.ActionLink("Privacy Policy", "Privacy", "Home")
                         <li>@Html.ActionLink("Terms & Conditions", "Terms", "Home")
-                        <li>@Html.ActionLink("Site Map", "SiteMap", "Home")
+                        <li>
+                            @Html.ActionLink("Site Map", "SiteMap", "Home")
                         @*<li><a href="index.html#newsletter">Mailing List</a></li>*@
-                        <li>@Html.ActionLink("Mailing List", "Index", "Home")
-                    </ul>
+                    <li>@Html.ActionLink("Mailing List", "Index", "Home")
+                </ul>
                 </div>
             </div>
         </div>
         <p>DBS B8IT121 WebDev Dream Team, Copyright &copy; @DateTime.Now.Year</p>
     </footer>
     <!-- END OF FOOTER -->
+
+
+
     <!-- START OF JAVASCRIPT -->
     <script>
         window.onscroll = function () { myFunction() };
