@@ -89,7 +89,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\Images\1280px-Dunmore-Head-2012.JPG" />
+    <Content Include="Content\Images\Dunmore-Head-2012.JPG" />
     <Content Include="Content\Images\dingle-map.png" />
     <Content Include="Content\Images\Dingle.jpg" />
     <Content Include="Content\Images\DingleKerrymarathon1.jpg" />
@@ -111,6 +111,7 @@
     <Content Include="Content\Images\DingleMarathonpic3.jpg" />
     <Content Include="Content\Images\DingleMarathonpic4.jpg" />
     <Content Include="Content\Images\Dingle_peninsula_panorama_crop.jpg" />
+    <Content Include="Content\Images\EaskTower1a_June2008.jpg" />
     <Content Include="Content\Images\Event_date.JPG" />
     <Content Include="Content\Images\Irish Half Marathon winners - small.jpg" />
     <Content Include="Content\Images\logo_DingleRunningFestival - Cropped.png" />
@@ -125,6 +126,7 @@
     <Content Include="Content\Images\pexels-photo-91227-cropped.jpeg" />
     <Content Include="Content\Images\pexels-photo-984926-cropped.jpeg" />
     <Content Include="Content\Images\pexels-woman-kitchen-man-everyday-life-298926-cropped.jpeg" />
+    <Content Include="Content\Images\ShipwreckRangaDunmoreHead.jpg" />
     <Content Include="Content\Images\slider1.jpg" />
     <Content Include="Content\Images\slider2.jpg" />
     <Content Include="Content\Images\slider3.jpg" />
