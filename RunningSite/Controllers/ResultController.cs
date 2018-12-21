@@ -28,19 +28,22 @@ namespace RunningSite.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddResult(Result runner)
+        //public ActionResult AddResult(Result results)
+        public ActionResult AddResult(FormCollection resultsForm)
         {
+            List<Result> resultsList = new List<Result>();
+
             int counter = 0;
-            counter = dao.EnterResult(runner);
+            //counter = dao.EnterResult(results);
 
             if (counter == 1)
             {
-                Response.Write("Runner Details have been entered successfully");
+                ViewBag.Status = "Result details have been entered successfully";
                 ModelState.Clear();
             }
             else
             {
-                Response.Write("Error, " + dao.message);
+                ViewBag.Status = "Error, " + dao.message;
             }
                 
             return View();

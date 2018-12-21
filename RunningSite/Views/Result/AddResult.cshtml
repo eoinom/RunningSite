@@ -57,7 +57,7 @@
     {
         <p>
             @*<span class="newline">*@
-                @Html.LabelFor(r => r.RaceId, "Enter the Race ID you wish to enter results for:", new { @class = "label" })
+            @Html.LabelFor(r => r.RaceId, "Enter the Race ID you wish to enter results for:", new { @class = "label" })
             @*</span>*@
             @Html.TextBoxFor(r => r.RaceId)
             @Html.ValidationMessageFor(r => r.RaceId, "", new { @class = "error" })
@@ -115,11 +115,19 @@
             </table>
         </div>
 
+        <p>
+            <input type="submit" value="Save Results" />
+        </p>
+
+        <p>
+            @ViewBag.Status
+        </p>
+
         <button id="export-btn" class="btn btn-primary">Export Data</button>
         <p id="export"></p>
 
     }
-    </div>
+</div>
 
 
 </div>
