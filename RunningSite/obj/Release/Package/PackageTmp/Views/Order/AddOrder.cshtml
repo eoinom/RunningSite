@@ -62,10 +62,10 @@
         </p>
         <p>
             <span class="newline">
-                @Html.LabelFor(o => o.EmergencyContactNo, "Emergency Contact No.:", new { @class = "label" })
+                @Html.LabelFor(o => o.EmergencyContactNumber, "Emergency Contact No.:", new { @class = "label" })
             </span>
-            @Html.TextBoxFor(o => o.EmergencyContactNo)
-            @Html.ValidationMessageFor(o => o.EmergencyContactNo, "", new { @class = "error" })
+            @Html.TextBoxFor(o => o.EmergencyContactNumber)
+            @Html.ValidationMessageFor(o => o.EmergencyContactNumber, "", new { @class = "error" })
         </p>
         <p>
             <span class="newline">
@@ -78,7 +78,7 @@
             <span class="newline">
                 @Html.LabelFor(o => o.RaceId, "Race:", new { @class = "label" })
             </span>
-            @Html.TextBoxFor(o => o.RaceId)
+            @Html.EnumDropDownListFor(o => o.RaceId)
             @Html.ValidationMessageFor(o => o.RaceId, "", new { @class = "error" })
         </p>
         <p>
