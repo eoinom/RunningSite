@@ -302,32 +302,37 @@ namespace RunningSite.Models
 
         #region Results
 
-        public int EnterResult(Result result)
+        public int EnterResult(Results results)
         {
             int count = 0;
-            SqlCommand cmd = new SqlCommand("usp_EnterResultsDetails", con);
-            cmd.CommandType = CommandType.StoredProcedure;
 
-            cmd.Parameters.AddWithValue("@RaceId", result.RaceId);
-            cmd.Parameters.AddWithValue("@BibId", result.BibNo);
-            cmd.Parameters.AddWithValue("@FinishPlace", result.FinishPlace);
-            cmd.Parameters.AddWithValue("@FinishTime", result.FinishTime);
-            cmd.Parameters.AddWithValue("@ChipTime", result.ChipTime);
-            //cmd.Parameters.AddWithValue("@Email", result.);
+            foreach (Result result in results.ResultList)
+            {
+                //SqlCommand cmd = new SqlCommand("usp_EnterResultsDetails", con);      //This SP enters RaceId, BibNo, FinishPlace, FinishTime and ChipTime (does not require existing row with RaceId and BibNo)
+                SqlCommand cmd = new SqlCommand("usp_UpdateResultsDetails", con);       //This SP updates existing db rows based in RaceId and BibNo with the FinishPlace, FinishTime and ChipTime
+                cmd.CommandType = CommandType.StoredProcedure;
 
-            try
-            {
-                con.Open();
-                count = cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("@RaceId", result.RaceId);
+                cmd.Parameters.AddWithValue("@BibNo", result.BibNo);
+                cmd.Parameters.AddWithValue("@FinishPlace", result.FinishPlace);
+                cmd.Parameters.AddWithValue("@FinishTime", result.FinishTime);
+                cmd.Parameters.AddWithValue("@ChipTime", result.ChipTime);
+
+                try
+                {
+                    con.Open();
+                    count += cmd.ExecuteNonQuery();
+                }
+                catch (SystemException ex)
+                {
+                    message = ex.Message;
+                }
+                finally
+                {
+                    con.Close();
+                }
             }
-            catch (SystemException ex)
-            {
-                message = ex.Message;
-            }
-            finally
-            {
-                con.Close();
-            }
+                        
             return count;
         }
         #endregion

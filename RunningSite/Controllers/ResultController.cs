@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -20,35 +21,64 @@ namespace RunningSite.Controllers
 
         #endregion
 
-        #region Admin Actions        
+
+        #region Admin Actions 
+        
         [HttpGet]
         public ActionResult AddResult()
         {
             return View();
         }
-
+        
         [HttpPost]
-        //public ActionResult AddResult(Result results)
-        public ActionResult AddResult(FormCollection resultsForm)
+        public ActionResult AddResult(Results results)
         {
-            List<Result> resultsList = new List<Result>();
-
             int counter = 0;
-            //counter = dao.EnterResult(results);
+            int noResults = results.ResultList.Count();
 
-            if (counter == 1)
+            if (results == null)
             {
-                ViewBag.Status = "Result details have been entered successfully";
-                ModelState.Clear();
+                ViewBag.Status = "Please add some results";
             }
             else
             {
-                ViewBag.Status = "Error, " + dao.message;
+                counter = dao.EnterResult(results);
+
+                if (counter == 0)
+                {
+                    ViewBag.Status = "Error, no rows entered";
+                }
+                else if (counter > 0)
+                {
+                    if (counter == 1)
+                        ViewBag.Status = "1 row has been entered successfully.";
+                    else
+                        ViewBag.Status = counter.ToString() + " rows have been entered successfully.";
+
+                    if (dao.message != "")
+                    {
+                        ViewBag.Status2 = "Error, " + dao.message;
+                    }
+                    else if (noResults > counter)
+                    {
+                        if (noResults - counter == 1)
+                            ViewBag.Status = "1 row has not been entered.";
+                        else
+                            ViewBag.Status2 = (noResults - counter).ToString() + " rows have not been entered.";
+
+                        ViewBag.Status2 += " Please ensure you enter a valid existing Race Id and Bib No. combination.";
+                    }
+                    ModelState.Clear();
+                }
+                else
+                {
+                    ViewBag.Status = "Error, " + dao.message;
+                }
             }
-                
+
             return View();
         }
-        #endregion
 
+        #endregion
     }
 }

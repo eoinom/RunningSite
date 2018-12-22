@@ -157,6 +157,35 @@ header {
 /*#endregion*/
 
 
+/*#region ==== START OF ADD RESULTS STYLES ==== */
+.addResultsRow {
+    display: grid;
+    grid-template-columns: 0fr 0.8fr 0.25fr 0fr 1.25fr 0.25fr;
+}
+
+.form-group label {
+    display: inline-block;
+    width: 100px;
+}
+
+
+.form-group input {
+    max-width: 160px;
+}
+
+.form-group input[type=text]{
+    margin: 6px 0px;
+}
+
+.form-group input[type=time] {
+    margin: 6px 0px;
+}
+
+.form-group button {
+    margin-bottom: 20px;
+}
+/*#endregion*/
+
 /*#region ==== START OF SOCIAL ICON STYLES ==== */
 #social-icons {
     text-align: right;
@@ -1061,9 +1090,9 @@ td input[type=number] {
 }
 
 /* Style inputs with type="time" */
-td input[type=time] {
+td input[type=time], input[type=time] {
     width: 100%; /* Full width */
-    /*max-width: 160px;*/
+    max-width: 160px;
     padding: 7.55px; /* Some padding */
     border: 1px solid #ccc; /* Gray border */
     border-radius: 4px; /* Rounded borders */
@@ -1085,7 +1114,7 @@ input[type=date] {
 }
 
 /* Style the submit button with a specific background color etc */
-input[type=submit], input[type=reset] {
+input[type=submit], input[type=reset], button[type=submit], button[type=button] {
     background-color: #e8491d;
     color: white;
     padding: 12px 20px;
@@ -1249,6 +1278,13 @@ button.active, .accordion:hover {
     .row {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .addResultsRow {
+        display: grid;
+        /*grid-template-columns: 1fr;*/
+        grid-template-columns: 0.2fr 0.6fr 0.2fr;
+        text-align: center;
     }
 
     .event {
