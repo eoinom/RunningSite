@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel;
 
 namespace RunningSite.Models
 {
@@ -22,39 +23,60 @@ namespace RunningSite.Models
 
     public enum RacesCurrentYearEnum
     {
-        Y2019_Family_5K,
-        Y2019_10K,
-        Y2019_Half_Marathon,
-        Y2019_Marathon
+        [Description("2019 Family 5K")]
+        R2019_05,
+        [Description("2019 10K")]
+        R2019_10,
+        [Description("2019 Half Marathon")]
+        R2019_21,
+        [Description("2019 Marathon")]
+        R2019_42
     }
 
     public enum RacesPreviousYearsEnum
     {
-        Y2018_Family_5K,
-        Y2018_10K,
-        Y2018_Half_Marathon,
-        Y2018_Marathon,
-        Y2017_Family_5K,
-        Y2017_10K,
-        Y2017_Half_Marathon,
-        Y2017_Marathon,
-        Y2016_Family_5K,
-        Y2016_10K,
-        Y2016_Half_Marathon,
-        Y2016_Marathon
+        [Description("2018 Family 5K")]
+        R2018_05,
+        [Description("2018 10K")]
+        R2018_10,
+        [Description("2018 Half Marathon")]
+        R2018_21,
+        [Description("2018 Marathon")]
+        R2018_42,
+        [Description("2017 Family 5K")]
+        R2017_05,
+        [Description("2017 10K")]
+        R2017_10,
+        [Description("2017 Half Marathon")]
+        R2017_21,
+        [Description("2017 Marathon")]
+        R2017_42,
+        [Description("2016 Family 5K")]
+        R2016_05,
+        [Description("2016 10K")]
+        R2016_10,
+        [Description("2016 Half Marathon")]
+        R2016_21,
+        [Description("2016 Marathon")]
+        R2016_42,
     }
 
     public enum StartGroupEnum
     {
-        Marathon_A_Group,
-        Marathon_B_Group,
-        Marathon_C_Group
+        [Description("A Group - Elite Runners")]
+        A_Group,
+        [Description("B Group - Medium to Fast Runners")]
+        B_Group,
+        [Description("C Group - Slow runner / walkers")]
+        C_Group,
+
     }
 
     public enum CreditCardTypesEnum
     {
         Visa,
         Mastercard,
+        [Description("American Express")]
         AmericanExpress
     }
     

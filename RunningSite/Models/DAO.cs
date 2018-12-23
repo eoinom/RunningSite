@@ -133,7 +133,8 @@ namespace RunningSite.Models
         public int EnterOrder(Order order)
         {
             int count = 0;
-            SqlCommand cmd = new SqlCommand("usp_EnterOrderDetails1", con);
+            //SqlCommand cmd = new SqlCommand("usp_EnterOrderDetails1", con);
+            SqlCommand cmd = new SqlCommand("usp_EnterOrderDetailsANDResults1", con);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@OrderNo", order.OrderNo);

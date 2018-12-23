@@ -62,7 +62,7 @@ namespace RunningSite.Controllers
                     else if (noResults > counter)
                     {
                         if (noResults - counter == 1)
-                            ViewBag.Status = "1 row has not been entered.";
+                            ViewBag.Status2 = "1 row has not been entered.";
                         else
                             ViewBag.Status2 = (noResults - counter).ToString() + " rows have not been entered.";
 

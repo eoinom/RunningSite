@@ -10,7 +10,6 @@
 
     @using (Html.BeginForm("AddOrder", "Order", FormMethod.Post))
     {
-        @*@Model.Email = Session["email"].ToString();*@
         <p>
             <span class="newline">
                 @Html.LabelFor(o => o.AddressLine1, "Address Line 1:", new { @class = "label" })
@@ -78,14 +77,14 @@
             <span class="newline">
                 @Html.LabelFor(o => o.RaceId, "Race:", new { @class = "label" })
             </span>
-            @Html.EnumDropDownListFor(o => o.RaceId)
+            @Html.EnumDropDownListFor(o => o.RaceId, "- Please select a race -")
             @Html.ValidationMessageFor(o => o.RaceId, "", new { @class = "error" })
         </p>
         <p>
             <span class="newline">
                 @Html.LabelFor(o => o.StartGroup, "Start Group:", new { @class = "label" })
             </span>
-            @Html.EnumDropDownListFor(o => o.StartGroup)
+            @Html.EnumDropDownListFor(o => o.StartGroup, "- Please select a start group -")
             @Html.ValidationMessageFor(o => o.StartGroup, "", new { @class = "error" })
         </p>
         <p>
