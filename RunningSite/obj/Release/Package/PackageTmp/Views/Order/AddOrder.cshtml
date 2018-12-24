@@ -11,139 +11,101 @@
     @using (Html.BeginForm("AddOrder", "Order", FormMethod.Post))
     {
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.AddressLine1, "Address Line 1:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(o => o.AddressLine1)
+            @Html.LabelFor(o => o.AddressLine1, "Address Line 1:", new { @class = "label" })
+            <br />@Html.TextBoxFor(o => o.AddressLine1)
             @Html.ValidationMessageFor(o => o.AddressLine1, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.AddressLine2, "Address Line 2:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(o => o.AddressLine2)
+            @Html.LabelFor(o => o.AddressLine2, "Address Line 2:", new { @class = "label" })
+            <br />@Html.TextBoxFor(o => o.AddressLine2)
             @Html.ValidationMessageFor(o => o.AddressLine2, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.City, "City:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(o => o.City)
+            @Html.LabelFor(o => o.City, "City:", new { @class = "label" })
+            <br />@Html.TextBoxFor(o => o.City)
             @Html.ValidationMessageFor(o => o.City, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.PostCode, "Post Code:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(o => o.PostCode)
+            @Html.LabelFor(o => o.PostCode, "Post Code:", new { @class = "label" })
+            <br />@Html.TextBoxFor(o => o.PostCode)
             @Html.ValidationMessageFor(o => o.PostCode, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.Country, "Country:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(o => o.Country)
+            @Html.LabelFor(o => o.Country, "Country:", new { @class = "label" })
+            <br />@Html.TextBoxFor(o => o.Country)
             @Html.ValidationMessageFor(o => o.Country, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.Mobile, "Mobile No.:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(o => o.Mobile)
+            @Html.LabelFor(o => o.Mobile, "Mobile No.:", new { @class = "label" })
+            <br />@Html.TextBoxFor(o => o.Mobile)
             @Html.ValidationMessageFor(o => o.Mobile, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.EmergencyContactName, "Emergency Contact Name:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(o => o.EmergencyContactName)
+            @Html.LabelFor(o => o.EmergencyContactName, "Emergency Contact Name:", new { @class = "label" })
+            <br />@Html.TextBoxFor(o => o.EmergencyContactName)
             @Html.ValidationMessageFor(o => o.EmergencyContactName, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.EmergencyContactNumber, "Emergency Contact No.:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(o => o.EmergencyContactNumber)
+            @Html.LabelFor(o => o.EmergencyContactNumber, "Emergency Contact No.:", new { @class = "label" })
+            <br />@Html.TextBoxFor(o => o.EmergencyContactNumber)
             @Html.ValidationMessageFor(o => o.EmergencyContactNumber, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.MedicalDetails, "Medical Details:", new { @class = "label" })
-            </span>
+            @Html.LabelFor(o => o.MedicalDetails, "Medical Details:", new { @class = "label" })
             @Html.TextAreaFor(o => o.MedicalDetails)
             @Html.ValidationMessageFor(o => o.MedicalDetails, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.RaceId, "Race:", new { @class = "label" })
-            </span>
-            @Html.EnumDropDownListFor(o => o.RaceId, "- Please select a race -")
+            @Html.LabelFor(o => o.RaceId, "Race:", new { @class = "label" })
+            <br />@Html.EnumDropDownListFor(o => o.RaceId, "- Please select a race -")
             @Html.ValidationMessageFor(o => o.RaceId, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.StartGroup, "Start Group:", new { @class = "label" })
-            </span>
-            @Html.EnumDropDownListFor(o => o.StartGroup, "- Please select a start group -")
+            @Html.LabelFor(o => o.StartGroup, "Start Group:", new { @class = "label" })
+            <br />@Html.EnumDropDownListFor(o => o.StartGroup, "- Please select a start group -")
             @Html.ValidationMessageFor(o => o.StartGroup, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.TshirtSize, "T-shirt Size:", new { @class = "label" })
-            </span>
-            @Html.EnumDropDownListFor(o => o.TshirtSize)
+            @Html.LabelFor(o => o.TshirtSize, "T-shirt Size:", new { @class = "label" })
+            <br />@Html.EnumDropDownListFor(o => o.TshirtSize)
             @Html.ValidationMessageFor(o => o.TshirtSize, "", new { @class = "error" })
         </p>
         <p>
             @Html.CheckBoxFor(o => o.OrderMedalInsert) Tick the box if you would like to order a special Medal Insert engraved with your name and finish time. The insert will be posted out to you within a few weeks after the festival. Cost: €4.
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.CC_Type, "Card Type:", new { @class = "label" })
-            </span>
-            @Html.EnumDropDownListFor(o => o.CC_Type)
+            @Html.LabelFor(o => o.CC_Type, "Card Type:", new { @class = "label" })
+            <br />@Html.EnumDropDownListFor(o => o.CC_Type)
             @Html.ValidationMessageFor(o => o.CC_Type, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.CC_Holder_FirstName, "Card Holder First Name:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(o => o.CC_Holder_FirstName)
+            @Html.LabelFor(o => o.CC_Holder_FirstName, "Card Holder First Name:", new { @class = "label" })
+            <br />@Html.TextBoxFor(o => o.CC_Holder_FirstName)
             @Html.ValidationMessageFor(o => o.CC_Holder_FirstName, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.CC_Holder_LastName, "Card Holder Last Name:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(o => o.CC_Holder_LastName)
+            @Html.LabelFor(o => o.CC_Holder_LastName, "Card Holder Last Name:", new { @class = "label" })
+            <br />@Html.TextBoxFor(o => o.CC_Holder_LastName)
             @Html.ValidationMessageFor(o => o.CC_Holder_LastName, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.CC_Number, "Card Number:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(o => o.CC_Number)
+            @Html.LabelFor(o => o.CC_Number, "Card Number:", new { @class = "label" })
+            <br />@Html.TextBoxFor(o => o.CC_Number)
             @Html.ValidationMessageFor(o => o.CC_Number, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.CC_ExpDate_Month, "Expiry Month:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(o => o.CC_ExpDate_Month)
+            @Html.LabelFor(o => o.CC_ExpDate_Month, "Expiry Month:", new { @class = "label" })
+            <br />@Html.TextBoxFor(o => o.CC_ExpDate_Month)
             @Html.ValidationMessageFor(o => o.CC_ExpDate_Month, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.CC_ExpDate_Year, "Expiry Year:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(o => o.CC_ExpDate_Year)
+            @Html.LabelFor(o => o.CC_ExpDate_Year, "Expiry Year:", new { @class = "label" })
+            <br />@Html.TextBoxFor(o => o.CC_ExpDate_Year)
             @Html.ValidationMessageFor(o => o.CC_ExpDate_Year, "", new { @class = "error" })
         </p>
         <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.CC_SecCode, "Security Code:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(o => o.CC_SecCode)
+            @Html.LabelFor(o => o.CC_SecCode, "Security Code:", new { @class = "label" })
+            <br />@Html.TextBoxFor(o => o.CC_SecCode)
             @Html.ValidationMessageFor(o => o.CC_SecCode, "", new { @class = "error" })
         </p>
         <p>

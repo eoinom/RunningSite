@@ -1,0 +1,54 @@
+﻿@model RunningSite.Models.Results
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(r => r.ResultList.ElementAt(0).RaceId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(r => r.ResultList.ElementAt(0).BibNo)
+        </th>
+        @*<th>
+                @Html.DisplayFor(model => model.Name)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(r => r.ResultList.ElementAt(0).FinishPlace)
+        </th>
+        <th>
+            @Html.DisplayNameFor(r => r.ResultList.ElementAt(0).FinishTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(r => r.ResultList.ElementAt(0).ChipTime)
+        </th>
+        <th></th>
+    </tr>
+
+    @*@foreach (var item in Model)*@
+    @if (Model.ResultList.Count > 0)
+    {
+        for (int i = 0; i < Model.ResultList.Count; i++)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(r => r.ResultList.ElementAt(i).RaceId)
+                </td>
+                <td>
+                    @Html.DisplayFor(r => r.ResultList.ElementAt(i).BibNo)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(r => r.ResultList.Name)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(r => r.ResultList.ElementAt(i).FinishPlace)
+                </td>
+                <td>
+                    @Html.DisplayFor(r => r.ResultList.ElementAt(i).FinishTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(r => r.ResultList.ElementAt(i).ChipTime)
+                </td>
+            </tr>
+        }
+    }
+
+</table>

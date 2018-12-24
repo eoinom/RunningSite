@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 using RunningSite.Models;
@@ -19,11 +20,36 @@ namespace RunningSite.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Search(Result resultSearch)
+        {
+            Thread.Sleep(2000);         //delay for 2s
+
+            ModelState.Remove("BibNo");
+            ModelState.Remove("Name");
+            ModelState.Remove("FinishPlace");
+            ModelState.Remove("FinishTime");
+            ModelState.Remove("ChipTime");
+            ModelState.Remove("Email");
+
+            if (ModelState.IsValid)
+            {
+                var searchResultsList = dao.SearchResults(resultSearch);
+                if (searchResultsList.ResultList.Count == 0)
+                    return Content(dao.message);
+                else
+                {
+                    return PartialView("SearchResultsTable", searchResultsList);
+                }
+            }
+            return ViewBag.Status = "Input Error";
+        }
+
         #endregion
 
 
         #region Admin Actions 
-        
+
         [HttpGet]
         public ActionResult AddResult()
         {
@@ -34,7 +60,7 @@ namespace RunningSite.Controllers
         public ActionResult AddResult(Results results)
         {
             int counter = 0;
-            int noResults = results.ResultList.Count();
+            int noResults = results.ResultList_IEnumerable.Count();
 
             if (results == null)
             {

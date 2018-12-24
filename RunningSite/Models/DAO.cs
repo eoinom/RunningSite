@@ -81,7 +81,7 @@ namespace RunningSite.Models
                     {
                         message = "password incorrect";
                     }
-                }                
+                }
             }
             catch (SqlException ex)
             {
@@ -160,7 +160,7 @@ namespace RunningSite.Models
             cmd.Parameters.AddWithValue("@EmergencyContactNumber", order.EmergencyContactNumber);
             cmd.Parameters.AddWithValue("@MedicalDetails", order.MedicalDetails);
             cmd.Parameters.AddWithValue("@Mobile", order.Mobile);
-            cmd.Parameters.AddWithValue("@Email", order.Email);  
+            cmd.Parameters.AddWithValue("@Email", order.Email);
 
             cmd.Parameters.AddWithValue("@CC_Type", order.CC_Type);
             cmd.Parameters.AddWithValue("@CC_Holder_FirstName", order.CC_Holder_FirstName);
@@ -307,7 +307,7 @@ namespace RunningSite.Models
         {
             int count = 0;
 
-            foreach (Result result in results.ResultList)
+            foreach (Result result in results.ResultList_IEnumerable)
             {
                 //SqlCommand cmd = new SqlCommand("usp_EnterResultsDetails", con);      //This SP enters RaceId, BibNo, FinishPlace, FinishTime and ChipTime (does not require existing row with RaceId and BibNo)
                 SqlCommand cmd = new SqlCommand("usp_UpdateResultsDetails", con);       //This SP updates existing db rows based in RaceId and BibNo with the FinishPlace, FinishTime and ChipTime
@@ -333,8 +333,52 @@ namespace RunningSite.Models
                     con.Close();
                 }
             }
-                        
+
             return count;
+        }
+
+
+        public Results SearchResults(Result resultSearch)
+        {
+            Results resultsList = new Results();
+            SqlDataReader reader;
+
+            SqlCommand cmd = new SqlCommand("usp_FindResults", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.Clear();
+            cmd.Parameters.AddWithValue("@RaceId", resultSearch.RaceId);
+            //cmd.Parameters.AddWithValue("@BibNo", resultSearch.BibNo);
+            //cmd.Parameters.AddWithValue("@FinishPlace", resultSearch.FinishPlace);
+            //cmd.Parameters.AddWithValue("@FinishTime", resultSearch.FinishTime);
+            //cmd.Parameters.AddWithValue("@ChipTime", resultSearch.ChipTime);
+            //cmd.Parameters.AddWithValue("@Email", resultSearch.Email);
+
+            try
+            {
+                con.Open();
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Result result = new Result();
+                    result.RaceId = reader["RaceId"].ToString();       //can use the index no. of the database table column or the name of the column
+                    result.BibNo = int.Parse(reader["BibNo"].ToString());
+                    result.FinishPlace = int.Parse(reader["FinishPlace"].ToString());
+                    result.FinishTime = TimeSpan.Parse(reader["FinishTime"].ToString());
+                    result.ChipTime = TimeSpan.Parse(reader["ChipTime"].ToString());
+                    result.Email = reader["Email"].ToString();
+                    resultsList.Add(result);
+                }
+            }
+            catch (SystemException ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return resultsList;
         }
         #endregion
     }

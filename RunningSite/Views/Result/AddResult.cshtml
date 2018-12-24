@@ -10,7 +10,7 @@
     {
         <div class="addResultsRow">
             <div></div>
-            <div class="form form-horizontal">
+            <div class="form">
                 <div class="form-group">
                     <label>Race Id:</label>
                     <input type="text" id="txtRaceId" />
@@ -38,7 +38,7 @@
             </div>
             <div></div>
             <div></div>
-            <div class="form-horizontal">
+            <div>
                 <table id="tablePost" class="table">
                     <thead>
                         <tr>
@@ -91,7 +91,7 @@
         });
 
         $("#btnSave").on("click", function () {
-            var listName = "ResultList";
+            var listName = "ResultList_IEnumerable";
 
             var qtd = 0;
             $("#tablePost > tbody > tr").each(function () {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-
+using System.Collections;
 
 namespace RunningSite.Models
 {
@@ -16,24 +16,37 @@ namespace RunningSite.Models
         [DisplayName("Bib No.")]
         public int BibNo { get; set; }
 
+        [DisplayName("Name")]
         public string Name { get; set; }
 
+        [DisplayName("Finish Place")]
         public int FinishPlace { get; set; }
         
-        //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:H:mm\:ss}")]
-        //[DisplayFormat(DataFormatString = "{0:hh\\:mm\\:ss}")]
         [DataType(DataType.Time)]
         [DisplayFormat(DataFormatString = "{0:hh\\:mm\\:ss}", ApplyFormatInEditMode = true)]
+        [DisplayName("Finish Time")]
         public TimeSpan FinishTime { get; set; }
 
         [DataType(DataType.Time)]
         [DisplayFormat(DataFormatString = "{0:hh\\:mm\\:ss}", ApplyFormatInEditMode = true)]
-        public TimeSpan ChipTime { get; set; }        
+        [DisplayName("Chip Time")]
+        public TimeSpan ChipTime { get; set; }
+
+        [EmailAddress]
+        [DisplayName("Email")]
+        public string Email { get; set; }
     }
 
     public class Results
     {
-        //public List<Result> ResultList { get; set; }
-        public IEnumerable<Result> ResultList { get; set; }
+        public IEnumerable<Result> ResultList_IEnumerable { get; set; }
+
+        public List<Result> ResultList = new List<Result>();
+
+        public void Add(Result item)
+        {
+            ResultList.Add(item);
+        }
+
     }
 }
