@@ -11,15 +11,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.11/css/all.css" integrity="sha384-p2jx59pefphTFIpeqCcISO9MdVfIm4pNnsL08A6v5vaQc4owkQqxMV8kg4Yvhaw/" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
     @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">*@
-
+    
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-    <script>
-        $(function () {
-            $("#datepicker2").datepicker();
-        });
-    </script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.8.0.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -203,28 +200,41 @@
         <div class="container">
             <div class="footerRow">
                 <div id="footerAddress">
-                    <h4>Dingle Running Festival</h4>
-                    <br><p>17 Main Road, Dingle, Ireland.</p>
+                    <h5>Our Location</h5>
+                    <div class="hr-footer"></div>
+                    <p>
+                        Dingle Running Festival
+                        <br />17 Main Road,
+                        <br />Dingle,
+                        <br />Ireland.
+                    </p>
                 </div>
 
                 <div id="footerAward">
-                    @*<img src="~/Content/Images/Certificate-of-Excellence-Tripadvisor-2016-2017.png" alt="Tripadvisor Certificate of Excellence 2016 and 2017" style="width:100%; max-width:175px">*@
+                    <img src="~/Content/Images/Irish Half Marathon winners - small.jpg" alt="Half Marathon of the Year Winners 2015, 2016 and 2017" style="width:100%; max-width:500px; padding: 10px 50px">
+                    <p></p>
                 </div>
 
                 <div id="footerLinks">
+                    <h5>Other Links</h5>
+                    <div class="hr-footer"></div>
                     <ul class="footerList">
                         <li>@Html.ActionLink("Privacy Policy", "Privacy", "Home")
                         <li>@Html.ActionLink("Terms & Conditions", "Terms", "Home")
-                        <li>@Html.ActionLink("Site Map", "SiteMap", "Home")
+                        <li>
+                            @Html.ActionLink("Site Map", "SiteMap", "Home")
                         @*<li><a href="index.html#newsletter">Mailing List</a></li>*@
-                        <li>@Html.ActionLink("Mailing List", "Index", "Home")
-                    </ul>
+                    <li>@Html.ActionLink("Mailing List", "Index", "Home")
+                </ul>
                 </div>
             </div>
         </div>
         <p>DBS B8IT121 WebDev Dream Team, Copyright &copy; @DateTime.Now.Year</p>
     </footer>
     <!-- END OF FOOTER -->
+
+
+
     <!-- START OF JAVASCRIPT -->
     <script>
         window.onscroll = function () { myFunction() };

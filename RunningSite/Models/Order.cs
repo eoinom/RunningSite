@@ -49,14 +49,14 @@ namespace RunningSite.Models
 
         [DisplayName("Contact Number")]
         [Required]
-        public string EmergencyContactNo { get; set; }
+        public string EmergencyContactNumber { get; set; }
 
         [DisplayName("Medical Details")]
         [DataType(DataType.MultilineText)]
         public string MedicalDetails { get; set; }
 
         [Required]
-        public string RaceId { get; set; }
+        public RacesCurrentYearEnum RaceId { get; set; }
 
         [Required]
         public bool AgreeRaceDisclaimer { get; set; }
@@ -64,13 +64,11 @@ namespace RunningSite.Models
         [Required]
         public bool AgreeTermsAndConditions { get; set; }
 
-        [Required]
         public bool OrderMedalInsert { get; set; }
 
         [Required]
         public StartGroupEnum StartGroup { get; set; }
 
-        [Required]
         public int BibNo { get; set; }
 
         [DisplayName("Card Type")]

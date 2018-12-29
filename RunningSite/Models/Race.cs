@@ -25,5 +25,7 @@ namespace RunningSite.Models
         [DisplayName("Entry Price")]
         [DataType(DataType.Currency)]
         public decimal Price { get; set; }
+
+        public IList<Result> RaceResults { get; set; }
     }
 }

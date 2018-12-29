@@ -6,64 +6,62 @@
 }
 
 <div class="container">
-    <h2>Search</h2>
+    <h2>Search Past Results</h2>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.RaceId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BibNo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FinishPlace)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FinishTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ChipTime)
-            </th>
-            <th></th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RaceId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BibNo)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FinishPlace)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FinishTime)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ChipTime)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>
-            </tr>
-        }
-
-    </table>
-
+    @using (Ajax.BeginForm("Search", "Result", Ajax, new AjaxOptions
+    {
+        LoadingElementId = "wait",
+        LoadingElementDuration = 1000,
+        UpdateTargetId = "searchResults",
+        InsertionMode = InsertionMode.Replace
+    }))
+    {
+        <div class="addResultsRow">
+            <div></div>
+            <div class="form">
+                <p>
+                    @Html.LabelFor(r => r.RaceId, "Race Id:", new { @class = "label" })
+                    <br />@Html.TextBoxFor(r => r.RaceId)
+                    @Html.ValidationMessageFor(r => r.RaceId, "", new { @class = "error" })
+                </p>
+                <p>
+                    @Html.LabelFor(r => r.BibNo, "Bib No:", new { @class = "label" })
+                    <br />@Html.TextBoxFor(r => r.BibNo)
+                    @Html.ValidationMessageFor(r => r.BibNo, "", new { @class = "error" })
+                </p>
+                <p>
+                    @Html.LabelFor(r => r.FinishPlace, "Finish Place:", new { @class = "label" })
+                    <br />@Html.TextBoxFor(r => r.FinishPlace)
+                    @Html.ValidationMessageFor(r => r.FinishPlace, "", new { @class = "error" })
+                </p>
+                <p>
+                    @Html.LabelFor(r => r.FinishTime, "Finish Time:", new { @class = "label" })
+                    <br />@Html.TextBoxFor(r => r.FinishTime)
+                    @Html.ValidationMessageFor(r => r.FinishTime, "", new { @class = "error" })
+                </p>
+                <p>
+                    @Html.LabelFor(r => r.ChipTime, "Chip Time:", new { @class = "label" })
+                    <br />@Html.TextBoxFor(r => r.ChipTime)
+                    @Html.ValidationMessageFor(r => r.ChipTime, "", new { @class = "error" })
+                </p>
+                <p>
+                    @Html.LabelFor(r => r.Email, "Email:", new { @class = "label" })
+                    <br />@Html.TextBoxFor(r => r.Email)
+                    @Html.ValidationMessageFor(r => r.Email, "", new { @class = "error" })
+                </p>
+                <p>
+                    <button id="btnSearch" type="submit">Search</button>
+                </p>
+            </div>
+            <div></div>
+            <div></div>
+            @ViewBag.Status
+            <div>
+                <div id="wait" style="display:none;"><img src="~/Content/Images/wait.gif" alt="wait" /></div>
+                <div id="searchResults"></div>
+            </div>
+            <div></div>
+        </div>
+    }
 </div>
 

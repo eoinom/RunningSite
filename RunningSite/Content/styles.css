@@ -34,6 +34,11 @@ body {
 .welcome-container {
     background: #f1f1f1f1;
 }
+
+.underline {
+    text-decoration: underline;
+}
+
 /*#endregion*/
 
 
@@ -48,11 +53,11 @@ body {
     color: #f2f2f2;
 }
 
-.newsletterBtn:hover {
-    /* opacity: 0.7; */
-    background: #C95327;
-    color: #fff;
-}
+    .newsletterBtn:hover {
+        /* opacity: 0.7; */
+        background: #C95327;
+        color: #fff;
+    }
 
 .bookingbtn {
     text-align: right;
@@ -149,6 +154,36 @@ header {
             width: 200px;
             padding-bottom: 5px;
         }
+/*#endregion*/
+
+
+/*#region ==== START OF ADD RESULTS STYLES ==== */
+.addResultsRow {
+    display: grid;
+    grid-template-columns: 0fr 0.8fr 0.25fr 0fr 1.25fr 0.25fr;
+}
+
+.form-group label {
+    display: inline-block;
+    width: 100px;
+}
+
+
+.form-group input {
+    max-width: 160px;
+}
+
+    .form-group input[type=text] {
+        margin: 6px 0px;
+    }
+
+    .form-group input[type=time] {
+        margin: 6px 0px;
+    }
+
+.form-group button {
+    margin-bottom: 20px;
+}
 /*#endregion*/
 
 
@@ -413,7 +448,7 @@ header {
 
     #newsletter input[type="email"] {
         padding: 4px;
-        height: 25px; 
+        height: 25px;
         width: 250px;
     }
 /*#endregion*/
@@ -735,10 +770,29 @@ footer {
     font-size: 12px;
 }
 
+    footer h5 {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.1;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
 .footerRow {
     display: grid;
-    grid-template-columns: 20% auto 20%;
+    grid-template-columns: 15% auto 15%;
     grid-gap: 10px;
+}
+
+.hr-footer {
+    /*max-width: 195px;*/
+    margin: 10px 0 10px 0;
+    height: 4px;
+    display: block;
+    border-radius: 4px;
+    background-color: #fff;
+    /*display: flex;
+    justify-content: flex-end;*/
 }
 
 #footerAddress {
@@ -767,6 +821,7 @@ footer {
     padding: 0;
     margin: 0;
 }
+
 /*#endregion*/
 
 
@@ -895,15 +950,15 @@ footer {
 /*#region ==== START OF EDITABLE TABLE STYLES ====*/
 /*@import "compass/css3";*/
 
-#table{
-    align-content:center;
+#table {
+    align-content: center;
 }
 
-.table > thead > tr > th, 
-.table > tbody > tr > th, 
-.table > tfoot > tr > th, 
-.table > thead > tr > td, 
-.table > tbody > tr > td, 
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
 .table > tfoot > tr > td {
     padding: 8px;
     padding-left: 16px;
@@ -958,8 +1013,8 @@ td, th {
 
 .fa-times, .fa-arrow-up, .fa-arrow-down {
     font-size: 15px;
-    padding:0;
-    width:20px;
+    padding: 0;
+    width: 20px;
 }
 
 .hide {
@@ -970,6 +1025,7 @@ td, th {
     color: #700;
     cursor: pointer;
 }
+
     .table-remove:hover {
         color: #f00;
     }
@@ -978,6 +1034,7 @@ td, th {
     color: #007;
     cursor: pointer;
 }
+
     .table-up:hover, .table-down:hover {
         color: #00f;
     }
@@ -989,6 +1046,7 @@ td, th {
     top: 8px;
     right: 0;
 }
+
     .table-add:hover {
         color: #0b0;
     }
@@ -1013,9 +1071,9 @@ input[type=text], input[type=email], input[type=number], input[type=password], t
 
 /*#contact-form input[type=text], #contact-form input[type=email],
 #booking-form input[type=text], #booking-form input[type=email], #booking-form select {*/
-    input[type=text], input[type=email], input[type=number], input[type=password], select {
-        width: 300px;
-    }
+input[type=text], input[type=email], input[type=number], input[type=password], select {
+    width: 300px;
+}
 
 textarea {
     width: 100%; /* Full width */
@@ -1032,13 +1090,13 @@ td input[type=number] {
     box-sizing: border-box; /* Make sure that padding and width stays in place */
     margin-top: 4px; /* Add a top margin */
     margin-bottom: 4px; /* Bottom margin */
-    text-align:center;
+    text-align: center;
 }
 
 /* Style inputs with type="time" */
-td input[type=time] {
+td input[type=time], input[type=time] {
     width: 100%; /* Full width */
-    /*max-width: 160px;*/
+    max-width: 160px;
     padding: 7.55px; /* Some padding */
     border: 1px solid #ccc; /* Gray border */
     border-radius: 4px; /* Rounded borders */
@@ -1060,7 +1118,7 @@ input[type=date] {
 }
 
 /* Style the submit button with a specific background color etc */
-input[type=submit], input[type=reset] {
+input[type=submit], input[type=reset], button[type=submit], button[type=button] {
     background-color: #e8491d;
     color: white;
     padding: 12px 20px;
@@ -1226,6 +1284,13 @@ button.active, .accordion:hover {
         grid-template-columns: 1fr 1fr 1fr;
     }
 
+    .addResultsRow {
+        display: grid;
+        /*grid-template-columns: 1fr;*/
+        grid-template-columns: 0.2fr 0.6fr 0.2fr;
+        text-align: center;
+    }
+
     .event {
         display: grid;
         grid-template-columns: 1fr;
@@ -1277,6 +1342,10 @@ button.active, .accordion:hover {
         height: auto;
         margin: 20px 20px 20px 0px;
     }
+
+    .footerRow {
+        grid-template-columns: 20% auto 20%;
+    }
 }
 
 
@@ -1286,7 +1355,7 @@ button.active, .accordion:hover {
         width: 94px;
         padding-top: 15px;
     }
-    
+
     header #branding {
         /* margin-top: 2px;
 		margin-bottom: 2px; */
@@ -1317,6 +1386,14 @@ button.active, .accordion:hover {
         .side-nav a {
             font-size: 18px;
         }
+
+    .footerRow {
+        grid-template-columns: 35% auto 35%;
+    }
+
+    #footerAward img {
+        display: none;
+    }
 }
 
 /* For small mobile screens (or when browser resized to small width) */
@@ -1345,6 +1422,14 @@ button.active, .accordion:hover {
 
     .bookingbtn-responsive {
         padding-top: 24px;
+    }
+
+    .footerRow {
+        grid-template-columns: 40% auto 40%;
+    }
+
+    #footerAward img {
+        display: none;
     }
 }
 /*#endregion*/

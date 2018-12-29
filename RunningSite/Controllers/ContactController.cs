@@ -59,7 +59,6 @@ namespace RunningSite.Controllers
             return View(contact);
         }
 
-
         public ActionResult ShowAllContactUs()
         {
             List<Contact> list = new List<Contact>();

@@ -37,6 +37,7 @@ namespace RunningSite.Models
         public GenderEnum Gender { get; set; }
 
         [Required(ErrorMessage = "Must enter a Date of Birth")]
+        [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
 
         public bool NewsletterSub { get; set; }

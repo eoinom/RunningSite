@@ -26,6 +26,12 @@ namespace MarathonFestival3.Controllers
         [HttpPost]
         public ActionResult AddOrder(Order order)
         {
+            ModelState.Remove("OrderNo");
+            ModelState.Remove("OrderDate");
+            ModelState.Remove("TotalAmount");
+            ModelState.Remove("AgreeRaceDisclaimer");
+            ModelState.Remove("AgreeTermsAndConditions");
+
             if (ModelState.IsValid) { 
                 int counter = 0;
                 order.Email = Session["email"].ToString();
