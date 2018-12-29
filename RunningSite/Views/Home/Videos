@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Videos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Videos</h2>
+  
+<p>
+<a href="https://www.youtube.com/watch?v=92IfvKYyegQ"> YouTube video 1 </a> 
+<a href="https://www.youtube.com/watch?v=gtUwwur3qRU"> YouTube video 2 </a> 
+<a href="https://www.youtube.com/watch?v=KpYdKvCegkY"> YouTube video 3 </a> 
+
+</p>
+
+</div>
+    
+    
+    
+    
