@@ -132,9 +132,8 @@ namespace RunningSite.Models
 
         public int EnterOrder(Order order)
         {
-            int count = 0;
-            //SqlCommand cmd = new SqlCommand("usp_EnterOrderDetails1", con);
-            SqlCommand cmd = new SqlCommand("usp_EnterOrderDetailsANDResults1", con);
+            int? order_no = 0;
+            SqlCommand cmd = new SqlCommand("usp_EnterOrderDetailsANDResults", con);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@OrderNo", order.OrderNo);
@@ -146,30 +145,48 @@ namespace RunningSite.Models
             cmd.Parameters.AddWithValue("@OrderMedalInsert", order.OrderMedalInsert);
             cmd.Parameters.AddWithValue("@StartGroup", order.StartGroup);
             cmd.Parameters.AddWithValue("@TotalAmount", order.TotalAmount);
-
-            cmd.Parameters.AddWithValue("@AgreeRaceDisclaimer", order.AgreeRaceDisclaimer);
-            cmd.Parameters.AddWithValue("@AgreeTermsAndConditions", order.AgreeTermsAndConditions);
-
+                        
             cmd.Parameters.AddWithValue("@Address1", order.AddressLine1);
             cmd.Parameters.AddWithValue("@Address2", order.AddressLine2);
             cmd.Parameters.AddWithValue("@City", order.City);
             cmd.Parameters.AddWithValue("@PostalCode", order.PostCode);
             cmd.Parameters.AddWithValue("@Country", order.Country);
+            cmd.Parameters.AddWithValue("@Mobile", order.Mobile);
 
             cmd.Parameters.AddWithValue("@EmergencyContactName", order.EmergencyContactName);
             cmd.Parameters.AddWithValue("@EmergencyContactNumber", order.EmergencyContactNumber);
             cmd.Parameters.AddWithValue("@MedicalDetails", order.MedicalDetails);
-            cmd.Parameters.AddWithValue("@Mobile", order.Mobile);
+            cmd.Parameters.AddWithValue("@AgreeTermsAndConditions", order.AgreeTermsAndConditions);
+            
             cmd.Parameters.AddWithValue("@Email", order.Email);
 
-            cmd.Parameters.AddWithValue("@CC_Type", order.CC_Type);
-            cmd.Parameters.AddWithValue("@CC_Holder_FirstName", order.CC_Holder_FirstName);
-            cmd.Parameters.AddWithValue("@CC_Holder_LastName", order.CC_Holder_LastName);
-            cmd.Parameters.AddWithValue("@CC_Number", order.CC_Number);
-            cmd.Parameters.AddWithValue("@CC_ExpDate_Month", order.CC_ExpDate_Month);
-            cmd.Parameters.AddWithValue("@CC_ExpDate_Year", order.CC_ExpDate_Year);
-            cmd.Parameters.AddWithValue("@CC_SecCode", order.CC_SecCode);
+            try
+            {
+                con.Open();
+                order_no = (int?)cmd.ExecuteScalar();
+                order.OrderNo = order_no.GetValueOrDefault();
+            }
+            catch (SystemException ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return order_no.GetValueOrDefault();
+        }
 
+        
+        public int AddOrderPayPalRef(Order order)
+        {
+            int count = 0;
+            SqlCommand cmd = new SqlCommand("usp_AlterOrderPayPalRef", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@OrderNo", order.OrderNo);
+            cmd.Parameters.AddWithValue("@PayPalReference", order.PayPalReference);
+            
             try
             {
                 con.Open();
@@ -187,25 +204,19 @@ namespace RunningSite.Models
         }
 
 
+
         public int AlterOrder(Order order)
         {
             int count = 0;
-            SqlCommand cmd = new SqlCommand("usp_AlterOrderDetails", con);  //need to create this SP
+            SqlCommand cmd = new SqlCommand("usp_AlterOrderDetails", con);  
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@OrderNo", order.OrderNo);
-            //cmd.Parameters.AddWithValue("@OrderNo", order.OrderName);
 
             cmd.Parameters.AddWithValue("@RaceId", order.RaceId);
-            //cmd.Parameters.AddWithValue("@BibNo", order.BibNo);
             cmd.Parameters.AddWithValue("@TShirtSize", order.TshirtSize);
-            //cmd.Parameters.AddWithValue("@OrderMedalInsert", order.OrderMedalInsert);
             cmd.Parameters.AddWithValue("@StartGroup", order.StartGroup);
-            //cmd.Parameters.AddWithValue("@TotalAmount", order.TotalAmount);
-
-            //cmd.Parameters.AddWithValue("@AgreeRaceDisclaimer", order.AgreeRaceDisclaimer);
-            //cmd.Parameters.AddWithValue("@AgreeTermsAndConditions", order.AgreeTermsAndConditions);
-
+            
             cmd.Parameters.AddWithValue("@Address1", order.AddressLine1);
             cmd.Parameters.AddWithValue("@Address2", order.AddressLine2);
             cmd.Parameters.AddWithValue("@City", order.City);

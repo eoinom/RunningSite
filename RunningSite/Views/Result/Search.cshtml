@@ -18,36 +18,36 @@
     {
         <div class="addResultsRow">
             <div></div>
-            <div class="form">
+            <div class="form-group">
                 <p>
                     @Html.LabelFor(r => r.RaceId, "Race Id:", new { @class = "label" })
-                    <br />@Html.TextBoxFor(r => r.RaceId)
-                    @Html.ValidationMessageFor(r => r.RaceId, "", new { @class = "error" })
+                    @Html.TextBoxFor(r => r.RaceId)
+                    <br />@Html.ValidationMessageFor(r => r.RaceId, "", new { @class = "error" })
                 </p>
                 <p>
                     @Html.LabelFor(r => r.BibNo, "Bib No:", new { @class = "label" })
-                    <br />@Html.TextBoxFor(r => r.BibNo)
-                    @Html.ValidationMessageFor(r => r.BibNo, "", new { @class = "error" })
+                    @Html.TextBoxFor(r => r.BibNo)
+                    <br />@Html.ValidationMessageFor(r => r.BibNo, "", new { @class = "error" })
                 </p>
                 <p>
                     @Html.LabelFor(r => r.FinishPlace, "Finish Place:", new { @class = "label" })
-                    <br />@Html.TextBoxFor(r => r.FinishPlace)
-                    @Html.ValidationMessageFor(r => r.FinishPlace, "", new { @class = "error" })
+                    @Html.TextBoxFor(r => r.FinishPlace)
+                    <br />@Html.ValidationMessageFor(r => r.FinishPlace, "", new { @class = "error" })
                 </p>
                 <p>
                     @Html.LabelFor(r => r.FinishTime, "Finish Time:", new { @class = "label" })
-                    <br />@Html.TextBoxFor(r => r.FinishTime)
-                    @Html.ValidationMessageFor(r => r.FinishTime, "", new { @class = "error" })
+                    @Html.TextBoxFor(r => r.FinishTime, new { type = "time", step = "1" })
+                    <br />@Html.ValidationMessageFor(r => r.FinishTime, "", new { @class = "error" })
                 </p>
                 <p>
                     @Html.LabelFor(r => r.ChipTime, "Chip Time:", new { @class = "label" })
-                    <br />@Html.TextBoxFor(r => r.ChipTime)
-                    @Html.ValidationMessageFor(r => r.ChipTime, "", new { @class = "error" })
+                    @Html.TextBoxFor(r => r.ChipTime, new { type = "time", step = "1" })
+                    <br />@Html.ValidationMessageFor(r => r.ChipTime, "", new { @class = "error" })
                 </p>
                 <p>
                     @Html.LabelFor(r => r.Email, "Email:", new { @class = "label" })
-                    <br />@Html.TextBoxFor(r => r.Email)
-                    @Html.ValidationMessageFor(r => r.Email, "", new { @class = "error" })
+                    @Html.TextBoxFor(r => r.Email)
+                    <br />@Html.ValidationMessageFor(r => r.Email, "", new { @class = "error" })
                 </p>
                 <p>
                     <button id="btnSearch" type="submit">Search</button>

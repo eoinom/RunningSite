@@ -1,0 +1,52 @@
+﻿@model RunningSite.Models.Feedback
+
+@{
+    ViewBag.Title = "FeedBack";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="form-container">
+    <h3>Feedback Form</h3>
+    @using (Html.BeginForm("Feedback", "Feedback", FormMethod.Post))
+    {
+        <p>
+            @Html.ValidationSummary(false, "", new { style = "color:red;" })
+        </p>
+
+        <p>
+            <span class="newline">
+                @Html.LabelFor(c => c.Name, "*Name:")
+            </span>
+            @Html.TextBoxFor(c => c.Name, new { placeholder = "Your name.." })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(c => c.Email, "*Email:")
+            </span>
+            @Html.TextBoxFor(c => c.Email, new { placeholder = "Your email.." })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(c => c.Phone, "Phone:")
+            </span>
+            @Html.TextBoxFor(c => c.Phone, new { placeholder = "Your number.." })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(c => c.Race, "Phone:")
+            </span>
+            @Html.EnumDropDownListFor(c => c.Race, new { placeholder = "Race entered.." })
+        </p>
+        <p>
+            <span class="newline">
+                @Html.LabelFor(c => c.Message, "*Your Message:")
+            </span>
+            @Html.TextAreaFor(c => c.Message, new { placeholder = "Write something..", style = "height:200px" })
+        </p>
+        <p>
+            <input id="Submit1" type="submit" value="Submit" />
+            <input id="Reset1" type="reset" value="Reset" />
+        </p>
+    }
+
+</div>

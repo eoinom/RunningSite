@@ -89,3 +89,7 @@ C:\Users\eoin.omalley\GitHub\RunningSite\RunningSite\obj\Debug\RunningSite.cspro
 C:\Users\eoin.omalley\GitHub\RunningSite\RunningSite\obj\Debug\RunningSite.csproj.CopyComplete
 C:\Users\eoin.omalley\GitHub\RunningSite\RunningSite\obj\Debug\RunningSite.dll
 C:\Users\eoin.omalley\GitHub\RunningSite\RunningSite\obj\Debug\RunningSite.pdb
+C:\Users\eoino\Documents\GitHub\RunningSite\RunningSite\bin\Newtonsoft.Json.dll
+C:\Users\eoino\Documents\GitHub\RunningSite\RunningSite\bin\PayPal.dll
+C:\Users\eoino\Documents\GitHub\RunningSite\RunningSite\bin\Newtonsoft.Json.xml
+C:\Users\eoino\Documents\GitHub\RunningSite\RunningSite\bin\PayPal.xml

@@ -48,6 +48,12 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -185,17 +191,22 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\FeedbackController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ResultController.cs" />
     <Compile Include="Controllers\TrainingController.cs" />
+    <Compile Include="Controllers\WebExperienceProfilesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\DAO.cs" />
+    <Compile Include="Models\EnforceTrueAttribute.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\Extensions.cs" />
+    <Compile Include="Models\Feedback.cs" />
+    <Compile Include="Models\Festival.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Race.cs" />
     <Compile Include="Models\Result.cs" />
@@ -242,6 +253,11 @@
     <Content Include="Views\Contact\ContactUs.cshtml" />
     <Content Include="Views\Contact\ShowAllContactUs.cshtml" />
     <Content Include="Views\Result\SearchResultsTable.cshtml" />
+    <Content Include="Views\Feedback\FeedBack.cshtml" />
+    <Content Include="Views\Feedback\ShowAllFeedback.cshtml" />
+    <Content Include="Views\Order\ThankYou.cshtml" />
+    <Content Include="Views\Order\Cancel.cshtml" />
+    <Content Include="Views\WebExperienceProfiles\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -251,6 +267,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Payment\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

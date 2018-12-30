@@ -71,13 +71,5 @@ namespace RunningSite.Models
         C_Group,
 
     }
-
-    public enum CreditCardTypesEnum
-    {
-        Visa,
-        Mastercard,
-        [Description("American Express")]
-        AmericanExpress
-    }
     
 }

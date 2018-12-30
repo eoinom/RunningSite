@@ -32,7 +32,6 @@ namespace RunningSite.Models
 
         [Required]
         public string Country { get; set; }
-        //public Country Country { get; set; }
 
         [DataType(DataType.PostalCode)]
         public string PostCode { get; set; }
@@ -57,11 +56,10 @@ namespace RunningSite.Models
 
         [Required]
         public RacesCurrentYearEnum RaceId { get; set; }
-
+        
         [Required]
-        public bool AgreeRaceDisclaimer { get; set; }
-
-        [Required]
+        [DisplayName("Terms and Conditions")]
+        [EnforceTrue(ErrorMessage = @"Error Message")]
         public bool AgreeTermsAndConditions { get; set; }
 
         public bool OrderMedalInsert { get; set; }
@@ -71,28 +69,9 @@ namespace RunningSite.Models
 
         public int BibNo { get; set; }
 
-        [DisplayName("Card Type")]
-        public CreditCardTypesEnum CC_Type { get; set; }
-
-        [DataType(DataType.CreditCard)]
-        public string CC_Number { get; set; }
-
-        [DisplayName("First Name")]
-        public string CC_Holder_FirstName { get; set; }
-
-        [DisplayName("Last Name")]
-        public string CC_Holder_LastName { get; set; }
-
-        [DisplayName("Month")]
-        public string CC_ExpDate_Month { get; set; }
-
-        [DisplayName("Year")]
-        public string CC_ExpDate_Year { get; set; }
-
-        [DisplayName("Security Code")]
-        public string CC_SecCode { get; set; }
-
         [EmailAddress]
         public string Email { get; set; }
+
+        public string PayPalReference { get; set; }
     }
 }
