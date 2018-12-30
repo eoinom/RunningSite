@@ -48,5 +48,11 @@ namespace RunningSite.Controllers
             return View(accountList);
         }
 
+        public ActionResult ShowAllOrders()
+        {
+            List<Order> allOrdersList = dao.ShowAllOrders();
+            return View(allOrdersList);
+        }
+
     }
 }

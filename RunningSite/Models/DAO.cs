@@ -367,6 +367,46 @@ namespace RunningSite.Models
             return lastOrder;
         }
 
+        public List<Order> ShowAllOrders()
+        {
+            List<Order> allOrdersList = new List<Order>();
+
+            SqlDataReader reader;
+            SqlCommand cmd = new SqlCommand("usp_ShowAllOrders", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                con.Open();
+
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Order order = new Order();
+
+                    order.OrderNo = Int32.Parse(reader["OrderNo"].ToString());
+                    order.OrderDate = DateTime.Parse(reader["OrderDate"].ToString());
+                    order.Email = reader["Email"].ToString();
+                    order.RaceId = (RacesCurrentYearEnum)int.Parse(reader[13].ToString());
+                    order.TotalAmount = decimal.Parse(reader["TotalAmount"].ToString());
+
+                    allOrdersList.Add(order);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return allOrdersList;
+        }
+
+
         #endregion
 
         #region Race
