@@ -5,6 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section logged{
+
+    @if (Session["name"] == null || Session["name"].ToString() != "Admin" || Session["email"].ToString() != "webdev@outlook.com")
+    {
+        Response.Redirect(Url.Action("Login", "Account"));
+    }
+}
+
+
 <div class="container">
     <h2>Feedback by Race</h2>
     <table class="table">

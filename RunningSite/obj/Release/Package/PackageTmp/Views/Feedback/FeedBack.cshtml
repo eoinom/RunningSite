@@ -5,6 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section logged{
+
+    @if (Session["name"] == null)
+    {
+        Response.Redirect(Url.Action("Login", "Account"));
+    }
+}
+
 <div class="form-container">
     <h2>Feedback Form</h2>
     @using (Html.BeginForm("Feedback", "Feedback", FormMethod.Post))

@@ -5,6 +5,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section logged{
+
+    @if (Session["name"] == null)
+    {
+        Response.Redirect(Url.Action("Login", "Account"));
+    }
+}
+
 <div class="container">
 
     <h2>Account Homepage</h2>
@@ -16,11 +24,11 @@
     <p>
         @Html.ActionLink("Make Changes to Festival Registration", "AlterOrder", "Order")
     </p>
-    
+
     <p>
         @Html.ActionLink("Manage Account", "Manage", "Account")
     </p>
-    
+
     <p>
         @Html.ActionLink("Give Feedback", "Feedback", "Feedback")
     </p>

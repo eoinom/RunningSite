@@ -140,7 +140,7 @@ header {
     }
 
     header #event_date #event_date_img {
-        width: 125px;
+        width: 175px;
         padding-top: 17px;
     }
 
@@ -151,7 +151,7 @@ header {
     }
 
         header #branding #logo {
-            width: 200px;
+            width: 250px;
             padding-bottom: 5px;
         }
 /*#endregion*/
@@ -1248,7 +1248,7 @@ button.active, .accordion:hover {
     }
 
     header #event_date #event_date_img {
-        width: 109px;
+        width: 140px;
         padding-top: 15px;
     }
 
@@ -1258,15 +1258,20 @@ button.active, .accordion:hover {
     }
 
         header #branding #logo {
-            width: 175px;
+            width: 200px;
         }
+
+    .button_booknow {
+        height: 45px;
+        font-size: 14px;
+    }
 
     .open-slide {
         padding-top: 43px;
     }
 
     .bookingbtn-responsive {
-        padding-top: 27.5px;
+        padding: 27.5px 0px 0px 0px;
         line-height: 45px;
     }
 
@@ -1378,6 +1383,11 @@ button.active, .accordion:hover {
             height: 40px;
             font-size: 14px;
         }
+
+    .button_booknow {
+        height: 40px;
+        font-size: 12px;
+    }
 
     .side-nav {
         padding-top: 15px;

@@ -4,6 +4,15 @@
     ViewBag.Title = "AddOrder";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+@section logged{
+
+    @if (Session["name"] == null)
+    {
+        Response.Redirect(Url.Action("Login", "Account"));
+    }
+}
+
 <body onload='calculateTotal()'>
     <div class="container">
         <h2>Register</h2>
