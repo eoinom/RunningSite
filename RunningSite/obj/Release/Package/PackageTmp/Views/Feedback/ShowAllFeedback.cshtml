@@ -1,0 +1,44 @@
+﻿@model IEnumerable<RunningSite.Models.Feedback>
+
+@{
+    ViewBag.Title = "ShowAllFeedback";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Feedback by Race</h2>
+    <table>
+        <tr>
+            <th>Race</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Message</th>
+        </tr>
+
+        @foreach (var feedback in Model)
+        {
+            <tr>
+                <td>@feedback.Race</td>
+                <td>@feedback.Email</td>
+                <td>@feedback.Phone</td>
+                <td>@feedback.Message</td>
+            </tr>
+        }
+    </table>
+</div>
+
+@*
+        <h2>Feedback by Race</h2>
+    <h3>@ViewBag.messages</h3>
+    @foreach (var feedback in Model)
+    {
+        <h3>@feedback.Race</h3>
+        <p>
+            @feedback.Email<br />
+            @feedback.Phone
+        </p>
+        <p>
+            @feedback.Message
+        </p>
+    }
+*@
