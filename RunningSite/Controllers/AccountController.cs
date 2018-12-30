@@ -17,7 +17,22 @@ namespace RunningSite.Controllers
             if (Session["name"] == null)
                 return RedirectToAction("Login");
             else
-                return View();
+            {
+                int orderNo = dao.GetLastOrderNoFromEmail(Session["email"].ToString());
+                if (orderNo > 0)
+                {
+                    return View();
+                }
+                else
+                {
+                    return RedirectToAction("Index_RaceNotRegistered", "Account");
+                }
+            }                
+        }
+
+        public ActionResult Index_RaceNotRegistered()
+        {
+            return View();
         }
 
 

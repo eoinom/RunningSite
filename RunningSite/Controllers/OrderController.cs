@@ -167,8 +167,8 @@ namespace MarathonFestival3.Controllers
         {
             return new Festival()
             {
-                FestivalDate = DateTime.Parse("29/09/2019")   //Needed for local testing
-                //FestivalDate = DateTime.Parse("09/29/2019")     //Needed for Azure deployment
+                //FestivalDate = DateTime.Parse("29/09/2019")   //Needed for local testing
+                FestivalDate = DateTime.Parse("09/29/2019")     //Needed for Azure deployment
 
                 //// Represent price in cents to avoid rounding errors
                 //Price_5K = 2000,
