@@ -81,16 +81,27 @@ namespace RunningSite.Controllers
             if (ModelState.IsValid)
             {
                 counter = dao.EnterAccount(visitor);
-                if (counter == 1)
-                    ViewBag.Status = "Account created successfully";
-                else
-                    ViewBag.Status = "Error! " + dao.message;
+                //if (counter == 1)
+                //    ViewBag.Status = "Account created successfully";
+                //else
+                //    ViewBag.Status = "Error! " + dao.message;
 
-                //return View("Status");
-                return View();
+                if (counter == 1)
+                {
+                    Session["name"] = visitor.FirstName;
+                    Session["email"] = visitor.Email;
+
+                    return RedirectToAction("Index", "Account");
+                }
+                else
+                {
+                    ViewBag.Status = "Error! " + dao.message;
+                    //return View("Status");
+                    return View();
+                }
+                
             }
             return View(visitor);
-
         }
 
 

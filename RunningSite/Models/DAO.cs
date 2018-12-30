@@ -229,6 +229,31 @@ namespace RunningSite.Models
         }
 
 
+        public int GetLastOrderNoFromEmail(string email)
+        {
+            int? order_no = 0;
+            SqlCommand cmd = new SqlCommand("usp_GetLastOrderNoFromEmail", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@email", email);
+
+            try
+            {
+                con.Open();
+                order_no = (int?)cmd.ExecuteScalar();
+            }
+            catch (SystemException ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return order_no.GetValueOrDefault();
+        }
+
+
         public int AlterOrder(Order order)
         {
             int count = 0;
@@ -236,8 +261,6 @@ namespace RunningSite.Models
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@OrderNo", order.OrderNo);
-
-            //cmd.Parameters.AddWithValue("@RaceId", order.RaceId);
                         
             cmd.Parameters.AddWithValue("@Address1", order.AddressLine1);
             cmd.Parameters.AddWithValue("@Address2", order.AddressLine2);
@@ -250,8 +273,8 @@ namespace RunningSite.Models
             cmd.Parameters.AddWithValue("@EmergencyContactName", order.EmergencyContactName);
             cmd.Parameters.AddWithValue("@EmergencyContactNumber", order.EmergencyContactNumber);
             cmd.Parameters.AddWithValue("@MedicalDetails", order.MedicalDetails);
+            cmd.Parameters.AddWithValue("@RaceId", order.RaceId);
             cmd.Parameters.AddWithValue("@StartGroup", order.StartGroup);
-            //cmd.Parameters.AddWithValue("@Email", order.Email);
 
             try
             {
@@ -268,6 +291,70 @@ namespace RunningSite.Models
             }
             return count;
         }
+
+
+        public List<Order> ShowPastOrders()
+        {
+            List<Order> orderList = new List<Order>();
+
+            SqlDataReader reader;
+            SqlCommand cmd = new SqlCommand("usp_ShowAllOrders", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                con.Open();
+
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    //string raceID = (string)reader["RaceId"];
+                    Order order = new Order();
+                    order.OrderNo = int.Parse(reader["OrderNo"].ToString());
+                    order.OrderDate = DateTime.Parse(reader["OrderDate"].ToString());
+                    order.TotalAmount = decimal.Parse(reader["TotalAmount"].ToString());
+                    //order.RaceId = (RacesCurrentYearEnum)reader.GetInt32(reader.GetOrdinal("RaceId"));
+                    // order.StartGroup = (StartGroupEnum)reader.GetInt32(reader.GetOrdinal("StartGroup"));
+                    order.Country = reader["Country"].ToString();
+                    order.Email = reader["Email"].ToString();
+                    orderList.Add(order);
+                    
+                    /*if (order.RaceId == RacesCurrentYearEnum.R2019_05)
+                    { string raceName = "2019 Family 5K";
+                        raceName = order.RaceName;                        
+                    } 
+
+                    else if (order.RaceId == RacesCurrentYearEnum.R2019_10)
+                    {
+                        string raceName = "2019 10K";
+                        raceName = order.RaceName;
+                    }
+                    else if (order.RaceId == RacesCurrentYearEnum.R2019_21)
+                    {
+                        string raceName = "2019 Half Marathon";
+                        raceName = order.RaceName;
+                    }
+                    else if (order.RaceId == RacesCurrentYearEnum.R2019_42)
+                    {
+                        string raceName = "2019 Full Marathon";
+                        raceName = order.RaceName;
+                    }
+                    order.RaceName = reader["RaceName"].ToString();
+                    */
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return orderList;
+        }
+
+
         #endregion
 
         #region Race

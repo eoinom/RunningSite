@@ -167,8 +167,8 @@ namespace MarathonFestival3.Controllers
         {
             return new Festival()
             {
-                FestivalDate = DateTime.Parse("29/09/2019")
-                //FestivalDate = DateTime.Parse("09/29/2019")
+                FestivalDate = DateTime.Parse("29/09/2019")   //Needed for local testing
+                //FestivalDate = DateTime.Parse("09/29/2019")     //Needed for Azure deployment
 
                 //// Represent price in cents to avoid rounding errors
                 //Price_5K = 2000,
@@ -217,23 +217,32 @@ namespace MarathonFestival3.Controllers
             return total;
         }
 
-
-
+        
         [HttpGet]
         public ActionResult AlterOrder()
         {
+            //Get last Order No. from logged in email address from database
+            int orderNo = 0;
+            orderNo = dao.GetLastOrderNoFromEmail(Session["email"].ToString());
+            ViewBag.orderNo = orderNo;
+
             return View();
         }
 
         [HttpPost]
         public ActionResult AlterOrder(RunningSite.Models.Order order)
         {
+            int orderNo = 0;
+            orderNo = dao.GetLastOrderNoFromEmail(Session["email"].ToString());
+            ViewBag.orderNo = orderNo;
+            order.OrderNo = orderNo;
+
             int counter = 0;
             counter = dao.AlterOrder(order);
 
             if (counter == 1)
             {
-                Response.Write("Thank you, your order details have been updated.");
+                //Response.Write("Thank you, your order details have been updated.");
                 ModelState.Clear();
             }
             else
@@ -241,7 +250,37 @@ namespace MarathonFestival3.Controllers
                 Response.Write("Error, " + dao.message);
             }
 
+            //return View();
+            return RedirectToAction("Updated");
+        }
+
+        public ActionResult Updated()
+        {
             return View();
         }
+
+
+        public ActionResult ShowPastOrders()
+        {
+            List<RunningSite.Models.Order> orderList = dao.ShowPastOrders();
+
+            foreach (var item in orderList)
+            {
+                if (Session["email"].ToString() == item.Email)
+                {
+                    ViewBag.OrderNo = item.OrderNo;
+                    ViewBag.OrderDate = item.OrderDate;
+                    ViewBag.Total = item.TotalAmount;
+                    ViewBag.RaceId = item.RaceId;
+                    ViewBag.StartGoup = item.StartGroup;
+                    ViewBag.Country = item.Country;
+
+                }
+            }
+            return View(orderList);
+        }
+
+
+
     }
 }

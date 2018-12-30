@@ -259,6 +259,8 @@
     <Content Include="Views\Order\ThankYou.cshtml" />
     <Content Include="Views\Order\Cancel.cshtml" />
     <Content Include="Views\WebExperienceProfiles\Index.cshtml" />
+    <Content Include="Views\Order\Updated.cshtml" />
+    <Content Include="Views\Order\ShowPastOrders.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
