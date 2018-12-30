@@ -4,6 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+@section logged{
+
+    @if (Session["name"] == null)
+    {
+        Response.Redirect(Url.Action("Login", "Account"));
+    }
+}
+
 <div class="container">
     <h3>Update Successful</h3>
     <p>Thank you, your order details have been updated.</p>

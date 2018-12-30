@@ -1,22 +1,17 @@
-﻿@model RunningSite.Models.Order
-
+﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Index_RaceNotRegistered";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container">
 
     <h2>Account Homepage</h2>
-
+        
     <p>
-        @Html.ActionLink("Show Last Order Details", "ShowLastOrder", "Order")
+        @Html.ActionLink("Enter the 2019 Dingle Running Festival", "AddOrder", "Order")
     </p>
 
-    <p>
-        @Html.ActionLink("Make Changes to Festival Registration", "AlterOrder", "Order")
-    </p>
-    
     <p>
         @Html.ActionLink("Manage Account", "Manage", "Account")
     </p>

@@ -17,7 +17,5 @@ namespace RunningSite.Models
         [Required]
         public string Message { get; set; }
 
-
-
     }
 }
