@@ -1,0 +1,32 @@
+﻿@model IEnumerable<RunningSite.Models.Account>
+
+@{
+    ViewBag.Title = "ShowAllAccounts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class=" container">
+
+    <h2>Show All Accounts</h2>
+    <table class="table">
+        <tr>
+            <th>Email Address</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>DOB</th>
+        </tr>
+
+        @foreach (var account in Model)
+        {
+            <tr>
+                <td>@account.Email</td>
+                <td>@account.FirstName</td>
+                <td>@account.LastName</td>
+                <td>@account.DOB</td>
+            </tr>
+        }
+
+    </table>
+    <br />
+</div>
+
