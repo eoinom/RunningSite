@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "ShowLastOrder";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+
+    <h2>Show Last Order</h2>
+
+    <p>Order No.: @ViewBag.OrderNo</p>
+    <p>Order Date: @ViewBag.OrderDate</p>
+    <p>Race Id: @ViewBag.RaceId</p>
+    <p>Race Name: @ViewBag.RaceName</p>
+    <p>Start Group: @ViewBag.StartGroup</p>
+    <p>Total Amount Paid: €@ViewBag.TotalAmount</p>
+    <p>Payment Reference: @ViewBag.PayPalReference</p>
+
+</div>

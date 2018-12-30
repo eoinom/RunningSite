@@ -30,7 +30,7 @@ namespace MarathonFestival3.Controllers
                 // Fetch the festival info from the server and NOT from the POST data.
                 // Otherwise users could manipulate the data
                 var orderInfo = GetNextFestivalInfo();
-                                
+
                 int orderNo = 0;
                 order.Email = Session["email"].ToString();
                 decimal orderTotal = GetOrderTotal(order.RaceId, order.OrderMedalInsert);
@@ -107,7 +107,7 @@ namespace MarathonFestival3.Controllers
                 {
                     Response.Write("Error, " + dao.message);
                 }
-                
+
                 // Find the Approval URL to send our user to
                 var approvalUrl =
                     createdPayment.links.FirstOrDefault(
@@ -143,7 +143,7 @@ namespace MarathonFestival3.Controllers
             //Get Order No. from Database
             int orderNo = 0;
             orderNo = dao.GetOrderNoFromPayPalRef(payment.id);
-            
+
             // Execute the Payment
             var executedPayment = payment.Execute(apiContext, paymentExecution);
 
@@ -217,7 +217,7 @@ namespace MarathonFestival3.Controllers
             return total;
         }
 
-        
+
         [HttpGet]
         public ActionResult AlterOrder()
         {
@@ -259,28 +259,44 @@ namespace MarathonFestival3.Controllers
             return View();
         }
 
-
-        public ActionResult ShowPastOrders()
+        
+        public ActionResult ShowLastOrder()
         {
-            List<RunningSite.Models.Order> orderList = dao.ShowPastOrders();
+            RunningSite.Models.Order lastOrder = dao.ShowLastOrder(Session["email"].ToString());
 
-            foreach (var item in orderList)
+            if (Session["email"].ToString() == lastOrder.Email)
             {
-                if (Session["email"].ToString() == item.Email)
-                {
-                    ViewBag.OrderNo = item.OrderNo;
-                    ViewBag.OrderDate = item.OrderDate;
-                    ViewBag.Total = item.TotalAmount;
-                    ViewBag.RaceId = item.RaceId;
-                    ViewBag.StartGoup = item.StartGroup;
-                    ViewBag.Country = item.Country;
-
-                }
+                ViewBag.OrderNo = lastOrder.OrderNo;
+                ViewBag.OrderDate = lastOrder.OrderDate;
+                ViewBag.TotalAmount = lastOrder.TotalAmount;
+                ViewBag.RaceId = lastOrder.RaceId;
+                ViewBag.StartGroup = lastOrder.StartGroup;
+                ViewBag.PayPalReference = lastOrder.PayPalReference;
             }
-            return View(orderList);
+
+            string raceName = "";
+            switch (lastOrder.RaceId)
+            {
+                case RacesCurrentYearEnum.R2019_05:
+                    raceName = "2019 Family 5K";
+                    break;
+                case RacesCurrentYearEnum.R2019_10:
+                    raceName = "2019 10K";
+                    break;
+                case RacesCurrentYearEnum.R2019_21:
+                    raceName = "2019 Half Marathon";
+                    break;
+                case RacesCurrentYearEnum.R2019_42:
+                    raceName = "2019 Full Marathon";
+                    break;
+                default:
+                    raceName = "Unknown";
+                    break;
+            }
+            ViewBag.RaceName = raceName;
+
+            return View();
         }
-
-
 
     }
 }

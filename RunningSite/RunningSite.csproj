@@ -261,6 +261,7 @@
     <Content Include="Views\WebExperienceProfiles\Index.cshtml" />
     <Content Include="Views\Order\Updated.cshtml" />
     <Content Include="Views\Order\ShowPastOrders.cshtml" />
+    <Content Include="Views\Order\ShowLastOrder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

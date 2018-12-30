@@ -355,6 +355,44 @@ namespace RunningSite.Models
         }
 
 
+
+        public Order ShowLastOrder(string email)
+        {
+            Order lastOrder = new Order();
+
+            SqlDataReader reader;
+            SqlCommand cmd = new SqlCommand("usp_GetLastOrderFromEmail", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@email", email);
+
+            try
+            {
+                con.Open();
+
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    lastOrder.OrderNo = (int)reader[0];
+                    lastOrder.OrderDate = (DateTime)reader[1];
+                    lastOrder.TotalAmount = (decimal)reader[2];
+                    lastOrder.RaceId = (RacesCurrentYearEnum)int.Parse(reader[3].ToString());
+                    lastOrder.StartGroup = (StartGroupEnum)int.Parse(reader[4].ToString());
+                    lastOrder.PayPalReference = reader[5].ToString();
+                    lastOrder.Email = reader[6].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return lastOrder;
+        }
+
         #endregion
 
         #region Race
