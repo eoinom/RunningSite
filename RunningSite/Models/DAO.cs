@@ -30,7 +30,6 @@ namespace RunningSite.Models
             string password;
             SqlCommand cmd = new SqlCommand("usp_EnterAccountDetails", con);
             cmd.CommandType = CommandType.StoredProcedure;
-            //test
             cmd.Parameters.AddWithValue("@Email", account.Email);
             password = Crypto.HashPassword(account.Password);
             cmd.Parameters.AddWithValue("@Pass", password);
@@ -124,6 +123,44 @@ namespace RunningSite.Models
                 con.Close();
             }
             return count;
+        }
+
+        public List<Account> ShowAllAccounts()
+        {
+            List<Account> accountList = new List<Account>();
+
+            SqlDataReader reader;
+            SqlCommand cmd = new SqlCommand("usp_ShowAllAccounts", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                con.Open();
+
+                reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    Account account = new Account();
+                    account.Email = reader["Email"].ToString();
+                    account.FirstName = reader["FirstName"].ToString();
+                    account.LastName = reader["LastName"].ToString();
+                    account.DOB = DateTime.Parse(reader["DOB"].ToString());
+                    //public string dateString = string.Format("{0:dd/MM/yyyy}", account.DOB);
+
+                    accountList.Add(account);
+                }
+            }
+            catch (Exception ex)
+            {
+                message = ex.Message;
+            }
+            finally
+            {
+                con.Close();
+            }
+
+            return accountList;
         }
 
         #endregion
@@ -291,69 +328,6 @@ namespace RunningSite.Models
             }
             return count;
         }
-
-
-        public List<Order> ShowPastOrders()
-        {
-            List<Order> orderList = new List<Order>();
-
-            SqlDataReader reader;
-            SqlCommand cmd = new SqlCommand("usp_ShowAllOrders", con);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            try
-            {
-                con.Open();
-
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    //string raceID = (string)reader["RaceId"];
-                    Order order = new Order();
-                    order.OrderNo = int.Parse(reader["OrderNo"].ToString());
-                    order.OrderDate = DateTime.Parse(reader["OrderDate"].ToString());
-                    order.TotalAmount = decimal.Parse(reader["TotalAmount"].ToString());
-                    //order.RaceId = (RacesCurrentYearEnum)reader.GetInt32(reader.GetOrdinal("RaceId"));
-                    // order.StartGroup = (StartGroupEnum)reader.GetInt32(reader.GetOrdinal("StartGroup"));
-                    order.Country = reader["Country"].ToString();
-                    order.Email = reader["Email"].ToString();
-                    orderList.Add(order);
-                    
-                    /*if (order.RaceId == RacesCurrentYearEnum.R2019_05)
-                    { string raceName = "2019 Family 5K";
-                        raceName = order.RaceName;                        
-                    } 
-
-                    else if (order.RaceId == RacesCurrentYearEnum.R2019_10)
-                    {
-                        string raceName = "2019 10K";
-                        raceName = order.RaceName;
-                    }
-                    else if (order.RaceId == RacesCurrentYearEnum.R2019_21)
-                    {
-                        string raceName = "2019 Half Marathon";
-                        raceName = order.RaceName;
-                    }
-                    else if (order.RaceId == RacesCurrentYearEnum.R2019_42)
-                    {
-                        string raceName = "2019 Full Marathon";
-                        raceName = order.RaceName;
-                    }
-                    order.RaceName = reader["RaceName"].ToString();
-                    */
-                }
-            }
-            catch (Exception ex)
-            {
-                message = ex.Message;
-            }
-            finally
-            {
-                con.Close();
-            }
-            return orderList;
-        }
-
 
 
         public Order ShowLastOrder(string email)
