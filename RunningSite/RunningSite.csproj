@@ -95,6 +95,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\ContactUs.xml" />
     <Content Include="Content\Images\Dunmore-Head-2012.JPG" />
     <Content Include="Content\Images\dingle-map.png" />
     <Content Include="Content\Images\Dingle.jpg" />
@@ -266,7 +267,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\Payment\" />
   </ItemGroup>
   <PropertyGroup>

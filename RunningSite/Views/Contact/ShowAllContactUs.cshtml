@@ -4,22 +4,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Show All ContactUs Messages</h2>
 
-<div>
-    <h2>ContactUs Messages by Name</h2>
-    <h3>@ViewBag.messages</h3>
-    @foreach (var contact in Model)
-    {
-    <h3>@contact.Name</h3>
-    <p>
-        @contact.Email<br/>
-        @contact.Phone
-    </p>
-    <br/><br />
-    <p>
-        @contact.Message
-    </p>
-    }
+<div class="container">
+    <h2>Contact Form Messages</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Message</th>
+        </tr>
 
+        @foreach (var contact in Model)
+        {
+            <tr>
+                <td>@contact.Name</td>
+                <td>@contact.Email</td>
+                <td>@contact.Phone</td>
+                <td>@contact.Message</td>
+            </tr>
+        }
+    </table>
 </div>
