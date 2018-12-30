@@ -140,10 +140,14 @@ namespace MarathonFestival3.Controllers
                 id = paymentId
             };
 
+            //Get Order No. from Database
+            int orderNo = 0;
+            orderNo = dao.GetOrderNoFromPayPalRef(payment.id);
+            
             // Execute the Payment
             var executedPayment = payment.Execute(apiContext, paymentExecution);
 
-            return RedirectToAction("ThankYou", new { payment.id });
+            return RedirectToAction("ThankYou", new { payment.id, orderNo });
         }
 
         public ActionResult Cancel()
@@ -151,10 +155,11 @@ namespace MarathonFestival3.Controllers
             return View();
         }
 
-        public ActionResult ThankYou(string id)
+        public ActionResult ThankYou(string id, int orderNo)
         {
             ViewBag.paymentId = id;
-            
+            ViewBag.orderNo = orderNo;
+
             return View();
         }
 
@@ -162,7 +167,9 @@ namespace MarathonFestival3.Controllers
         {
             return new Festival()
             {
-                FestivalDate = DateTime.Parse("29/09/2019"),
+                FestivalDate = DateTime.Parse("29/09/2019")
+                //FestivalDate = DateTime.Parse("09/29/2019")
+
                 //// Represent price in cents to avoid rounding errors
                 //Price_5K = 2000,
                 //Price_10K = 2500,

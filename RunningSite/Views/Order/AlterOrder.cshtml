@@ -13,6 +13,13 @@
     {
         <p>
             <span class="newline">
+                @Html.LabelFor(o => o.OrderNo, "Order No.:", new { @class = "label" })
+            </span>
+            @Html.TextBoxFor(o => o.OrderNo)
+            @Html.ValidationMessageFor(o => o.OrderNo, "", new { @class = "error" })
+        </p>
+        <p>
+            <span class="newline">
                 @Html.LabelFor(o => o.AddressLine1, "Address Line 1:", new { @class = "label" })
             </span>
             @Html.TextBoxFor(o => o.AddressLine1)
@@ -62,10 +69,10 @@
         </p>
         <p>
             <span class="newline">
-                @Html.LabelFor(o => o.EmergencyContactNo, "Emergency Contact No.:", new { @class = "label" })
+                @Html.LabelFor(o => o.EmergencyContactNumber, "Emergency Contact No.:", new { @class = "label" })
             </span>
-            @Html.TextBoxFor(o => o.EmergencyContactNo)
-            @Html.ValidationMessageFor(o => o.EmergencyContactNo, "", new { @class = "error" })
+            @Html.TextBoxFor(o => o.EmergencyContactNumber)
+            @Html.ValidationMessageFor(o => o.EmergencyContactNumber, "", new { @class = "error" })
         </p>
         <p>
             <span class="newline">
@@ -74,13 +81,13 @@
             @Html.TextAreaFor(o => o.MedicalDetails)
             @Html.ValidationMessageFor(o => o.MedicalDetails, "", new { @class = "error" })
         </p>
-        <p>
-            <span class="newline">
-                @Html.LabelFor(o => o.RaceId, "Race:", new { @class = "label" })
-            </span>
-            @Html.TextBoxFor(o => o.RaceId)
-            @Html.ValidationMessageFor(o => o.RaceId, "", new { @class = "error" })
-        </p>
+        @*<p>
+                <span class="newline">
+                    @Html.LabelFor(o => o.RaceId, "Race:", new { @class = "label" })
+                </span>
+                @Html.TextBoxFor(o => o.RaceId)
+                @Html.ValidationMessageFor(o => o.RaceId, "", new { @class = "error" })
+            </p>*@
         <p>
             <span class="newline">
                 @Html.LabelFor(o => o.StartGroup, "Start Group:", new { @class = "label" })
