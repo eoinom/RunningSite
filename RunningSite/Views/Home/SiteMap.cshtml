@@ -6,19 +6,18 @@
 
 <div class="container">
     <h2>Site Map</h2>
-    
-<div id="side-menu" class="side-nav">
-        <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-        @Html.ActionLink("Home", "Index", "Home")
-        @Html.ActionLink("Enter", "AddOrder", "Account")
-        @Html.ActionLink("Races", "Index", "Race")
-        <ul>
-            <li>@Html.ActionLink("Marathon", "Marathon", "Race")
-            <li>@Html.ActionLink("Half Marathon", "HalfMarathon", "Race")
-            <li>@Html.ActionLink("10K", "TenK", "Race")
-            <li>@Html.ActionLink("Family 5K", "Family5K", "Race")
-        </ul>
-        @Html.ActionLink("Training", "Index", "Training")
+    <ul>
+        <li>@Html.ActionLink("Home", "Index", "Home")
+        <li>@Html.ActionLink("Enter", "AddOrder", "Account")
+        <li>
+            @Html.ActionLink("Races", "Index", "Race")
+            <ul>
+                <li>@Html.ActionLink("Marathon", "Marathon", "Race")
+                <li>@Html.ActionLink("Half Marathon", "HalfMarathon", "Race")
+                <li>@Html.ActionLink("10K", "TenK", "Race")
+                <li>@Html.ActionLink("Family 5K", "Family5K", "Race")
+            </ul>
+        <li>@Html.ActionLink("Training", "Index", "Training")
         <ul>
             <li>@Html.ActionLink("Training Plans", "Plans", "Training")
             <li>@Html.ActionLink("Training Tips", "Tips", "Training")
@@ -27,9 +26,9 @@
             <li>@Html.ActionLink("Kit Advice", "Kit", "Training")
             <li>@Html.ActionLink("Raceday Advice", "Raceday", "Training")
         </ul>
-        @Html.ActionLink("FAQ", "FAQ", "Home")
-        @Html.ActionLink("Results", "Search", "Result")
-        @Html.ActionLink("Contact", "ContactUs", "Contact")
-        @Html.ActionLink("Account", "Index", "Account")
-    </div>
+        <li>@Html.ActionLink("FAQ", "FAQ", "Home")
+        <li>@Html.ActionLink("Results", "Search", "Result")
+        <li>@Html.ActionLink("Contact", "ContactUs", "Contact")
+        <li>@Html.ActionLink("Account", "Index", "Account")
+    </ul>
 </div>
