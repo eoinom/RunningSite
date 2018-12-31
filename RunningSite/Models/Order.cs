@@ -10,7 +10,7 @@ namespace RunningSite.Models
 {
     public class Order
     {
-        internal int orderNo;
+        //internal int orderNo;
 
         [DisplayName("Order No.")]
         public int OrderNo { get; set; }

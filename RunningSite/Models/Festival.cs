@@ -10,7 +10,7 @@ namespace RunningSite.Models
 {
     public class Festival
     {
-        internal CultureInfo ukCulture;
+        //internal CultureInfo ukCulture;
 
         public DateTime FestivalDate { get; set; }
         public int Price_5K { get; set; }
