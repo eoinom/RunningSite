@@ -100,13 +100,12 @@ namespace RunningSite.Models
         public int ManageAccount(Account account)
         {
             int count = 0;
-            SqlCommand cmd = new SqlCommand("usp_AmendAccountDetails", con);    //Need to create this Stored Procedure
+            SqlCommand cmd = new SqlCommand("usp_AmendAccountDetails", con);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@Email", account.Email);
             string password = Crypto.HashPassword(account.Password);
-            cmd.Parameters.AddWithValue("@Pass", password);
-            cmd.Parameters.AddWithValue("@Country", account.Country);
+            cmd.Parameters.AddWithValue("@Password", password);
             cmd.Parameters.AddWithValue("@NewsletterSub", account.NewsletterSub);
 
             try

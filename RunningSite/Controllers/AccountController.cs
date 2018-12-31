@@ -129,20 +129,24 @@ namespace RunningSite.Controllers
         [HttpPost]
         public ActionResult Manage(Account visitor)
         {
+            ModelState.Remove("Email");
+            ModelState.Remove("FirstName");
+            ModelState.Remove("LastName");
+            ModelState.Remove("Country");
+            ModelState.Remove("Gender");
+            ModelState.Remove("DOB");
+            visitor.Email = Session["email"].ToString();
+
             int counter = 0;
             if (ModelState.IsValid)
             {
-                counter = dao.ManageAccount(visitor);       //Need to create dao method for ManageAccount
+                counter = dao.ManageAccount(visitor);
                 if (counter == 1)
-                    ViewBag.Status = "Account details updated";
+                    ViewBag.Status = "Account details updated!";
                 else
                     ViewBag.Status = "Error! " + dao.message;
-
-                return View("Status");
-                //return View();
             }
-            return View(visitor);
-
+            return View();
         }
 
         public ActionResult Logout()

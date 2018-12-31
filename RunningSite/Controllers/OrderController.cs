@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using PayPal.Api;
 using RunningSite.Models;
+using System.Globalization;
 
 namespace MarathonFestival3.Controllers
 {
@@ -165,11 +166,12 @@ namespace MarathonFestival3.Controllers
 
         private Festival GetNextFestivalInfo()
         {
-            return new Festival()
-            {
-                //FestivalDate = DateTime.Parse("29/09/2019")   //Needed for local testing
-                FestivalDate = DateTime.Parse("09/29/2019")     //Needed for Azure deployment
+            CultureInfo ukCulture = new CultureInfo("en-GB");
 
+            return new Festival()
+            {                
+                FestivalDate = DateTime.Parse("29/09/2019", ukCulture.DateTimeFormat) 
+                
                 //// Represent price in cents to avoid rounding errors
                 //Price_5K = 2000,
                 //Price_10K = 2500,
