@@ -7,10 +7,29 @@
 <div class="container">
     <h2>Site Map</h2>
     
-    <a href ="#>HOME</a>
-    <a href ="races.html">RACES</a>       
-    <a href= "FAQ.html">FAQ</a>
-    <a href= "results>RESULTS</a>        
-    <a href= "contact.html">CONTACT</a>
-    <a href= "account.html">ACCOUNT</a>
+<div id="side-menu" class="side-nav">
+        <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
+        @Html.ActionLink("Home", "Index", "Home")
+        @Html.ActionLink("Enter", "AddOrder", "Account")
+        @Html.ActionLink("Races", "Index", "Race")
+        <ul>
+            <li>@Html.ActionLink("Marathon", "Marathon", "Race")
+            <li>@Html.ActionLink("Half Marathon", "HalfMarathon", "Race")
+            <li>@Html.ActionLink("10K", "TenK", "Race")
+            <li>@Html.ActionLink("Family 5K", "Family5K", "Race")
+        </ul>
+        @Html.ActionLink("Training", "Index", "Training")
+        <ul>
+            <li>@Html.ActionLink("Training Plans", "Plans", "Training")
+            <li>@Html.ActionLink("Training Tips", "Tips", "Training")
+            <li>@Html.ActionLink("Nutrition Advice", "Nutrition", "Training")
+            <li>@Html.ActionLink("Hydration Advice", "Hydration", "Training")
+            <li>@Html.ActionLink("Kit Advice", "Kit", "Training")
+            <li>@Html.ActionLink("Raceday Advice", "Raceday", "Training")
+        </ul>
+        @Html.ActionLink("FAQ", "FAQ", "Home")
+        @Html.ActionLink("Results", "Search", "Result")
+        @Html.ActionLink("Contact", "ContactUs", "Contact")
+        @Html.ActionLink("Account", "Index", "Account")
+    </div>
 </div>
